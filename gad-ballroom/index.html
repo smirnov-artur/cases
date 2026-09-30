@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. ballroom — a glass hall above the clouds for weddings and banquets</title>
+<meta name="description" content="g.a.d. ballroom: a glass hall for weddings, banquets and corporate evenings, up to 220 guests, a crystal chandelier and a sunset in every window. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0B0D18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&text=g.ad&display=block" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --ink:#0B0D18; --dusk:#141A2C; --cream:#F2E8D8; --gold:#E8B872; --gold-l:#F2CB91; --rose:#D9A9A4; --smoke:#A39FB0;
+  --line:rgba(242,232,216,.14);
+  --serif:"Noto Serif Display", Georgia, serif;
+  --sans:"Jost", system-ui, sans-serif;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--cream);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.018em;line-height:.98}
+h1 em,h2 em,.it{font-style:italic;font-weight:400}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--gold);color:var(--ink);font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:var(--gold-l);transform:translateY(-1px)}
+.link{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--gold)}
+/* logo g.a.d.: the owner's mark (video/brend/LOGO-g.a.d.png), Unbounded 500; monochrome champagne here — lime fights the sunset and the chandelier */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--cream)}
+.ring{--d:92px;width:var(--d);height:var(--d);border-radius:50%;border:calc(var(--d)*.036) solid var(--cream);display:grid;place-items:center;
+  font-size:calc(var(--d)*.23);line-height:1;flex:none}
+
+/* ---------- header (outside the story, always on top) ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(11,13,24,.44);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:21px;line-height:1}
+.brand .it{font:italic 400 26px/1 var(--serif);color:var(--cream);transform:translateY(1px)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 15px/1 var(--sans);text-decoration:none;color:rgba(242,232,216,.78);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--cream)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:600 12px/1 var(--sans);letter-spacing:.12em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--cream)}.lang a{color:rgba(242,232,216,.5);transition:color .25s}.lang a:hover{color:var(--gold)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--cream);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(11,13,24,.93);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--cream);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:400 42px/1.05 var(--serif);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1120vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--ink) 0, rgba(11,13,24,.6) 15%, transparent 40%),
+             linear-gradient(to bottom, rgba(11,13,24,.5), transparent 22%)}
+
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:min(760px,62vw)}
+.ch h2{font-size:clamp(50px,5.4vw,96px);margin:14px 0 18px;white-space:nowrap}
+.ch p{max-width:36ch;color:rgba(242,232,216,.92)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center}
+.ch p.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.ch::before{content:"";position:absolute;inset:-90px -130px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(11,13,24,.74),transparent)}
+.l{left:var(--pad);top:50%;transform:translateY(-50%)}
+.tl{left:var(--pad);top:calc(var(--hdr) + 9vh)}
+.r{right:var(--pad);top:26%}
+.bl{left:var(--pad);bottom:21vh}
+.br{right:var(--pad);bottom:17vh}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:19vh;max-width:min(800px,58vw);pointer-events:none}
+.ch-hero::before{inset:-150px -170px -120px -140px;background:radial-gradient(closest-side,rgba(11,13,24,.78),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ch-hero .kicker::before{content:"";width:28px;height:1px;background:var(--gold)}
+.ch-hero h1{font-size:clamp(60px,6.6vw,128px);line-height:.92}
+.ch-hero h1 em{color:var(--gold)}
+.ch-hero p{max-width:40ch;margin:22px 0 26px;font-size:18px;color:rgba(242,232,216,.94)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+
+.ch-end h2{font-size:clamp(54px,5.6vw,100px)}
+.ch-end h2 em{color:var(--gold)}
+.ch-end .facts{display:flex;gap:34px;margin:4px 0 28px;font:500 14px/1.5 var(--sans);color:rgba(242,232,216,.78)}
+.ch-end .facts b{display:block;font:400 34px/1.1 var(--serif);color:var(--cream);font-variant-numeric:lining-nums}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+/* evening programme — the signature: the clock runs 18:00 → 23:00 with the scroll, the programme item changes with the scene */
+.prog{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;width:min(380px,calc(100% - 2*var(--pad)))}
+.prog .top{display:flex;align-items:baseline;gap:16px}
+.prog .num{font:400 clamp(38px,3.2vw,54px)/1 var(--serif);font-variant-numeric:lining-nums tabular-nums;min-width:3.2ch}
+.prog .lbl{font:600 11px/1.3 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(242,232,216,.76)}
+.prog .scale{position:relative;display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid rgba(242,232,216,.28);
+  font:500 10px/1 var(--sans);letter-spacing:.1em;color:rgba(242,232,216,.55);font-variant-numeric:tabular-nums}
+.prog .scale i{position:absolute;top:-4px;left:0;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.bar{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;background:rgba(242,232,216,.1)}
+.bar i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.skip{position:absolute;z-index:5;right:var(--pad);bottom:28px;display:flex;align-items:center;gap:12px;
+  font:600 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(242,232,216,.8);text-decoration:none;padding:10px 0;min-height:44px}
+.skip:hover{color:var(--cream)}
+.skip i{width:1px;height:30px;background:linear-gradient(var(--gold),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the site below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(54px,6.4vw,118px);margin-top:14px}
+.head h2 em{color:var(--gold)}
+.head>p{max-width:42ch;color:rgba(242,232,216,.78);justify-self:end}
+.tbd{display:inline-block;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+
+/* formats */
+.formats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,32px)}
+.fmt figure{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--dusk);border-radius:200px 200px 4px 4px}
+.fmt img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.fmt:hover img{transform:scale(1.04)}
+.fmt figcaption{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);white-space:nowrap;font:600 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;background:rgba(11,13,24,.72);padding:8px 12px;border-radius:99px}
+.fmt h3{font-size:clamp(36px,3vw,50px);margin:26px 0 10px}
+.fmt p{color:rgba(242,232,216,.74);font-size:16px;max-width:40ch}
+.fmt ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin:16px 0 18px;font:500 14px/1.4 var(--sans);color:var(--smoke)}
+.fmt ul li+li::before{content:"·";margin-right:18px;color:var(--line)}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px}
+.price b{font:400 32px/1 var(--serif);font-variant-numeric:lining-nums}
+.price b small{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);margin-right:8px}
+.price b span{font:400 15px/1 var(--sans);color:var(--smoke);margin-left:4px}
+.fine-print{margin-top:26px;font-size:13px;color:var(--smoke)}
+
+/* menu */
+.menu-sec{background:linear-gradient(var(--ink),var(--dusk) 25%,var(--dusk) 75%,var(--ink))}
+.courses{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.course{padding:30px 30px 34px 0;border-bottom:1px solid var(--line)}
+.course:not(:nth-child(4n+1)){padding-left:30px;border-left:1px solid var(--line)}
+.course h3{font:italic 400 clamp(30px,2.4vw,40px)/1 var(--serif);color:var(--gold);margin-bottom:20px}
+.course ul{list-style:none;display:grid;gap:16px}
+.course li{font-size:16px;color:rgba(242,232,216,.86);line-height:1.4}
+.course li small{display:block;font-size:13px;color:var(--smoke);margin-top:3px}
+.wide{margin-top:clamp(64px,10vh,120px);display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,4vw,72px);align-items:center}
+.wide figure{overflow:hidden;aspect-ratio:16/10;border-radius:4px}
+.wide img{width:100%;height:100%;object-fit:cover}
+.wide blockquote{font:italic 400 clamp(32px,2.9vw,50px)/1.12 var(--serif);color:var(--cream)}
+.incl{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.incl li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;color:rgba(242,232,216,.78)}
+.incl li b{font-weight:500;color:var(--cream);text-align:right}
+
+/* hall: capacity and plan */
+.hall{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,110px);align-items:center}
+.caps{list-style:none;border-top:1px solid var(--line)}
+.caps li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);color:rgba(242,232,216,.8)}
+.caps li b{font:400 clamp(34px,2.8vw,46px)/1 var(--serif);color:var(--cream);font-variant-numeric:lining-nums}
+.caps li span small{display:block;font-size:13px;color:var(--smoke)}
+.plan{position:relative}
+.plan svg{width:100%;height:auto;display:block}
+.plan .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px;font:500 13px/1.4 var(--sans);color:var(--smoke)}
+.plan .legend span{display:flex;align-items:center;gap:8px}
+.plan .legend i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--gold)}
+.plan .legend i.f{border-radius:2px;background:rgba(232,184,114,.2)}
+.plan .legend i.s{border-radius:2px;background:var(--rose);border-color:var(--rose)}
+.hall .tbd{margin-top:22px}
+
+/* booking */
+.book{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;overflow:hidden}
+.book::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(var(--ink),rgba(11,13,24,.55) 40%,rgba(11,13,24,.8)),url(frames/stills/clouds.webp) center/cover;opacity:.55}
+.book{isolation:isolate}
+.book h2{font-size:clamp(54px,6vw,108px);margin:14px 0 22px}
+.book h2 em{color:var(--gold)}
+.book .lead{color:rgba(242,232,216,.84);max-width:36ch}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:10px;font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+input[type=text],input[type=email],input[type=date],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(242,232,216,.3);color:var(--cream);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0;color-scheme:dark}
+select option{background:var(--ink)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--gold)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:600 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;font:500 15px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--cream);transition:.25s}
+.chip input:checked+span{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.chip input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--smoke);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--gold)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:center;gap:.3em;white-space:nowrap}
+.big .ring{--d:clamp(96px,14vw,220px)}
+.big .it{font:italic 400 clamp(64px,12vw,210px)/.8 var(--serif);color:var(--cream)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:15px;color:var(--smoke)}
+.credit strong{color:var(--cream);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--cream)}
+.credit a:hover{color:var(--gold)}
+.fine{margin-top:14px;font-size:12px;color:rgba(163,159,176,.85)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .prog,.static .bar{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 72vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--ink) 100svh)}
+
+/* ---------- mobile: its own composition, portrait frames ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn{display:none}
+  .brand .it{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:19px}
+  .ch{max-width:none}
+  .ch h2{font-size:44px;margin:10px 0 0;white-space:normal}
+  .ch p.more,.ch-hero p,.ch-hero .link,.ch-end .facts,.ch-end .link{display:none}
+  .l,.r,.bl,.br,.tl{left:var(--pad);right:var(--pad);top:auto;bottom:calc(112px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(108px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:10px}
+  .ch-hero h1{font-size:13.2vw}
+  .ch-hero .row{margin-top:22px}
+  .ch-end h2{font-size:48px;margin:10px 0 22px}
+  .prog{bottom:calc(18px + env(safe-area-inset-bottom));width:calc(100% - 2*var(--pad))}
+  .prog .num{font-size:30px}.prog .lbl{font-size:10px;letter-spacing:.16em}
+  .prog .scale{margin-top:8px;padding-top:8px}
+  .skip{right:auto;left:8px;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;letter-spacing:.2em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .formats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .formats::-webkit-scrollbar{display:none}
+  .fmt{flex:0 0 82%;scroll-snap-align:start}
+  .courses{grid-template-columns:1fr}
+  .course,.course:not(:nth-child(4n+1)){padding:26px 0;border-left:0}
+  .wide,.hall,.book{grid-template-columns:1fr}
+  .f2{grid-template-columns:1fr}
+  .big .ring{--d:78px}.big .it{font-size:15vw}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:74vw}
+  .formats{grid-template-columns:1fr 1fr}
+  .courses{grid-template-columns:1fr 1fr}
+  .course,.course:not(:nth-child(4n+1)){padding:28px 24px 30px 0;border-left:0}
+  .hall{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. ballroom, back to top"><span class="logo">g.a.d.</span><span class="it">ballroom</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#formats">Formats</a><a href="#menu">Menu</a><a href="#hall">The hall</a><a href="#date">Dates</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#date">Check a date</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#formats">Formats</a><a href="#menu">Menu</a><a href="#hall">The hall</a><a href="#date">Dates</a>
+  </nav>
+  <a class="btn" href="#date">Check a date</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE EVENING. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="An evening in the hall: from the clouds to the first dance and the stars">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="A round glass ballroom floating above the clouds at sunset, couples dancing under a crystal chandelier" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <p class="eyebrow kicker">Weddings · Banquets · Corporate evenings</p>
+      <h1>A ballroom<br><em>above the clouds</em></h1>
+      <p>A glass hall for up to 220 guests, a crystal chandelier and a sunset in every window. Your evening, from the first toast to the last dance.</p>
+      <div class="row"><a class="btn" href="#date">Check a date</a><a class="link" href="#formats">See formats</a></div>
+    </div>
+
+    <div class="ch r" data-seg="2">
+      <p class="eyebrow">01 · The hall</p>
+      <h2>Glass on<br>every side</h2>
+      <p class="more">Forty metres of curved glass, a white marble floor and a chandelier of three thousand crystals. At sunset the whole room turns gold.</p>
+    </div>
+
+    <div class="ch tl" data-seg="3-5">
+      <p class="eyebrow">02 · Weddings</p>
+      <h2>The first dance<br><em>is yours</em></h2>
+      <p class="more">We clear the floor, dim the chandelier and let the sun do the lighting. One song, and the whole hall is only for the two of you.</p>
+    </div>
+
+    <div class="ch bl" data-seg="6">
+      <p class="eyebrow">03 · The floor</p>
+      <h2>200 guests,<br>one floor</h2>
+      <p class="more">The floor holds sixty couples at once. Tables stand along the glass, so nobody dines with their back to the view.</p>
+    </div>
+
+    <div class="ch r" data-seg="7">
+      <p class="eyebrow">04 · After dark</p>
+      <h2>The sky<br>dims the lights</h2>
+      <p class="more">After nine the sky goes violet, then deep blue. We bring the light down with it, and the stars come out over the clouds.</p>
+    </div>
+
+    <div class="ch tl" data-seg="8-9">
+      <p class="eyebrow">05 · The last dance</p>
+      <h2>The last waltz<br>by the window</h2>
+      <p class="more">The band plays one more waltz. The last light sits on the clouds, and the evening ends where it began: at the glass.</p>
+    </div>
+
+    <div class="ch l ch-end" data-seg="10-11" data-delay="0.35">
+      <p class="eyebrow">Your evening</p>
+      <h2>Your date,<br><em>above the clouds</em></h2>
+      <div class="facts"><span><b>220</b>Guests at a seated banquet</span><span><b>18:00–23:00</b>A standard evening</span></div>
+      <div class="row"><a class="btn" href="#date">Check a date</a><a class="link" href="#formats">See formats</a></div>
+    </div>
+
+    <div class="prog" aria-hidden="true">
+      <div class="top"><div class="num">18:00</div><div class="lbl">Guests arrive</div></div>
+      <div class="scale"><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><i></i></div>
+    </div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <a class="skip" href="#formats"><span>Skip the evening</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== FORMATS ===== -->
+<section class="sec" id="formats">
+  <div class="head rv">
+    <div><p class="eyebrow">Formats</p><h2>One hall,<br><em>three evenings</em></h2></div>
+    <p>The hall is yours for the whole evening: no second event, no shared bar. The price per guest covers the menu, the service and the hall.</p>
+  </div>
+  <div class="formats">
+    <article class="fmt rv">
+      <figure><img src="frames/stills/wedding.webp" alt="A gloved hand with a diamond ring resting in a gentleman's white glove" width="864" height="1080" loading="lazy"><figcaption>Up to 220 guests</figcaption></figure>
+      <h3>Wedding</h3>
+      <p>The ceremony at the east window, dinner at sunset and the first dance under the chandelier. A coordinator stays with you all evening.</p>
+      <ul><li>18:00–01:00</li><li>Ceremony zone</li><li>First dance</li></ul>
+      <div class="price"><b><small>From</small>$120<span>/ guest</span></b><span class="tbd">Concept price</span></div>
+    </article>
+    <article class="fmt rv">
+      <figure><img src="frames/stills/banquet.webp" alt="The glass hall at sunset, couples dancing under the crystal chandelier" width="864" height="1080" loading="lazy"><figcaption>40–220 guests</figcaption></figure>
+      <h3>Banquet</h3>
+      <p>Anniversaries, birthdays, a family evening. Round tables along the glass, a five-course dinner and a live quartet.</p>
+      <ul><li>18:00–23:00</li><li>Five courses</li><li>Live quartet</li></ul>
+      <div class="price"><b><small>From</small>$85<span>/ guest</span></b><span class="tbd">Concept price</span></div>
+    </article>
+    <article class="fmt rv">
+      <figure><img src="frames/stills/corporate.webp" alt="Couples in evening dress dancing in the glass hall, the sunset over the clouds behind them" width="864" height="1080" loading="lazy"><figcaption>Up to 350 standing</figcaption></figure>
+      <h3>Corporate</h3>
+      <p>An awards night, a year-end party or a client evening. A stage with sound and screens, a standing reception or a seated dinner.</p>
+      <ul><li>Any hours</li><li>Stage &amp; sound</li><li>Screens</li></ul>
+      <div class="price"><b><small>From</small>$70<span>/ guest</span></b><span class="tbd">Concept price</span></div>
+    </article>
+  </div>
+  <p class="fine-print">Concept site: formats, sizes and prices are sample content.</p>
+</section>
+
+<!-- ===== MENU (sample) ===== -->
+<section class="sec menu-sec" id="menu">
+  <div class="head rv">
+    <div><p class="eyebrow">Banquet menu</p><h2>Dinner<br><em>at sunset</em></h2></div>
+    <p>The chef builds the menu with you at a tasting two weeks before the date. This is the evening most guests choose.</p>
+  </div>
+  <div class="courses rv">
+    <div class="course"><h3>To start</h3><ul>
+      <li>Oysters on ice<small>shallot vinegar, lemon</small></li>
+      <li>Beef tartare<small>smoked yolk, rye crisp</small></li>
+      <li>Burrata<small>heirloom tomatoes, basil oil</small></li></ul></div>
+    <div class="course"><h3>From the kitchen</h3><ul>
+      <li>Halibut<small>champagne sauce, asparagus</small></li>
+      <li>Duck breast<small>cherries, celeriac purée</small></li>
+      <li>Wild mushroom risotto<small>aged parmesan</small></li></ul></div>
+    <div class="course"><h3>Dessert</h3><ul>
+      <li>The cake<small>three tiers, baked on site</small></li>
+      <li>Pavlova<small>berries, rose cream</small></li>
+      <li>Petits fours<small>with coffee after midnight</small></li></ul></div>
+    <div class="course"><h3>The bar</h3><ul>
+      <li>Champagne on arrival<small>one glass per guest, poured at the door</small></li>
+      <li>Wine pairing<small>white, red, dessert</small></li>
+      <li>Open bar<small>signature cocktails, soft drinks</small></li></ul></div>
+  </div>
+  <div class="wide">
+    <figure class="rv"><img src="frames/stills/window.webp" alt="A couple in evening dress holding hands at the window, the sun setting over the clouds under the first stars" width="1728" height="1080" loading="lazy"></figure>
+    <div class="rv"><blockquote>“We planned the dinner for the view. By dessert, nobody was looking at their plate.”</blockquote>
+      <ul class="incl">
+        <li>Tasting for two <b>Included</b></li>
+        <li>Waiters <b>One per two tables</b></li>
+        <li>Linen, glass, silver <b>Included</b></li>
+        <li>Your own wine <b>Corkage on request</b></li>
+      </ul>
+    </div>
+  </div>
+  <span class="tbd">Sample menu</span>
+</section>
+
+<!-- ===== THE HALL: capacity and plan (sample) ===== -->
+<section class="sec" id="hall">
+  <div class="head rv">
+    <div><p class="eyebrow">Capacity &amp; plan</p><h2>How many<br><em>fit in</em></h2></div>
+    <p>A round hall with glass all the way round. Tables stand at the windows, the dance floor sits under the chandelier.</p>
+  </div>
+  <div class="hall">
+    <ul class="caps rv">
+      <li><span>Seated banquet<small>round tables of ten</small></span><b>220</b></li>
+      <li><span>Standing reception<small>bars and high tables</small></span><b>350</b></li>
+      <li><span>Theatre<small>for awards and talks</small></span><b>300</b></li>
+      <li><span>Dance floor<small>under the chandelier</small></span><b>180 m²</b></li>
+      <li><span>The hall<small>ceiling 14 m at the dome</small></span><b>640 m²</b></li>
+    </ul>
+    <div class="plan rv">
+      <svg viewBox="0 0 400 400" role="img" aria-labelledby="plan-t">
+        <title id="plan-t">Banquet plan: 22 round tables along the glass, the dance floor in the middle, the stage at the east window, the entrance and the bar opposite</title>
+        <circle cx="200" cy="200" r="188" fill="none" stroke="rgba(242,232,216,.55)" stroke-width="2"/>
+        <circle cx="200" cy="200" r="181" fill="none" stroke="rgba(242,232,216,.16)" stroke-width="1"/>
+        <circle cx="200" cy="200" r="72" fill="rgba(232,184,114,.14)" stroke="#E8B872" stroke-width="1.2" stroke-dasharray="3 4"/>
+        <text x="200" y="197" text-anchor="middle" fill="#F2E8D8" font-family="Jost, sans-serif" font-size="11" letter-spacing="2">DANCE FLOOR</text>
+        <text x="200" y="213" text-anchor="middle" fill="#A39FB0" font-family="Jost, sans-serif" font-size="10">180 m²</text>
+        <g fill="none" stroke="#E8B872" stroke-width="1.4">
+          <g id="t"><circle cx="200" cy="52" r="11"/></g>
+          <use href="#t" transform="rotate(16.4 200 200)"/><use href="#t" transform="rotate(32.7 200 200)"/><use href="#t" transform="rotate(49.1 200 200)"/>
+          <use href="#t" transform="rotate(65.5 200 200)"/><use href="#t" transform="rotate(114.5 200 200)"/><use href="#t" transform="rotate(130.9 200 200)"/>
+          <use href="#t" transform="rotate(147.3 200 200)"/><use href="#t" transform="rotate(212.7 200 200)"/><use href="#t" transform="rotate(229.1 200 200)"/>
+          <use href="#t" transform="rotate(245.5 200 200)"/><use href="#t" transform="rotate(294.5 200 200)"/><use href="#t" transform="rotate(310.9 200 200)"/>
+          <use href="#t" transform="rotate(327.3 200 200)"/><use href="#t" transform="rotate(343.6 200 200)"/>
+          <g id="t2"><circle cx="200" cy="96" r="11" transform="rotate(25.7 200 200)"/></g>
+          <use href="#t2" transform="rotate(51.4 200 200)"/><use href="#t2" transform="rotate(102.9 200 200)"/><use href="#t2" transform="rotate(154.3 200 200)"/><use href="#t2" transform="rotate(205.7 200 200)"/><use href="#t2" transform="rotate(257.1 200 200)"/><use href="#t2" transform="rotate(308.6 200 200)"/>
+        </g>
+        <path d="M357 158 A160 160 0 0 1 357 242" fill="none" stroke="#D9A9A4" stroke-width="12"/>
+        <text x="330" y="204" text-anchor="end" fill="#D9A9A4" font-family="Jost, sans-serif" font-size="10" letter-spacing="1.5">STAGE</text>
+        <path d="M43 172 A160 160 0 0 0 43 228" fill="none" stroke="rgba(242,232,216,.5)" stroke-width="8"/>
+        <text x="62" y="204" fill="#A39FB0" font-family="Jost, sans-serif" font-size="10" letter-spacing="1.5">BAR</text>
+        <path d="M184 386 h32" stroke="#0B0D18" stroke-width="6"/>
+        <text x="200" y="376" text-anchor="middle" fill="#A39FB0" font-family="Jost, sans-serif" font-size="10" letter-spacing="1.5">ENTRANCE</text>
+      </svg>
+      <div class="legend"><span><i></i>Table for 10</span><span><i class="f"></i>Dance floor</span><span><i class="s"></i>Stage &amp; band</span></div>
+      <span class="tbd">Sample layout</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DATE REQUEST (concept: nothing is sent) ===== -->
+<section class="sec book" id="date">
+  <div class="rv">
+    <p class="eyebrow">Dates</p>
+    <h2>Hold your<br><em>evening</em></h2>
+    <p class="lead">Pick a date, a format and the number of guests. We reply within a day with the price and hold the date for three days.</p>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Date<input type="date" name="date" required></label>
+      <label>Guests<select name="guests"><option>40</option><option>60</option><option selected>80</option><option>100</option><option>120</option><option>160</option><option>220</option><option>350 standing</option></select></label>
+    </div>
+    <fieldset>
+      <legend>Format</legend>
+      <label class="chip"><input type="radio" name="format" value="wedding" checked><span>Wedding</span></label>
+      <label class="chip"><input type="radio" name="format" value="banquet"><span>Banquet</span></label>
+      <label class="chip"><input type="radio" name="format" value="corporate"><span>Corporate</span></label>
+      <label class="chip"><input type="radio" name="format" value="other"><span>Something else</span></label>
+    </fieldset>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    </div>
+    <div class="send"><button class="btn" type="submit">Request the date</button><p class="note">Concept site: this form checks the date but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="logo ring">g.a.d.</span><span class="it">ballroom</span></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. ballroom is a concept: the hall, menu, prices and dates are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Frames come from the 24 fps source, 362 frames, cuts at 102 and 123 (see NOTES.md).
+  const SEG = [
+    [0.60, 0.40,   0,   0], // 0  outside the hall above the clouds, hold: read the hero
+    [1.20, 0.85,   0,  60], // 1  through the open doors, hero fades
+    [1.10, 0.80,  60, 101], // 2  the hall at sunset: 01 The hall
+    [0.40, 0.30, 102, 112], // 3  cut: gloved hands meet — 02 Weddings
+    [0.70, 0.50, 112, 112], // 4  hold on the hands
+    [0.40, 0.30, 112, 122], // 5  hands, end of the close-up
+    [1.30, 0.90, 123, 215], // 6  cut: the ball — 03 The floor
+    [1.20, 0.85, 215, 292], // 7  night falls, toward the window — 04 After dark
+    [0.80, 0.55, 292, 316], // 8  the couple at the glass — 05 The last dance
+    [0.70, 0.50, 316, 316], // 9  hold on the couple under the stars
+    [1.10, 0.80, 316, 361], // 10 through the glass into the clouds — the closing chapter
+    [0.70, 0.45, 361, 361], // 11 closing hold
+  ];
+  // evening programme: minutes after 18:00 at segment start/end, plus the programme item
+  const MIN = [[0,0],[0,20],[20,45],[60,60],[60,60],[60,62],[70,150],[150,240],[240,265],[265,265],[270,300],[300,300]];
+  const ITEM = ['Guests arrive','Guests arrive','Welcome champagne','The first dance','The first dance','The first dance','Dinner and the ball','After dark','The last waltz','The last waltz','Stars over the clouds','Goodnight'];
+  const FRAMES = 'frames/';
+  const N = 362, NET = 6, DEC = 3;
+  let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 808x1440 ≈ 4.7 MB
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.prog .num'), lbl = $('.prog .lbl'), dot = $('.prog .scale i'), barI = $('.bar i'), skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- date request: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then requests are really sent
+  const form = $('#form'), status = $('#status'), el = form.elements;
+  const today = new Date().toISOString().slice(0, 10);
+  el.namedItem('date').min = today;
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const d = el.namedItem('date').value;
+    if (!d) { status.textContent = 'Pick the date of your evening.'; return; }
+    if (d < today) { status.textContent = 'That date has already passed. Pick one ahead.'; return; }
+    if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value)) { status.textContent = 'Add your name and an email we can answer.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no events inbox. On a live site this request would go straight to the hall manager.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Request sent. We’ll write back within a day.' : 'The request didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';          // pinned travel counted apart from the stage height
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(c => {
+      const [a, b = a] = c.dataset.seg.split('-').map(Number);
+      c._a = acc[a] + (+c.dataset.delay || 0); c._b = acc[b + 1];
+      c._f = c.dataset.fade ? acc[b + 1] - acc[b] : 0;   // fade out across the whole last segment
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 16 : 12; MAXBMP = mob ? 40 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  // the nearest loaded frame never crosses a cut: a missing frame is replaced from its own shot
+  const CUTS = [0, 102, 123, N];
+  const shot = i => { let s = 0; while (i >= CUTS[s + 1]) s++; return s; };
+  let dirty = true, drawn = -1;
+  function nearest(i) { const s = shot(i); for (let d = 0; d <= 14; d++) for (const j of [i - d, i + d]) if (bmps.has(j) && shot(j) === s) return j; return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  const pad = n => String(n).padStart(2, '0');
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const c of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= c._a - 1e-6 && v <= c._b + 1e-6) {
+        i = c._a === 0 ? 1 : clamp((v - c._a) / F); x = c._b >= TOTAL - 1e-6 ? 1 : clamp((c._b - v) / (c._f || F));
+        o = Math.min(i, x);
+      }
+      c.style.opacity = o;
+      c.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      const base = c.classList.contains('l') && !mob ? 'translateY(-50%) ' : '';
+      c.style.transform = base + `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s, p] = at(v), m = MIN[s];
+    const mins = Math.round(m[0] + (m[1] - m[0]) * p);
+    const txt = (18 + Math.floor(mins / 60)) + ':' + pad(mins % 60);
+    if (num.textContent !== txt) num.textContent = txt;
+    if (lbl.textContent !== ITEM[s]) lbl.textContent = ITEM[s];
+    dot.style.left = (mins / 300 * 100) + '%';
+    barI.style.transform = `scaleX(${v / TOTAL})`;
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get drawn() { return drawn; }, get total() { return TOTAL; }, get acc() { return acc; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>
