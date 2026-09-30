@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. cycles — веломагазин и мастерская</title>
+<meta name="description" content="g.a.d. cycles: шоссейные, гравийные и городские велосипеды под ваш рост, мастерская с твёрдыми ценами на ТО и бесплатный тест-драйв. Концепт-сайт g.a.d.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="../frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --ink:#0A0A0C; --night:#0E131B; --night2:#151C27; --cream:#F1F0EC; --lime:#D6FF3F; --pink:#F0B4C2;
+  --smoke:#98A0AC; --line:rgba(241,240,236,.14);
+  --display:"Unbounded", "Arial Black", sans-serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--cream);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--lime)}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;line-height:.98}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--lime);color:var(--ink);font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:#E6FF7A;transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--lime)}
+/* logo g.a.d.: Unbounded, lime #D6FF3F on #0A0A0C — the owner's mark, as in video/brend/LOGO-g.a.d.png */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--lime)}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(10,10,12,.5);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:22px;line-height:1}
+.brand small{font:500 12px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:rgba(241,240,236,.7)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(241,240,236,.74);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--cream)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:700 12px/1 var(--sans);letter-spacing:.12em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--cream)}.lang a{color:rgba(241,240,236,.45);transition:color .25s}.lang a:hover{color:var(--lime)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--cream);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(10,10,12,.93);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--cream);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:600 30px/1.1 var(--display);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1100vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--ink) 0, rgba(10,10,12,.5) 12%, transparent 30%),
+             linear-gradient(to bottom, rgba(10,10,12,.45), transparent 20%)}
+
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:540px}
+.ch h2{font-size:clamp(34px,3.6vw,66px);margin:14px 0 18px}
+.ch p{max-width:36ch;color:rgba(241,240,236,.88)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--lime)}
+.ch::before{content:"";position:absolute;inset:-80px -120px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(6,8,12,.76),transparent)}
+.r{right:var(--pad);top:26%}
+.bl{left:var(--pad);bottom:19vh}
+.tl{left:var(--pad);top:calc(var(--hdr) + 6vh)}
+.tr{right:var(--pad);top:calc(var(--hdr) + 6vh)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tags span{font:600 12px/1 var(--sans);letter-spacing:.06em;padding:9px 12px;border:1px solid rgba(241,240,236,.28);border-radius:99px;background:rgba(10,10,12,.35)}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:15vh;max-width:min(580px,40vw);pointer-events:none}
+.ch-hero::before{inset:-140px -170px -120px -140px;background:radial-gradient(closest-side,rgba(6,8,12,.76),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:14px;margin-bottom:22px;font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.ch-hero .kicker .logo{font-size:20px;letter-spacing:0}
+.ch-hero h1{font-size:clamp(44px,4.6vw,88px);font-weight:700;line-height:.94}
+.ch-hero h1 em{font-style:normal;color:var(--lime)}
+.ch-hero p{max-width:36ch;margin:22px 0 26px;font-size:18px;color:rgba(241,240,236,.9)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+
+.ch-end h2{font-size:clamp(38px,4vw,76px)}
+.ch-end .facts{display:flex;gap:30px;margin:6px 0 28px;font:500 13px/1.5 var(--sans);color:var(--smoke)}
+.ch-end .facts b{display:block;font:600 24px/1.2 var(--display);color:var(--cream)}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+/* signature: a bike computer bottom-left — distance grows with the story, speed follows the scroll */
+.cc{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;display:flex;align-items:center;gap:16px;
+  padding:12px 18px 12px 14px;border:1px solid rgba(241,240,236,.22);border-radius:16px;background:rgba(10,10,12,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.dial{width:46px;height:46px;flex:none}
+.dial circle{fill:none;stroke-width:4}
+.dial .trk{stroke:rgba(241,240,236,.18)}
+.dial .val{stroke:var(--lime);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.cc .num{font:600 clamp(24px,2vw,34px)/1 var(--display);font-variant-numeric:tabular-nums;min-width:4.4ch}
+.cc .num small{font-size:.46em;margin-left:.25em;color:var(--smoke)}
+.cc .lbl{display:flex;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-top:8px}
+.cc .lbl b{color:var(--pink);font-weight:700;font-variant-numeric:tabular-nums}
+.skip{position:absolute;z-index:5;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(241,240,236,.74);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--cream)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--lime),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the shop below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(40px,5vw,92px);margin-top:14px}
+.head>p{max-width:42ch;color:rgba(241,240,236,.78);justify-self:end}
+
+/* bikes */
+.bikes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px)}
+.bike{position:relative;border-radius:18px;overflow:hidden;background:var(--night);display:flex;flex-direction:column}
+.bike figure{aspect-ratio:4/5;overflow:hidden}
+.bike img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.bike:hover img{transform:scale(1.04)}
+.bike .body{padding:24px 24px 26px;display:grid;gap:10px;flex:1}
+.bike .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+.bike h3{font-size:clamp(22px,1.8vw,30px)}
+.bike p{font-size:15px;color:rgba(241,240,236,.72)}
+.bike ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.bike li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(241,240,236,.8)}
+.bike .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
+.bike .meta b{font:600 22px/1 var(--display);color:var(--cream);white-space:nowrap}
+.bike .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
+.badge{position:absolute;top:16px;left:16px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:8px 10px;border-radius:99px}
+.tbd{display:inline-block;justify-self:start;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+.fine-print{margin-top:22px;font-size:13px;color:var(--smoke)}
+
+/* fit */
+.fitsec{background:linear-gradient(var(--ink),var(--night) 25%,var(--night) 75%,var(--ink))}
+.fit{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,5vw,96px);align-items:start}
+.hgt{border:1px solid var(--line);border-radius:18px;padding:30px;background:rgba(21,28,39,.6)}
+.hgt label{display:flex;justify-content:space-between;align-items:baseline}
+.hgt output{font:600 clamp(48px,5vw,80px)/1 var(--display);color:var(--cream);letter-spacing:-.02em;text-transform:none}
+.hgt output small{font:500 16px/1 var(--sans);color:var(--smoke);margin-left:6px}
+.hgt .alt{margin-top:8px;font-size:14px;color:var(--smoke);min-height:1.6em}
+input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:44px;cursor:pointer}
+.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--smoke)}
+.sizes{list-style:none;border-top:1px solid var(--line)}
+.sizes li{display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+.sizes b{font:600 20px/1.2 var(--display)}
+.sizes .sz{font:700 28px/1 var(--display);color:var(--lime);min-width:2.4ch;text-align:right}
+.sizes .cm{font:600 14px/1 var(--sans);color:var(--smoke);min-width:6ch;text-align:right}
+.sizes p{grid-column:1 / -1;font-size:14px;color:rgba(241,240,236,.62)}
+.fit-note{margin-top:22px;font-size:15px;color:rgba(241,240,236,.78);max-width:52ch}
+
+/* workshop */
+.shop{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
+.price{width:100%;border-collapse:collapse}
+.price td{padding:18px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+.price tr:first-child td{border-top:1px solid var(--line)}
+.price td b{display:block;font:600 19px/1.25 var(--display)}
+.price td span{display:block;margin-top:6px;font-size:14px;color:rgba(241,240,236,.62)}
+.price td:last-child{text-align:right;font:600 20px/1 var(--display);white-space:nowrap;padding-left:20px}
+.price .free{color:var(--lime)}
+.side figure{overflow:hidden;aspect-ratio:16/10;border-radius:18px}
+.side img{width:100%;height:100%;object-fit:cover}
+.side blockquote{margin-top:28px;font:500 clamp(22px,2vw,32px)/1.25 var(--display);color:var(--cream)}
+.side blockquote+p{margin-top:14px;color:var(--smoke);font-size:15px;max-width:44ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(48px,7vh,80px)}
+.steps>div{padding:30px 32px 30px 0;border-right:1px solid var(--line)}
+.steps>div+div{padding-left:32px}.steps>div:last-child{border-right:0}
+.steps h3{font-size:22px;margin:12px 0 10px}
+.steps p{font-size:15px;color:rgba(241,240,236,.72)}
+
+/* test ride */
+.order{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(214,255,63,.08), transparent 70%)}
+.order h2{font-size:clamp(40px,4.6vw,84px);margin:14px 0 22px}
+.order .lead{color:rgba(241,240,236,.8);max-width:36ch}
+.order figure{margin-top:36px;overflow:hidden;border-radius:18px;aspect-ratio:16/10}
+.order figure img{width:100%;height:100%;object-fit:cover}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+input[type=text],input[type=email],input[type=date],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(241,240,236,.3);color:var(--cream);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0;color-scheme:dark}
+select option{background:var(--ink)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--lime)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--cream);transition:.25s}
+.chip input:checked+span{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.chip input:focus-visible+span{outline:2px solid var(--lime);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--smoke);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--lime)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:baseline;gap:.3em;white-space:nowrap;line-height:.9;margin-left:-.04em}
+.big .logo{font-size:clamp(64px,17vw,300px)}
+.big small{font:500 clamp(14px,1.6vw,26px)/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--smoke)}
+.credit strong{color:var(--cream);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--cream)}
+.credit a:hover{color:var(--lime)}
+.fine{margin-top:14px;font-size:12px;color:rgba(152,160,172,.85)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .cc{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 70vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--ink) 100svh)}
+
+/* ---------- mobile: its own composition, portrait frames ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn,.brand small{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:20px}
+  .ch{max-width:none}
+  .ch h2{font-size:34px;margin:10px 0 0}
+  .ch p.more,.ch .tags,.ch-hero p,.ch-hero .link,.ch-end .facts,.ch-end .link{display:none}
+  .r,.bl,.tl,.tr{left:var(--pad);right:var(--pad);top:auto;bottom:calc(104px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(100px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:14px}
+  .ch-hero h1{font-size:11vw}
+  .ch-hero .row{margin-top:20px}
+  .ch-end h2{font-size:36px;margin:10px 0 20px}
+  .cc{bottom:calc(16px + env(safe-area-inset-bottom));gap:10px;padding:8px 14px 8px 10px;border-radius:12px}
+  .dial{width:34px;height:34px}
+  .cc .num{font-size:20px}.cc .lbl{font-size:9px;margin-top:5px;gap:8px}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .bikes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .bikes{scroll-padding-inline:var(--pad)}.bikes::-webkit-scrollbar{display:none}
+  .bike{flex:0 0 82%;scroll-snap-align:start}
+  .fit,.shop,.order{grid-template-columns:1fr}
+  .hgt{padding:22px}
+  .steps{grid-template-columns:1fr}
+  .steps>div,.steps>div+div{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .f2{grid-template-columns:1fr}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:66vw}
+  .bikes{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. cycles, наверх"><span class="logo">g.a.d.</span><small>велосипеды</small></a>
+  <nav class="nav" aria-label="Главное">
+    <a href="#bikes">Велосипеды</a><a href="#fit">Подбор по росту</a><a href="#workshop">Мастерская</a>
+  </nav>
+  <nav class="lang" aria-label="Язык"><a href="../" hreflang="en" lang="en">EN</a><span aria-current="page">RU</span></nav>
+  <a class="btn" href="#test">Записаться на тест-драйв</a>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Меню">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Закрыть меню">&times;</button></div>
+  <nav aria-label="Меню">
+    <a href="#bikes">Велосипеды</a><a href="#fit">Подбор по росту</a><a href="#workshop">Мастерская</a><a href="#test">Тест-драйв</a>
+  </nav>
+  <a class="btn" href="#test">Записаться на тест-драйв</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="История: вечерний заезд под дождём, который заканчивается ночью">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="../frames/stills/poster-m.webp">
+      <img src="../frames/stills/poster-d.webp" alt="Велосипедистка в розовой куртке и шлеме опустила голову, на очках капли дождя, заезд вот-вот начнётся" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span>Веломагазин и мастерская</span></div>
+      <h1>Едем, пока<br>другие <em>ждут</em></h1>
+      <p>Шоссейные, гравийные и городские велосипеды: подберём под рост и обслужим в своей мастерской. Любой можно взять на тест-драйв уже на этой неделе.</p>
+      <div class="row"><a class="btn" href="#test">Записаться на тест-драйв</a><a class="link" href="#bikes">Смотреть велосипеды</a></div>
+    </div>
+
+    <div class="ch r" data-seg="2">
+      <p class="eyebrow">Экипировка</p>
+      <h2>Одеты<br>под дождь</h2>
+      <p class="more">Куртки, перчатки, бахилы и баффы, в которых катаемся сами. Примеряйте вместе с велосипедом, а не в примерочной.</p>
+    </div>
+
+    <div class="ch tr" data-seg="4">
+      <p class="eyebrow">Велосипеды</p>
+      <h2>Для длинных<br>мокрых дорог</h2>
+      <p class="more">Дисковые тормоза, место под крылья и широкие покрышки, свет, который заряжается на ходу. Три рамы, все в зале.</p>
+    </div>
+
+    <div class="ch bl" data-seg="5">
+      <p class="eyebrow">Посадка</p>
+      <h2>Настроим под вас<br>до первого метра</h2>
+      <p class="more">Высоту седла, вынос и ширину руля выставим в день покупки. Пятнадцать минут, бесплатно.</p>
+      <div class="tags"><span>Высота седла</span><span>Вынос</span><span>Ширина руля</span><span>Шипы</span></div>
+    </div>
+
+    <div class="ch r" data-seg="6">
+      <p class="eyebrow">Мастерская</p>
+      <h2>ТО под<br>мокрую дорогу</h2>
+      <p class="more">Прокачаем тормоза, провощим цепь, смажем подшипники от брызг. Цены твёрдые, готово на следующий день.</p>
+    </div>
+
+    <div class="ch tl" data-seg="7">
+      <p class="eyebrow">Четверг, 19:00</p>
+      <h2>Включаем фары,<br>едем вместе</h2>
+      <p class="more">Групповой заезд на 40 км от дверей магазина. Любой велосипед, любой темп, к девяти обратно.</p>
+    </div>
+
+    <div class="ch tl ch-end" data-seg="8-9" data-delay="0.3">
+      <p class="eyebrow">Тест-драйв</p>
+      <h2>Прокатитесь,<br>потом покупайте</h2>
+      <div class="facts"><span><b>3 модели</b>В зале</span><span><b>45 минут</b>Тест-драйв бесплатно</span></div>
+      <div class="row"><a class="btn" href="#test">Записаться на тест-драйв</a><a class="link" href="#workshop">Цены мастерской</a></div>
+    </div>
+
+    <div class="cc" aria-hidden="true">
+      <svg class="dial" viewBox="0 0 46 46"><circle class="trk" cx="23" cy="23" r="19"/><circle class="val" cx="23" cy="23" r="19" stroke-dasharray="0 120"/></svg>
+      <div><div class="num">0,0<small>км</small></div><span class="lbl"><span class="seg">Разминка</span><b class="spd">0 км/ч</b></span></div>
+    </div>
+    <a class="skip" href="#bikes"><span>Пропустить заезд</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== BIKES ===== -->
+<section class="sec" id="bikes">
+  <div class="head rv">
+    <div><p class="eyebrow">Велосипеды</p><h2>Три велосипеда,<br>одна мастерская</h2></div>
+    <p>Каждый собираем, настраиваем и обслуживаем здесь. Выберите дорогу, по которой ездите чаще, размер подберём сами.</p>
+  </div>
+  <div class="bikes">
+    <article class="bike rv"><span class="badge">Берут чаще всех</span>
+      <figure><img src="../frames/stills/road.webp" alt="Две велосипедистки в розовой форме рядом на мокрой горной дороге в тумане" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Шоссе · эндуранс</span><h3>g.a.d. Nightline</h3>
+        <p>Карбоновая рама, гидравлические диски, покрышки 32 мм и скрытые крепления крыльев. Быстрый на сухом, спокойный на мокром.</p>
+        <ul><li>8,4 кг</li><li>2×12</li><li>XS–XXL</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>219&nbsp;000&nbsp;₽</b></div></div></article>
+    <article class="bike rv">
+      <figure><img src="../frames/stills/gravel.webp" alt="Велосипедисты на дороге, врезанной в лесистый склон, вид сверху" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Гревел · любые дороги</span><h3>g.a.d. Ridge</h3>
+        <p>Алюминиевая рама, покрышки 45 мм, три крепления фляг и багажник. Уходит на лесную дорогу, где кончается асфальт.</p>
+        <ul><li>9,6 кг</li><li>1×12</li><li>XS–XL</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>149&nbsp;000&nbsp;₽</b></div></div></article>
+    <article class="bike rv">
+      <figure><img src="../frames/stills/city.webp" alt="Трое велосипедистов с фарами друг за другом на тёмной лесной дороге, вид строго сверху" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Город · в любую погоду</span><h3>g.a.d. Lumen</h3>
+        <p>Стальная рама, свет от динамо, полные крылья и планетарная втулка, которой не страшны реагенты. На каждый день, а не только на сухие.</p>
+        <ul><li>12,8 кг</li><li>Втулка на 8 передач</li><li>S–L</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>99&nbsp;000&nbsp;₽</b></div></div></article>
+  </div>
+  <p class="fine-print">Концепт-сайт: модели, характеристики и цены для примера.</p>
+</section>
+
+<!-- ===== FIT BY HEIGHT ===== -->
+<section class="sec fitsec" id="fit">
+  <div class="head rv">
+    <div><p class="eyebrow">Подбор по росту</p><h2>Начнём<br>с роста</h2></div>
+    <p>Двигайте ползунок и смотрите размер рамы для каждой модели. В магазине сверим с длиной ног и рук.</p>
+  </div>
+  <div class="fit">
+    <div class="hgt rv">
+      <label for="h">Ваш рост <output id="hout" for="h">172<small>см</small></output></label>
+      <p class="alt" id="halt">Размер рамы для каждой модели — в таблице</p>
+      <input type="range" id="h" min="150" max="200" step="1" value="172" aria-describedby="halt">
+      <div class="scale"><span>150 см</span><span>175</span><span>200 см</span></div>
+    </div>
+    <div class="rv">
+      <ul class="sizes" id="sizes">
+        <li data-bike="road"><b>Nightline · шоссе</b><span class="sz">M</span><span class="cm">54 см</span><p>Геометрия эндуранс: руль чуть выше, чтобы спина не уставала на длинных заездах.</p></li>
+        <li data-bike="gravel"><b>Ridge · гревел</b><span class="sz">M</span><span class="cm">52 см</span><p>Вынос короче, база длиннее, устойчивее на сыпучем грунте.</p></li>
+        <li data-bike="city"><b>Lumen · город</b><span class="sz">M</span><span class="cm">52 см</span><p>Прямая посадка, всего три размера: остальное добирает вынос.</p></li>
+      </ul>
+      <p class="fit-note">Между двумя размерами? Запишитесь на тест-драйв обоих. Настройка посадки в день покупки бесплатная.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKSHOP ===== -->
+<section class="sec" id="workshop">
+  <div class="head rv">
+    <div><p class="eyebrow">Мастерская</p><h2>Твёрдые цены,<br>готово завтра</h2></div>
+    <p>Привезите велосипед до 10 утра, заберите на следующий вечер. Любой, не только наш.</p>
+  </div>
+  <div class="shop">
+    <table class="price rv">
+      <tr><td><b>Проверка безопасности</b><span>Тормоза, покрышки, эксцентрики. Десять минут при вас.</span></td><td class="free">Бесплатно</td></tr>
+      <tr><td><b>Базовое ТО</b><span>Настройка переключателей и тормозов, чистка цепи, протяжка болтов.</span></td><td>3&nbsp;500&nbsp;₽</td></tr>
+      <tr><td><b>Полное ТО</b><span>Разборка, мойка, новые тросики, проверка и смазка подшипников.</span></td><td>8&nbsp;900&nbsp;₽</td></tr>
+      <tr><td><b>Пакет «Мокрая погода»</b><span>Воск на цепь, смазка пыльников, установка и выставка крыльев.</span></td><td>4&nbsp;500&nbsp;₽</td></tr>
+      <tr><td><b>Прокачка тормоза</b><span>Гидравлический диск, за один тормоз, новая жидкость.</span></td><td>2&nbsp;000&nbsp;₽</td></tr>
+      <tr><td><b>Правка колеса</b><span>За колесо, с проверкой натяжения спиц.</span></td><td>1&nbsp;200&nbsp;₽</td></tr>
+      <tr><td><b>Бескамерка</b><span>За колесо, ниппель и герметик включены.</span></td><td>1&nbsp;500&nbsp;₽</td></tr>
+    </table>
+    <div class="side rv">
+      <figure><img src="../frames/stills/workshop.webp" alt="Капля дождя разбивается о лужу на ночной дороге, позади синий свет" width="1728" height="1080" loading="lazy"></figure>
+      <blockquote>«Дождь — лучшая проверка для велосипеда. Под него и обслуживаем».</blockquote>
+      <p>После любого ТО проезжаем круг вокруг квартала, в сухую погоду и в мокрую.</p>
+      <p class="fine-print">Цены концептуальные, для примера.</p>
+    </div>
+  </div>
+  <div class="steps rv">
+    <div><p class="eyebrow">01</p><h3>Привезите</h3><p>До 10 утра или в своё время по записи.</p></div>
+    <div><p class="eyebrow">02</p><h3>Сначала звоним</h3><p>Если нужна замена детали, называем цену до того, как ставим.</p></div>
+    <div><p class="eyebrow">03</p><h3>Уезжайте своим ходом</h3><p>На следующий вечер, чистый и проверенный на ходу.</p></div>
+  </div>
+</section>
+
+<!-- ===== TEST RIDE (concept: nothing is sent) ===== -->
+<section class="sec order" id="test">
+  <div class="rv">
+    <p class="eyebrow">Тест-драйв</p>
+    <h2>Возьмите<br>на час</h2>
+    <p class="lead">Выберите велосипед и день. Настроим под ваш рост до приезда, шлем и фары дадим.</p>
+    <figure><img src="../frames/stills/ride.webp" alt="Велосипедистка ночью крупным планом, дождь на лице, на розовом шлеме надпись g.a.d." width="1728" height="1080" loading="lazy"></figure>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Имя<input type="text" name="name" autocomplete="name" required></label>
+      <label>Почта<input type="email" name="email" autocomplete="email" required></label>
+    </div>
+    <div class="f2">
+      <label>Велосипед<select name="bike"><option selected>Nightline · шоссе</option><option>Ridge · гревел</option><option>Lumen · город</option><option>Пока не знаю</option></select></label>
+      <label>День<input type="date" name="day" required></label>
+    </div>
+    <fieldset>
+      <legend>Время</legend>
+      <label class="chip"><input type="radio" name="time" value="morning"><span>Утро</span></label>
+      <label class="chip"><input type="radio" name="time" value="afternoon" checked><span>День</span></label>
+      <label class="chip"><input type="radio" name="time" value="evening"><span>Вечер, с фарами</span></label>
+    </fieldset>
+    <div class="send"><button class="btn" type="submit">Записаться на тест-драйв</button><p class="note">Концепт-сайт: форма проверяет поля, но никуда ничего не отправляет.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>велосипеды</small></div>
+  <div class="credit">
+    <span><strong>Концепт-сайт g.a.d. — сайты и 3D для бизнеса</strong></span>
+    <nav aria-label="Контакты">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/" target="_blank" rel="noopener">Портфолио</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. cycles — концепт: велосипеды, характеристики, цены и сам магазин для примера.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Frame numbers are the site's frames (see NOTES.md for the source mapping).
+  const SEG = [
+    [0.50, 0.35,   0,   0], // 0 opening hold: head down in the rain, read the hero
+    [1.00, 0.70,   0,  61], // 1 she lifts her head, hero fades
+    [1.20, 0.85,  62, 110], // 2 macro: rain beading on the jacket
+    [0.50, 0.35, 111, 125], // 3 transition: fog over the forest (no copy)
+    [1.20, 0.85, 126, 177], // 4 from above: riders on the mountain road
+    [1.30, 0.90, 178, 239], // 5 two riders on the wet road
+    [1.10, 0.80, 240, 293], // 6 night: a drop hits a puddle
+    [1.10, 0.80, 294, 351], // 7 straight down: three riders with lights
+    [1.00, 0.70, 352, 391], // 8 close-up, g.a.d. on the helmet
+    [0.70, 0.50, 391, 391], // 9 closing hold
+  ];
+  // bike computer: label per segment, distance = progress through the story, speed = how fast you scroll
+  const LBL = ['Разминка','Разминка','Экипировка','Подъём','Подъём','Темп','Ночь','Группа','Последний км','Дома'];
+  const KM = 42.2, KMH = 'км/ч';
+  const FRAMES = '../frames/';
+  const N = 392, NET = 6, DEC = 3;
+  let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 810x1440 ≈ 4.7 MB
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.cc .num'), seg = $('.cc .seg'), spd = $('.cc .spd'), dial = $('.dial .val'), skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- size by height: [up to cm, size, frame cm] per bike ----------
+  const SIZES = {
+    road:   [[159, 'XS', 48], [166, 'S', 51], [174, 'M', 54], [182, 'L', 56], [190, 'XL', 58], [999, 'XXL', 61]],
+    gravel: [[159, 'XS', 47], [167, 'S', 50], [176, 'M', 52], [185, 'L', 55], [999, 'XL', 58]],
+    city:   [[164, 'S', 48], [180, 'M', 52], [999, 'L', 56]],
+  };
+  const h = $('#h'), hout = $('#hout'), halt = $('#halt');
+  function fit() {
+    const v = +h.value, inch = Math.round(v / 2.54);
+    hout.innerHTML = v + '<small>см</small>';
+    document.querySelectorAll('#sizes li').forEach(li => {
+      const s = SIZES[li.dataset.bike].find(r => v <= r[0]);
+      li.querySelector('.sz').textContent = s[1]; li.querySelector('.cm').textContent = s[2] + ' см';
+    });
+  }
+  h.addEventListener('input', fit); fit();
+
+  // ---------- test ride form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then bookings are really sent
+  const form = $('#form'), status = $('#status');
+  form.elements.namedItem('day').min = new Date().toISOString().slice(0, 10);
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements;
+    if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value.trim()) || !el.namedItem('day').value) { status.textContent = 'Укажите имя, почту и день.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Не отправлено: это концепт-сайт, магазина за ним нет. На живом сайте запись сразу ушла бы в мастерскую.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Записали. Время подтвердим письмом.' : 'Запись не прошла. Попробуйте через минуту.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'Нет связи. Проверьте интернет и отправьте ещё раз.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';          // pinned travel counted apart from the stage height
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;   // fade out across the whole last segment
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 16 : 12; MAXBMP = mob ? 40 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0, speed = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s] = at(v), p = v / TOTAL;
+    const txt = (KM * p).toFixed(1).replace('.', ',') + '<small>км</small>';
+    if (num.innerHTML !== txt) num.innerHTML = txt;
+    if (seg.textContent !== LBL[s]) seg.textContent = LBL[s];
+    dial.setAttribute('stroke-dasharray', `${(119.4 * p).toFixed(1)} 120`);
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    const before = uS;
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    // speed: screens per second of travel -> km/h, eased, capped at a sprint
+    const target = Math.min(58, Math.abs(uS - before) / dt * 1000 * 16);
+    speed += (target - speed) * 0.12; if (speed < 0.5 && uS === u) speed = 0;
+    const st = Math.round(speed) + ' ' + KMH; if (spd.textContent !== st) spd.textContent = st;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty || speed > 0) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>
