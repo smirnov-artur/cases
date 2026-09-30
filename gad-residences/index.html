@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. residences — walk in before the keys</title>
+<meta name="description" content="g.a.d. residences: new-build apartments with oak floors, open kitchens and floor-to-ceiling windows. Studios, one- and two-bedroom homes. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F3EFE8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&text=g.ad&display=block" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --linen:#F3EFE8; --paper:#FBF9F5; --ink:#1B1A17; --ink2:#46423B; --stone:#8A8378; --oak:#9A6B3F; --oak-l:#C9A57E;
+  --line:rgba(27,26,23,.13); --veil:rgba(243,239,232,.78);
+  --serif:"Cormorant Garamond", "Times New Roman", serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--linen);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--linen);color:var(--ink);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oak);outline-offset:4px}
+.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--oak)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:.95}
+h1 em,h2 em{font-style:italic;color:var(--oak)}
+h1,h2,h3,.plan dd,.res,.ctl output,.spec b,.dist b{font-variant-numeric:lining-nums}
+.meter .num,.res .big,.res dd{font-variant-numeric:lining-nums tabular-nums}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--ink);color:var(--paper);font:700 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:#3A342C;transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--oak)}
+/* logo g.a.d.: Unbounded, as in video/brend/LOGO-g.a.d.png — monochrome ink variant for the light site */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--ink)}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(243,239,232,.62);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:21px;line-height:1}
+.brand .sub{font:italic 500 24px/1 var(--serif);color:var(--ink2);transform:translateY(1px)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:var(--ink2);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--ink)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:700 12px/1 var(--sans);letter-spacing:.12em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--ink)}.lang a{color:var(--stone);transition:color .25s}.lang a:hover{color:var(--oak)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--ink);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(243,239,232,.94);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--ink);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:500 42px/1.05 var(--serif);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:860vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--linen);isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--linen) 0, rgba(243,239,232,.55) 10%, transparent 26%),
+             linear-gradient(to bottom, rgba(243,239,232,.35), transparent 18%)}
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:540px}
+.ch h2{font-size:clamp(50px,5.4vw,96px);margin:14px 0 18px}
+.ch p{max-width:36ch;color:var(--ink2)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center;color:var(--oak)}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--oak)}
+.ch::before{content:"";position:absolute;inset:-150px -210px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(243,239,232,.94) 45%,rgba(243,239,232,.7) 70%,rgba(243,239,232,0))}
+.ch p,.ch .spec,.ch-hero .kicker{text-shadow:0 0 14px rgba(243,239,232,.95),0 0 3px rgba(243,239,232,.9)}
+.ch p.eyebrow{color:#7A522E}
+.l{left:var(--pad);top:50%;transform:translateY(-50%)}
+.tl{left:var(--pad);top:calc(var(--hdr) + 8vh)}
+.r{right:var(--pad);top:calc(var(--hdr) + 10vh)}
+.spec{display:flex;gap:28px;margin-top:22px;font:500 13px/1.5 var(--sans);color:var(--stone)}
+.spec b{display:block;font:500 34px/1 var(--serif);color:var(--ink)}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:12vh;max-width:min(720px,54vw);pointer-events:none}
+.ch-hero::before{inset:-160px -200px -120px -160px;background:radial-gradient(closest-side,rgba(243,239,232,.86),rgba(243,239,232,0))}
+.ch-hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ch-hero .kicker .logo{font-size:19px}
+.ch-hero .kicker .sub{font:italic 500 26px/1 var(--serif);color:var(--ink2)}
+.ch-hero h1{font-size:clamp(66px,8vw,150px);line-height:.88}
+.ch-hero p{max-width:34ch;margin:22px 0 26px;font-size:18px;color:var(--ink2)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:26px}
+
+/* the tour meter — the signature: square metres count up as you walk through the flat */
+.meter{position:absolute;z-index:4;left:var(--pad);bottom:34px;pointer-events:none;display:flex;align-items:baseline;gap:16px}
+.meter .num{font:500 clamp(40px,3.4vw,58px)/1 var(--serif);min-width:3.6ch}
+.meter .num small{font-size:.5em;margin-left:4px}
+.meter .lbl{font:700 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.meter .lbl i{width:8px;height:8px;border-radius:50%;background:var(--oak)}
+.bar{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;background:rgba(27,26,23,.08)}
+.bar i{display:block;height:100%;background:var(--oak);transform-origin:left;transform:scaleX(0)}
+.skip{position:absolute;z-index:5;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--ink)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--oak),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the site below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(54px,6.4vw,116px);margin-top:14px}
+.head>p{max-width:42ch;color:var(--ink2);justify-self:end}
+.tbd{display:inline-block;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+
+/* floor plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px 26px 28px;display:flex;flex-direction:column}
+.plan svg{width:100%;height:auto;aspect-ratio:4/3;margin:6px 0 22px}
+.plan svg .w{fill:none;stroke:var(--ink);stroke-width:5;stroke-linecap:square}
+.plan svg .p{fill:none;stroke:var(--ink);stroke-width:1.4}
+.plan svg .z{fill:rgba(154,107,63,.1)}
+.plan svg text{font:600 11px var(--sans);fill:var(--stone);letter-spacing:.06em}
+.plan h3{font-size:clamp(34px,2.8vw,46px)}
+.plan dl{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 24px;padding-top:18px;border-top:1px solid var(--line)}
+.plan dt{font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:6px}
+.plan dd{font:500 28px/1 var(--serif)}
+.plan .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* neighbourhood */
+.area{display:grid;grid-template-columns:6fr 5fr;gap:clamp(28px,5vw,90px);align-items:start}
+.area figure{overflow:hidden;border-radius:10px;aspect-ratio:4/3;background:var(--paper)}
+.area img{width:100%;height:100%;object-fit:cover}
+.dist{list-style:none;border-top:1px solid var(--line)}
+.dist li{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.dist b{font:500 26px/1.1 var(--serif)}
+.dist span{font:500 14px/1 var(--sans);color:var(--stone);white-space:nowrap}
+.area .tbd{margin-top:18px}
+
+/* calculator */
+.calc{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.calc-box{display:grid;grid-template-columns:6fr 5fr;gap:clamp(28px,5vw,90px);align-items:start}
+.ctl{display:grid;gap:26px}
+.ctl label{display:grid;gap:12px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+.ctl output{font:500 24px/1 var(--serif);color:var(--ink);letter-spacing:0;text-transform:none}
+.ctl .top{display:flex;justify-content:space-between;align-items:baseline}
+input[type=range]{width:100%;accent-color:var(--oak);height:30px}
+.res{background:var(--linen);border-radius:10px;padding:clamp(24px,3vw,40px)}
+.res .big{font:500 clamp(54px,5.4vw,92px)/1 var(--serif);margin:14px 0 6px;font-variant-numeric:lining-nums tabular-nums}
+.res .per{color:var(--stone);font-size:15px}
+.res dl{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.res dt{font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:6px}
+.res dd{font:500 26px/1 var(--serif);font-variant-numeric:lining-nums tabular-nums}
+.res .fine-print{margin-top:22px;font-size:13px;color:var(--stone)}
+
+/* forms */
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(27,26,23,.22);border-radius:99px;font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);transition:.25s}
+.chip input:checked+span{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip input:focus-visible+span{outline:2px solid var(--oak);outline-offset:3px}
+.book{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start}
+.book h2{font-size:clamp(54px,6vw,108px);margin:14px 0 22px}
+.book .lead{color:var(--ink2);max-width:36ch}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+form label{display:grid;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--stone)}
+input[type=text],input[type=tel],input[type=date],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(27,26,23,.3);color:var(--ink);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0}
+input:focus,select:focus{outline:none;border-bottom-color:var(--oak)}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--stone);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--oak)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden;background:var(--paper)}
+.bigmark{display:flex;align-items:baseline;gap:.25em;white-space:nowrap;line-height:.9;margin-left:-.04em}
+.bigmark .logo{font-size:clamp(64px,16vw,280px)}
+.bigmark .sub{font:italic 500 clamp(40px,8vw,150px)/1 var(--serif);color:var(--ink2)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--stone)}
+.credit strong{color:var(--ink);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--ink)}
+.credit a:hover{color:var(--oak)}
+.fine{margin-top:14px;font-size:12px;color:var(--stone)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .meter,.static .bar{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 72vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--linen) 100svh)}
+
+/* ---------- mobile: portrait frames, copy at the bottom ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn,.brand .sub{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:19px}
+  .ch{max-width:none}
+  .ch h2{font-size:46px;margin:10px 0 0}
+  .ch p.more,.ch .spec,.ch-hero p,.ch-hero .link,.ch-end .link{display:none}
+  .l,.r,.tl{left:var(--pad);right:var(--pad);top:auto;bottom:calc(92px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-70px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(84px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:12px}
+  .ch-hero h1{font-size:17vw}
+  .ch-hero .row{margin-top:20px}
+  .ch-end .row{margin-top:18px}
+  .meter{bottom:calc(22px + env(safe-area-inset-bottom));gap:10px}
+  .meter .num{font-size:32px}.meter .lbl{font-size:10px}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .plans{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .plans::-webkit-scrollbar{display:none}
+  .plan{flex:0 0 84%;scroll-snap-align:start}
+  .area,.calc-box,.book,.f2{grid-template-columns:1fr}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 66vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:70vw}
+  .plans{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. residences, back to top"><span class="logo">g.a.d.</span><span class="sub">residences</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#plans">Floor plans</a><a href="#area">Neighbourhood</a><a href="#calc">Mortgage</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#visit">Book a viewing</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#plans">Floor plans</a><a href="#area">Neighbourhood</a><a href="#calc">Mortgage</a><a href="#visit">Viewing</a>
+  </nav>
+  <a class="btn" href="#visit">Book a viewing</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="The story: a walk through a g.a.d. residences apartment">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="Open double doors lead into a bright apartment with oak floors, a stone kitchen island and plants by the window" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span class="sub">residences</span></div>
+      <h1>Walk in<br><em>before the keys</em></h1>
+      <p>New-build apartments with oak floors, open kitchens and windows from floor to ceiling. Scroll, and the door is already open.</p>
+      <div class="row"><a class="btn" href="#visit">Book a viewing</a><a class="link" href="#plans">See floor plans</a></div>
+    </div>
+
+    <div class="ch tl" data-seg="2">
+      <p class="eyebrow">01 · Living room</p>
+      <h2>One room<br><em>for everything</em></h2>
+      <p class="more">Living room and kitchen share one open space. Oak boards on underfloor heating, a wide sofa wall, no corridor eating the square metres.</p>
+      <div class="spec"><span><b>24 m²</b>Living room</span><span><b>3.1 m</b>Ceilings</span></div>
+    </div>
+
+    <div class="ch l" data-seg="3">
+      <p class="eyebrow">02 · Light</p>
+      <h2>Sun until<br><em>the evening</em></h2>
+      <p class="more">Windows run from floor to ceiling on the south-west side. By late afternoon the light reaches the kitchen wall.</p>
+    </div>
+
+    <div class="ch r ch-end" data-seg="4-5" data-delay="0.3">
+      <p class="eyebrow">03 · Kitchen</p>
+      <h2>The island<br><em>is the table</em></h2>
+      <p class="more">Stone island, built-in appliances, a dining corner by the window. Handed over finished: bring a kettle and move in.</p>
+      <div class="row"><a class="btn" href="#visit">Book a viewing</a><a class="link" href="#plans">See floor plans</a></div>
+    </div>
+
+    <div class="meter" aria-hidden="true"><div class="num">0<small>m²</small></div><div class="lbl"><i></i><span>Entrance</span></div></div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <a class="skip" href="#plans"><span>Skip the tour</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== FLOOR PLANS ===== -->
+<section class="sec" id="plans">
+  <div class="head rv">
+    <div><p class="eyebrow">Floor plans</p><h2>Three layouts,<br><em>one standard</em></h2></div>
+    <p>Every apartment is handed over finished: oak floors, a fitted kitchen, a bathroom in large-format tile. You choose the size, not the level of finish.</p>
+  </div>
+  <div class="plans">
+    <article class="plan rv">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Studio layout sketch">
+        <rect class="z" x="40" y="30" width="320" height="170"/>
+        <path class="w" d="M40 30H360V270H40Z M40 200H230 M270 200H360 M230 200V270"/>
+        <path class="p" d="M60 45h90v36H60z M300 50v90 M250 230h90"/>
+        <text x="130" y="140">LIVING · KITCHEN</text><text x="90" y="245">BATH</text><text x="275" y="245">HALL</text>
+      </svg>
+      <h3>Studio</h3>
+      <dl><div><dt>Area</dt><dd>28 m²</dd></div><div><dt>From</dt><dd>$96,000</dd></div></dl>
+      <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#visit">View it</a></div>
+    </article>
+    <article class="plan rv">
+      <svg viewBox="0 0 400 300" role="img" aria-label="One-bedroom layout sketch">
+        <rect class="z" x="30" y="30" width="210" height="170"/>
+        <path class="w" d="M30 30H370V270H30Z M240 30V160 M240 200V270 M240 200H370 M30 200H150 M190 200H240 M150 200V270"/>
+        <path class="p" d="M50 45h80v34H50z M270 60h80v70h-80z M60 230h60"/>
+        <text x="80" y="140">LIVING · KITCHEN</text><text x="272" y="152">BEDROOM</text><text x="60" y="255">BATH</text><text x="180" y="245">HALL</text>
+      </svg>
+      <h3>One bedroom</h3>
+      <dl><div><dt>Area</dt><dd>42 m²</dd></div><div><dt>From</dt><dd>$138,000</dd></div></dl>
+      <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#visit">View it</a></div>
+    </article>
+    <article class="plan rv">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Two-bedroom layout sketch">
+        <rect class="z" x="130" y="30" width="140" height="170"/>
+        <path class="w" d="M20 30H380V270H20Z M130 30V150 M130 190V270 M270 30V150 M270 190V270 M20 150H130 M270 150H380 M130 200H200 M230 200H270"/>
+        <path class="p" d="M35 45h80v60H35z M285 45h80v60h-80z M150 45h100v30H150z"/>
+        <text x="30" y="200">BEDROOM</text><text x="290" y="200">BEDROOM</text><text x="152" y="130">LIVING</text><text x="150" y="245">HALL · BATH</text>
+      </svg>
+      <h3>Two bedrooms</h3>
+      <dl><div><dt>Area</dt><dd>64 m²</dd></div><div><dt>From</dt><dd>$205,000</dd></div></dl>
+      <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#visit">View it</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== NEIGHBOURHOOD (placeholders) ===== -->
+<section class="sec" id="area">
+  <div class="head rv">
+    <div><p class="eyebrow">Neighbourhood</p><h2>Everything<br><em>on foot</em></h2></div>
+    <p>A quiet street one block from the park. School, shops and the metro are close enough to leave the car at home.</p>
+  </div>
+  <div class="area">
+    <figure class="rv"><img src="frames/stills/window.webp" alt="Tall windows with sheer curtains and green trees outside" width="1120" height="840" loading="lazy"></figure>
+    <div class="rv">
+      <ul class="dist">
+        <li><b>Park and river walk</b><span>4 min walk</span></li>
+        <li><b>School and kindergarten</b><span>7 min walk</span></li>
+        <li><b>Metro station</b><span>9 min walk</span></li>
+        <li><b>Supermarket and pharmacy</b><span>on the ground floor</span></li>
+        <li><b>City centre</b><span>18 min by metro</span></li>
+      </ul>
+      <span class="tbd">Sample location</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MORTGAGE / INSTALMENTS ===== -->
+<section class="sec calc" id="calc">
+  <div class="head rv">
+    <div><p class="eyebrow">Mortgage or instalments</p><h2>What it costs<br><em>per month</em></h2></div>
+    <p>Pick a layout, a down payment and a term. The numbers update as you move the sliders.</p>
+  </div>
+  <div class="calc-box">
+    <form class="ctl rv" id="calc-form" onsubmit="return false">
+      <fieldset>
+        <legend>Apartment</legend>
+        <label class="chip"><input type="radio" name="apt" value="0"><span>Studio</span></label>
+        <label class="chip"><input type="radio" name="apt" value="1" checked><span>One bedroom</span></label>
+        <label class="chip"><input type="radio" name="apt" value="2"><span>Two bedrooms</span></label>
+      </fieldset>
+      <fieldset>
+        <legend>How to pay</legend>
+        <label class="chip"><input type="radio" name="mode" value="loan" checked><span>Mortgage</span></label>
+        <label class="chip"><input type="radio" name="mode" value="plan"><span>Instalments, 0%</span></label>
+      </fieldset>
+      <label><span class="top">Down payment <output id="o-down">20%</output></span><input type="range" name="down" min="10" max="90" step="5" value="20"></label>
+      <label id="l-years"><span class="top">Term <output id="o-years">20 years</output></span><input type="range" name="years" min="5" max="30" step="1" value="20"></label>
+      <label id="l-rate"><span class="top">Rate <output id="o-rate">6.5%</output></span><input type="range" name="rate" min="2" max="20" step="0.5" value="6.5"></label>
+    </form>
+    <div class="res rv" aria-live="polite">
+      <p class="eyebrow" id="r-title">Monthly payment</p>
+      <p class="big" id="r-pay">$0</p>
+      <p class="per" id="r-per">for 20 years</p>
+      <dl>
+        <div><dt>Price</dt><dd id="r-price">$0</dd></div>
+        <div><dt>Down payment</dt><dd id="r-down">$0</dd></div>
+        <div><dt>Loan</dt><dd id="r-loan">$0</dd></div>
+        <div><dt>Interest paid</dt><dd id="r-over">$0</dd></div>
+      </dl>
+      <p class="fine-print">An illustration, not an offer. Instalments run until the keys are handed over, 18 months at 0%, with at least 30% down.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VIEWING (concept: nothing is sent) ===== -->
+<section class="sec book" id="visit">
+  <div class="rv">
+    <p class="eyebrow">Viewing</p>
+    <h2>Come and<br><em>open the door</em></h2>
+    <p class="lead">The show apartment is open every day. Pick a day and a layout, and a manager will meet you at the entrance.</p>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+    </div>
+    <div class="f2">
+      <label>Date<input type="date" name="date" required></label>
+      <label>Time<select name="time"><option>10:00</option><option>12:00</option><option selected>14:00</option><option>16:00</option><option>18:00</option></select></label>
+    </div>
+    <fieldset>
+      <legend>Layout</legend>
+      <label class="chip"><input type="radio" name="layout" value="studio"><span>Studio</span></label>
+      <label class="chip"><input type="radio" name="layout" value="1br" checked><span>One bedroom</span></label>
+      <label class="chip"><input type="radio" name="layout" value="2br"><span>Two bedrooms</span></label>
+    </fieldset>
+    <div class="send"><button class="btn" type="submit">Book a viewing</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="bigmark" aria-hidden="true"><span class="logo">g.a.d.</span><span class="sub">residences</span></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. residences is a concept: layouts, prices, location and payment terms are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Frames come from the 24 fps source (see NOTES.md).
+  const SEG = [
+    [0.55, 0.40,   0,   0], // 0 opening hold: read the hero at the open door
+    [1.40, 1.00,   0,  44], // 1 through the doorway
+    [1.80, 1.30,  44, 104], // 2 the living room opens up
+    [1.60, 1.15, 104, 150], // 3 the windows, the light
+    [1.50, 1.10, 150, 191], // 4 towards the kitchen island
+    [0.80, 0.55, 191, 191], // 5 closing hold
+  ];
+  // tour meter: square metres walked at segment start/end and the room label
+  const AREA = [[0,0],[0,6],[6,30],[30,30],[30,42],[42,42]];
+  const ROOM = ['Entrance','Hallway','Living room','South-west windows','Kitchen','One bedroom · 42 m²'];
+  const FRAMES = 'frames/';
+  const N = 192, NET = 6, DEC = 3;
+  let WIN, MAXBMP;
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.meter .num'), lbl = $('.meter .lbl span'), barI = $('.bar i'), skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- mortgage / instalment calculator ----------
+  const LOCALE = 'en-US', CUR = 'USD';
+  const PRICES = [96000, 138000, 205000];
+  const PLAN_MONTHS = 18, PLAN_MIN_DOWN = 30;
+  const T = { years: n => n + ' years', per: n => 'for ' + n + ' years', plan: n => 'for ' + n + ' months, until the keys', loan: 'Monthly payment', inst: 'Monthly instalment' };
+  const money = v => new Intl.NumberFormat(LOCALE, { style: 'currency', currency: CUR, maximumFractionDigits: 0 }).format(Math.round(v));
+  // annuity payment: loan L, annual rate in %, n months
+  const annuity = (L, rate, n) => { const r = rate / 1200; return r ? L * r / (1 - Math.pow(1 + r, -n)) : L / n; };
+  window.__annuity = annuity;
+  const cf = $('#calc-form');
+  function calc() {
+    const el = cf.elements, plan = el.namedItem('mode').value === 'plan';
+    if (plan && +el.namedItem('down').value < PLAN_MIN_DOWN) el.namedItem('down').value = PLAN_MIN_DOWN;
+    const price = PRICES[+el.namedItem('apt').value], dp = +el.namedItem('down').value, years = +el.namedItem('years').value, rate = +el.namedItem('rate').value;
+    const down = price * dp / 100, L = price - down, n = plan ? PLAN_MONTHS : years * 12;
+    const pay = plan ? L / n : annuity(L, rate, n);
+    $('#o-down').textContent = dp + '%'; $('#o-years').textContent = T.years(years); $('#o-rate').textContent = rate.toLocaleString(LOCALE) + '%';
+    $('#l-years').hidden = $('#l-rate').hidden = plan;
+    $('#r-title').textContent = plan ? T.inst : T.loan;
+    $('#r-pay').textContent = money(pay); $('#r-per').textContent = plan ? T.plan(n) : T.per(years);
+    $('#r-price').textContent = money(price); $('#r-down').textContent = money(down); $('#r-loan').textContent = money(L);
+    $('#r-over').textContent = money(pay * n - L);
+  }
+  cf.addEventListener('input', calc); calc();
+
+  // ---------- viewing form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then requests are really sent
+  const form = $('#form'), status = $('#status');
+  form.elements.namedItem('date').min = new Date().toISOString().slice(0, 10);
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements;
+    if (!el.namedItem('name').value.trim() || el.namedItem('phone').value.replace(/\D/g, '').length < 6 || !el.namedItem('date').value) { status.textContent = 'Add your name, a phone number and a date.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no sales inbox. On a live site this request goes straight to the sales office.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Booked. We’ll call to confirm the time.' : 'The request didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 22 : 12; MAXBMP = mob ? 56 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      const base = el.classList.contains('l') && !mob ? 'translateY(-50%) ' : '';
+      el.style.transform = base + `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s, p] = at(v), c = AREA[s], m2 = Math.round(c[0] + (c[1] - c[0]) * p);
+    if (num.firstChild.nodeValue !== String(m2)) num.firstChild.nodeValue = m2;
+    if (lbl.textContent !== ROOM[s]) lbl.textContent = ROOM[s];
+    barI.style.transform = `scaleX(${v / TOTAL})`;
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get acc() { return acc; }, get top0() { return top0; }, get vh() { return vh; }, seg: SEG, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>

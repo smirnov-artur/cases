@@ -1,0 +1,33 @@
+{
+ "count": 288,
+ "fps": 24,
+ "quality": 90,
+ "pattern": "{set}/{i:04d}.webp",
+ "source_frames": [
+  0,
+  360
+ ],
+ "dropped": [
+  [
+   118,
+   125
+  ],
+  [
+   202,
+   266
+  ]
+ ],
+ "desktop": {
+  "dir": "d",
+  "w": 1920,
+  "h": 1080,
+  "bytes": 44433602
+ },
+ "mobile": {
+  "dir": "m",
+  "w": 606,
+  "h": 1080,
+  "bytes": 19635316
+ },
+ "source": "src/source.mp4 (1920x1080, 24 fps, 15.07 s, HEVC 10-bit 13.4 Mbit/s)"
+}

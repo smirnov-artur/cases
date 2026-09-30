@@ -1,0 +1,31 @@
+{
+ "count": 329,
+ "fps": 24,
+ "quality": 90,
+ "pattern": "{set}/{i:04d}.webp",
+ "box": [
+  0,
+  180
+ ],
+ "dissolve": [
+  181,
+  192
+ ],
+ "flacon": [
+  193,
+  328
+ ],
+ "desktop": {
+  "dir": "d",
+  "w": 1920,
+  "h": 1080,
+  "bytes": 15041044
+ },
+ "mobile": {
+  "dir": "m",
+  "w": 606,
+  "h": 1080,
+  "bytes": 7305234
+ },
+ "source": "src/box.mp4 + src/flacon.mp4 (1920x1080, 24 fps, 8.04 s each, H.264 ~6 Mbit/s)"
+}

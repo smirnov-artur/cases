@@ -1,0 +1,18 @@
+{
+ "count": 255,
+ "fps": 24,
+ "quality": 90,
+ "w": 1080,
+ "h": 1920,
+ "skip": [
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "bytes": 24400996,
+ "pattern": "v/{i:04d}.webp",
+ "source": "src/source.mp4 (2160x3840, 24 fps, 10.6 s)"
+}

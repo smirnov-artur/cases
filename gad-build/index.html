@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. build — from one line to your keys</title>
+<meta name="description" content="g.a.d. build designs and builds houses under one contract: project, foundation, walls, roof and finishing, with a fixed price per stage. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0F1E3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500&family=Manrope:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --navy:#0F1E3A; --navy2:#152747; --paper:#EDEAE4; --concrete:#D9D5CD; --ink:#101521; --steel:#9DAAC0; --white:#F4F6FA;
+  --lime:#D6FF3F; --line:rgba(244,246,250,.14); --line-d:rgba(16,21,33,.14);
+  --head:"Unbounded", "Arial", sans-serif; --sans:"Manrope", system-ui, sans-serif; --mono:"IBM Plex Mono", ui-monospace, monospace;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--navy);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--navy);color:var(--white);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+h1,h2,h3{font-family:var(--head);font-weight:400;letter-spacing:-.02em;line-height:1}
+h1 em,h2 em{font-style:normal;color:var(--lime)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:4px;
+  background:var(--lime);color:var(--ink);font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:background .25s, transform .25s}
+.btn:hover{background:#E4FF7A;transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--lime)}
+/* logo g.a.d.: Unbounded 500, lime #D6FF3F — the owner's mark, as in video/brend/LOGO-g.a.d.png */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;letter-spacing:0;text-transform:none;color:var(--lime)}
+.grid-bg{background-color:var(--navy);background-image:linear-gradient(rgba(157,170,192,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(157,170,192,.07) 1px,transparent 1px);background-size:40px 40px}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(15,30,58,.9);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:21px;line-height:1}
+.brand .sub{font:400 19px/1 var(--head);color:var(--white)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(244,246,250,.72);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--white)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:500 12px/1 var(--mono);letter-spacing:.1em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--white)}.lang a{color:rgba(244,246,250,.45);transition:color .25s}.lang a:hover{color:var(--lime)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--white);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(15,30,58,.94);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--white);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:400 30px/1.1 var(--head);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1270vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--navy);isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, rgba(15,30,58,.92) 0, rgba(15,30,58,.45) 11%, transparent 24%),
+             linear-gradient(to bottom, rgba(15,30,58,.45), transparent 16%)}
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:500px}
+.ch h2{font-size:clamp(38px,3.9vw,68px);margin:16px 0 18px}
+.ch p{max-width:36ch;color:rgba(244,246,250,.86)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center;color:var(--lime)}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--lime)}
+.ch::before{content:"";position:absolute;inset:-130px -190px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(12,24,48,.9) 40%,rgba(12,24,48,.6) 68%,rgba(12,24,48,0))}
+.l{left:var(--pad);top:50%;transform:translateY(-50%)}
+.tl{left:var(--pad);top:calc(var(--hdr) + 8vh)}
+.r{right:var(--pad);top:28%}
+.bl{left:var(--pad);bottom:15vh}
+.spec{display:flex;gap:28px;margin-top:22px;font:400 12px/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+.spec b{display:block;font:400 26px/1.1 var(--head);letter-spacing:-.01em;color:var(--white);text-transform:none}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:13vh;max-width:min(760px,56vw);pointer-events:none}
+.ch-hero::before{inset:-160px -220px -120px -160px}
+.ch-hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.ch-hero .kicker .logo{font-size:20px}
+.ch-hero .kicker .sub{font:400 20px/1 var(--head)}
+.ch-hero h1{font-size:clamp(52px,6.2vw,112px);line-height:.98}
+.ch-hero p{max-width:38ch;margin:24px 0 28px;font-size:18px;color:rgba(244,246,250,.9)}
+.ch-hero .row,.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+.ch-end .row{margin-top:26px}
+.ch-end{bottom:11vh}
+.ch-end::before{inset:-90px -150px}
+
+/* the build clock — the signature: construction days count up with the scroll */
+.meter{position:absolute;z-index:4;left:var(--pad);bottom:34px;pointer-events:none;display:flex;align-items:baseline;gap:16px;font-family:var(--mono)}
+.meter .num{font:500 clamp(30px,2.6vw,44px)/1 var(--mono);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.meter .lbl{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--steel);display:flex;align-items:center;gap:8px}
+.meter .lbl i{width:8px;height:8px;background:var(--lime)}
+.ticks{display:flex;gap:5px;align-self:center;margin-left:6px}
+.ticks i{width:22px;height:4px;background:rgba(244,246,250,.18);transition:background .3s}
+.ticks i.on{background:var(--lime)}
+.bar{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;background:rgba(244,246,250,.08)}
+.bar i{display:block;height:100%;background:var(--lime);transform-origin:left;transform:scaleX(0)}
+.skip{position:absolute;z-index:5;left:50%;bottom:28px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(244,246,250,.72);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--white)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--lime),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the site below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(40px,4.6vw,84px);margin-top:16px}
+.head>p{max-width:42ch;color:rgba(244,246,250,.76);justify-self:end}
+.tbd{display:inline-block;font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel);border:1px dashed rgba(157,170,192,.5);padding:7px 10px}
+.light{background:var(--paper);color:var(--ink)}
+.light .head>p,.light p{color:#3D4352}
+.light .eyebrow{color:#4C5B00}
+.light h2 em{color:var(--ink);background:linear-gradient(transparent 62%,var(--lime) 62%)}
+.light .tbd{color:#5B6272;border-color:rgba(16,21,33,.3)}
+
+/* house projects */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.card{background:#fff;border:1px solid var(--line-d);display:flex;flex-direction:column}
+.card figure{aspect-ratio:4/3;overflow:hidden;background:var(--navy)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{transform:scale(1.04)}
+.card .body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.card .code{font:500 11px/1 var(--mono);letter-spacing:.14em;color:#5B6272}
+.card h3{font-size:clamp(24px,2vw,32px);margin:10px 0 6px;color:var(--ink)}
+.card dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 22px;padding-top:18px;border-top:1px solid var(--line-d)}
+.card dt{font:500 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#6A7080;margin-bottom:8px}
+.card dd{font:400 19px/1.1 var(--head);color:var(--ink)}
+.card .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.card .link{border-color:var(--line-d)}
+
+/* how we work */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
+.step{padding:30px 24px 10px 0;border-right:1px solid var(--line)}
+.step+.step{padding-left:24px}.step:last-child{border-right:0}
+.step .n{font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--lime)}
+.step h3{font-size:clamp(20px,1.7vw,28px);margin:16px 0 12px}
+.step p{color:rgba(244,246,250,.72);font-size:15px}
+.step .t{display:block;margin-top:16px;font:400 12px/1.4 var(--mono);color:var(--steel);letter-spacing:.06em}
+.pay{margin-top:clamp(40px,6vh,72px);display:flex;gap:18px 40px;flex-wrap:wrap;align-items:center;padding:22px 26px;border:1px solid var(--line);background:rgba(21,39,71,.6)}
+.pay b{font:400 20px/1.2 var(--head)}
+.pay span{color:rgba(244,246,250,.72);font-size:15px;max-width:60ch}
+
+/* warranty */
+.war{display:grid;grid-template-columns:6fr 5fr;gap:clamp(28px,5vw,90px);align-items:start}
+.war figure{overflow:hidden;aspect-ratio:4/3;background:var(--navy)}
+.war img{width:100%;height:100%;object-fit:cover}
+.years{list-style:none;border-top:1px solid var(--line-d)}
+.years li{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line-d)}
+.years b{font:400 clamp(34px,3vw,48px)/1 var(--head);min-width:3.2ch}
+.years span{color:#3D4352}
+.war .tbd{margin-top:18px}
+
+/* forms */
+.book{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start}
+.book h2{font-size:clamp(42px,4.6vw,84px);margin:16px 0 22px}
+.book .lead{color:rgba(244,246,250,.8);max-width:36ch}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+form label{display:grid;gap:10px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel)}
+input[type=text],input[type=tel],select,textarea{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(244,246,250,.3);color:var(--white);font:400 18px/1.3 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0}
+textarea{height:96px;padding-top:14px;resize:vertical}
+select option{background:var(--navy)}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--lime)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid rgba(244,246,250,.24);font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--white);transition:.25s}
+.chip input:checked+span{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.chip input:focus-visible+span{outline:2px solid var(--lime);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--steel);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--lime)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.bigmark{display:flex;align-items:baseline;gap:.3em;white-space:nowrap;line-height:.9;margin-left:-.04em}
+.bigmark .logo{font-size:clamp(60px,15vw,260px)}
+.bigmark .sub{font:400 clamp(36px,7vw,130px)/1 var(--head);color:var(--white)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--steel)}
+.credit strong{color:var(--white);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--white)}
+.credit a:hover{color:var(--lime)}
+.fine{margin-top:14px;font-size:12px;color:var(--steel)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .meter,.static .bar,.static .ticks{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 72vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--navy) 100svh)}
+
+/* ---------- mobile: portrait frames, copy at the bottom ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn,.brand .sub,.ticks{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:19px}
+  .ch{max-width:none}
+  .ch h2{font-size:34px;margin:10px 0 0}
+  .ch p.more,.ch .spec,.ch-hero p,.ch-hero .link,.ch-end .link{display:none}
+  .l,.r,.tl,.bl{left:var(--pad);right:var(--pad);top:auto;bottom:calc(92px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-70px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(84px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:14px}
+  .ch-hero h1{font-size:11.2vw}
+  .ch-hero .row{margin-top:22px}
+  .ch-end .row{margin-top:18px}
+  .meter{bottom:calc(22px + env(safe-area-inset-bottom));gap:10px}
+  .meter .num{font-size:26px}.meter .lbl{font-size:10px}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.14em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .cards::-webkit-scrollbar{display:none}
+  .card{flex:0 0 84%;scroll-snap-align:start}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step{padding:24px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .war,.book,.f2{grid-template-columns:1fr}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 66vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:70vw}
+  .cards{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step,.step+.step{padding:24px 20px 24px 0;border-right:0;border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. build, back to top"><span class="logo">g.a.d.</span><span class="sub">build</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#projects">House projects</a><a href="#how">How we work</a><a href="#warranty">Warranty</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#quote">Get an estimate</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#projects">House projects</a><a href="#how">How we work</a><a href="#warranty">Warranty</a><a href="#quote">Estimate</a>
+  </nav>
+  <a class="btn" href="#quote">Get an estimate</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="The story: a blueprint turns into a finished building">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="A blank blue blueprint sheet where the first lime line of a floor plan is being drawn" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span class="sub">build</span></div>
+      <h1>From one line<br><em>to your keys</em></h1>
+      <p>We design and build houses under one contract: drawings, foundation, walls, roof and finishing, with a fixed price for every stage.</p>
+      <div class="row"><a class="btn" href="#quote">Get an estimate</a><a class="link" href="#projects">See house projects</a></div>
+    </div>
+
+    <div class="ch bl" data-seg="2">
+      <p class="eyebrow">01 · Project</p>
+      <h2>The drawing<br><em>comes first</em></h2>
+      <p class="more">Architecture, structure and engineering on paper before anyone digs. You sign off every sheet, and the estimate is fixed against it.</p>
+    </div>
+
+    <div class="ch bl" data-seg="4">
+      <p class="eyebrow">02 · Foundation</p>
+      <h2>Set out<br><em>to the millimetre</em></h2>
+      <p class="more">Surveyors mark the plan on the ground, the slab is poured on a tested base. The frame goes up only after the concrete has cured.</p>
+    </div>
+
+    <div class="ch l" data-seg="5">
+      <p class="eyebrow">03 · Walls</p>
+      <h2>Floor<br><em>by floor</em></h2>
+      <p class="more">Walls, slabs and openings follow the drawing exactly. Every floor is checked against it before the next one starts.</p>
+      <div class="spec"><span><b>3.1 m</b>Ceilings</span><span><b>1 site</b>One foreman</span></div>
+    </div>
+
+    <div class="ch bl" data-seg="6">
+      <p class="eyebrow">04 · Roof</p>
+      <h2>Closed<br><em>before winter</em></h2>
+      <p class="more">Roof, windows and engineering close the building in, so the inside can be finished in any weather.</p>
+    </div>
+
+    <div class="ch tl" data-seg="7">
+      <p class="eyebrow">05 · Finishing</p>
+      <h2>Terraces,<br><em>glass, oak</em></h2>
+      <p class="more">Facade, glazing, planted terraces and interiors are finished by the same team that poured the slab.</p>
+    </div>
+
+    <div class="ch bl ch-end" data-seg="8-9" data-delay="0.35">
+      <p class="eyebrow">Keys</p>
+      <h2>Keys<br><em>in your hand</em></h2>
+      <div class="row"><a class="btn" href="#quote">Get an estimate</a><a class="link" href="#how">How we work</a></div>
+    </div>
+
+    <div class="meter" aria-hidden="true"><div class="num">DAY 000</div><div class="lbl"><i></i><span>Drawing</span></div><div class="ticks"><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <a class="skip" href="#projects"><span>Skip the build</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== HOUSE PROJECTS ===== -->
+<section class="sec light" id="projects">
+  <div class="head rv">
+    <div><p class="eyebrow">House projects</p><h2>Three houses<br><em>ready to build</em></h2></div>
+    <p>Each project comes with drawings, an estimate and a schedule. Adapt it to your plot or start from a blank sheet.</p>
+  </div>
+  <div class="cards">
+    <article class="card rv">
+      <figure><img src="frames/stills/plan.webp" alt="Blue blueprint floor plan with lime corner marks and dimensions" width="1100" height="825" loading="lazy"></figure>
+      <div class="body"><span class="code">PROJECT 01</span><h3>Courtyard 98</h3><p>Single storey around a small courtyard. Two bedrooms, open kitchen-living room.</p>
+        <dl><div><dt>Area</dt><dd>98 m²</dd></div><div><dt>Build</dt><dd>5 mo</dd></div><div><dt>From</dt><dd>$118k</dd></div></dl>
+        <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#quote">Estimate this</a></div></div>
+    </article>
+    <article class="card rv">
+      <figure><img src="frames/stills/facade.webp" alt="Facade with planted terraces behind lime railings and large windows" width="1100" height="825" loading="lazy"></figure>
+      <div class="body"><span class="code">PROJECT 02</span><h3>Forest 146</h3><p>Two storeys, a planted terrace on each floor, three bedrooms and a study.</p>
+        <dl><div><dt>Area</dt><dd>146 m²</dd></div><div><dt>Build</dt><dd>7 mo</dd></div><div><dt>From</dt><dd>$185k</dd></div></dl>
+        <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#quote">Estimate this</a></div></div>
+    </article>
+    <article class="card rv">
+      <figure><img src="frames/stills/top.webp" alt="Top view where the drawing turns into a finished floor with rooms and furniture" width="1100" height="825" loading="lazy"></figure>
+      <div class="body"><span class="code">PROJECT 03</span><h3>Terrace 210</h3><p>Two storeys plus a roof terrace, four bedrooms, a double-height living room.</p>
+        <dl><div><dt>Area</dt><dd>210 m²</dd></div><div><dt>Build</dt><dd>9 mo</dd></div><div><dt>From</dt><dd>$262k</dd></div></dl>
+        <div class="foot"><span class="tbd">Concept price</span><a class="link" href="#quote">Estimate this</a></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== HOW WE WORK ===== -->
+<section class="sec grid-bg" id="how">
+  <div class="head rv">
+    <div><p class="eyebrow">How we work</p><h2>Five stages,<br><em>one contract</em></h2></div>
+    <p>Each stage has its own price, its own deadline and its own acceptance. You see the house on site and in weekly photo reports.</p>
+  </div>
+  <div class="steps">
+    <div class="step rv"><span class="n">01</span><h3>Project</h3><p>Architecture, structure, engineering and a fixed estimate.</p><span class="t">4–6 weeks</span></div>
+    <div class="step rv"><span class="n">02</span><h3>Foundation</h3><p>Survey, set-out, slab on a tested base.</p><span class="t">3–4 weeks</span></div>
+    <div class="step rv"><span class="n">03</span><h3>Walls</h3><p>Walls, slabs and openings, floor by floor.</p><span class="t">6–12 weeks</span></div>
+    <div class="step rv"><span class="n">04</span><h3>Roof</h3><p>Roof, windows and engineering close the contour.</p><span class="t">3–5 weeks</span></div>
+    <div class="step rv"><span class="n">05</span><h3>Finishing</h3><p>Facade, interiors, terraces, then the keys.</p><span class="t">8–14 weeks</span></div>
+  </div>
+  <div class="pay rv"><b>Pay per stage</b><span>You pay for a stage after you accept it on site. No lump sum up front, no surprise extras outside the signed estimate.</span></div>
+</section>
+
+<!-- ===== WARRANTY ===== -->
+<section class="sec light" id="warranty">
+  <div class="head rv">
+    <div><p class="eyebrow">Warranty</p><h2>Written down,<br><em>for years</em></h2></div>
+    <p>The warranty is part of the contract, per element of the house, starting on the day you get the keys.</p>
+  </div>
+  <div class="war">
+    <figure class="rv"><img src="frames/stills/tower.webp" alt="The finished building at sunset above a misty green neighbourhood" width="1100" height="825" loading="lazy"></figure>
+    <div class="rv">
+      <ul class="years">
+        <li><b>10</b><span>years on the structure: foundation, walls and slabs</span></li>
+        <li><b>5</b><span>years on the roof and waterproofing</span></li>
+        <li><b>3</b><span>years on windows and engineering</span></li>
+        <li><b>2</b><span>years on interior finishing</span></li>
+      </ul>
+      <span class="tbd">Concept terms</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ESTIMATE REQUEST (concept: nothing is sent) ===== -->
+<section class="sec book grid-bg" id="quote">
+  <div class="rv">
+    <p class="eyebrow">Estimate</p>
+    <h2>Send us<br><em>your plot</em></h2>
+    <p class="lead">Tell us where you want to build and how big. An engineer comes back with a first estimate and a timeline.</p>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Phone<input type="tel" name="phone" autocomplete="tel" required></label>
+    </div>
+    <div class="f2">
+      <label>Where to build<input type="text" name="place" autocomplete="address-level2" required></label>
+      <label>House size<select name="size"><option>up to 100 m²</option><option selected>100–150 m²</option><option>150–250 m²</option><option>250 m² and more</option></select></label>
+    </div>
+    <fieldset>
+      <legend>What you have</legend>
+      <label class="chip"><input type="radio" name="have" value="plot" checked><span>A plot</span></label>
+      <label class="chip"><input type="radio" name="have" value="project"><span>A plot and a project</span></label>
+      <label class="chip"><input type="radio" name="have" value="none"><span>Nothing yet</span></label>
+    </fieldset>
+    <label>Anything else<textarea name="note" rows="3"></textarea></label>
+    <div class="send"><button class="btn" type="submit">Get an estimate</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="bigmark" aria-hidden="true"><span class="logo">g.a.d.</span><span class="sub">build</span></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. build is a concept: projects, prices, timelines and warranty terms are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Frames come from the 24 fps source, 0..316 (see NOTES.md).
+  const SEG = [
+    [0.50, 0.35,   0,   0], // 0 opening hold: an empty sheet
+    [1.00, 0.75,   0,  30], // 1 the plan draws itself
+    [1.20, 0.90,  30,  62], // 2 01 project: the plan and the g.a.d. stamp
+    [0.90, 0.65,  62,  80], // 3 transition: the sheet tilts and becomes the ground (no copy)
+    [1.30, 0.95,  80, 112], // 4 02 foundation: the wireframe rises
+    [1.60, 1.15, 112, 165], // 5 03 walls: floor by floor, into the sky
+    [1.50, 1.10, 165, 215], // 6 04 roof: from above, into the top floor
+    [1.50, 1.10, 215, 268], // 7 05 finishing: terraces and glass
+    [1.40, 1.00, 268, 316], // 8 keys: the tower at sunset, g.a.d. build
+    [0.80, 0.55, 316, 316], // 9 closing hold
+  ];
+  // build clock: construction day at segment start/end, stage label, how many stage ticks are lit
+  const DAYS = [[0,0],[0,14],[14,30],[30,36],[36,60],[60,150],[150,185],[185,235],[235,240],[240,240]];
+  const STAGE = ['Drawing','Drawing','Project signed off','Set-out','Foundation','Walls','Roof','Finishing','Keys handed over','Keys handed over'];
+  const TICK = [0,0,1,1,2,3,4,5,5,5];
+  const DAY = 'DAY ';
+  const FRAMES = 'frames/';
+  const N = 317, NET = 6, DEC = 3;
+  let WIN, MAXBMP;
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.meter .num'), lbl = $('.meter .lbl span'), ticks = [...document.querySelectorAll('.ticks i')], barI = $('.bar i'), skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- estimate form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then requests are really sent
+  const form = $('#form'), status = $('#status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements;
+    if (!el.namedItem('name').value.trim() || el.namedItem('phone').value.replace(/\D/g, '').length < 6 || !el.namedItem('place').value.trim()) { status.textContent = 'Add your name, a phone number and where you want to build.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no estimates inbox. On a live site this request goes straight to an engineer.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Sent. An engineer will call you back.' : 'The request didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 22 : 12; MAXBMP = mob ? 56 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      const base = el.classList.contains('l') && !mob ? 'translateY(-50%) ' : '';
+      el.style.transform = base + `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s, p] = at(v), c = DAYS[s], d = Math.round(c[0] + (c[1] - c[0]) * p);
+    const txt = DAY + String(d).padStart(3, '0');
+    if (num.textContent !== txt) num.textContent = txt;
+    if (lbl.textContent !== STAGE[s]) lbl.textContent = STAGE[s];
+    ticks.forEach((t, k) => t.classList.toggle('on', k < TICK[s]));
+    barI.style.transform = `scaleX(${v / TOTAL})`;
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get acc() { return acc; }, get top0() { return top0; }, get vh() { return vh; }, seg: SEG, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>
