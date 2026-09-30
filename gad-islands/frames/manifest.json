@@ -1,0 +1,26 @@
+{
+ "count": 452,
+ "fps": 30,
+ "quality": 90,
+ "pattern": "{set}/{i:04d}.webp",
+ "cuts": [
+  71,
+  133,
+  198,
+  326,
+  388
+ ],
+ "desktop": {
+  "dir": "d",
+  "w": 1920,
+  "h": 1080,
+  "bytes": 71410114
+ },
+ "mobile": {
+  "dir": "m",
+  "w": 810,
+  "h": 1440,
+  "bytes": 37104336
+ },
+ "source": "src/source.mp4 (3840x2160, 60 fps, 15.05 s, 26 Mbit/s, six shots), every 2nd frame, window 3520x1980+160+180"
+}

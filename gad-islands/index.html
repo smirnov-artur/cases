@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. islands — seven days off the map</title>
+<meta name="description" content="g.a.d. islands: seven-night tours to small islands in the Indian Ocean. A villa over the lagoon, an empty beach and sunsets like clockwork. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#06141B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500&text=g.ad&display=block" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --ink:#06141B; --deep:#0C2330; --foam:#EEF6F4; --mist:#A9C3C4; --lagoon:#7FE3D6; --sun:#F4A36C; --lime:#D6FF3F;
+  --line:rgba(238,246,244,.14);
+  --serif:"Spectral", Georgia, serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--foam);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.eyebrow{font:500 12px/1.4 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--lagoon)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:.98}
+h1 em,h2 em{font-style:italic;font-weight:500;color:var(--lagoon)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--lime);color:#0A0A0C;font:800 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s, box-shadow .25s}
+.btn:hover{background:#E4FF74;transform:translateY(-1px);box-shadow:0 0 28px rgba(214,255,63,.35)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--lagoon)}
+/* logo g.a.d.: Unbounded, lime #D6FF3F — the owner's mark, as in video/brend/LOGO-g.a.d.png */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--lime)}
+.ring{display:inline-grid;place-items:center;width:1em;height:1em;border-radius:50%;background:#0A0A0C;border:.035em solid var(--lime)}
+.ring .logo{font-size:.24em}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(6,20,27,.46);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:10px;text-decoration:none;min-height:44px;align-items:center}
+.brand .logo{font-size:22px;line-height:1}
+.brand .word{font:italic 500 24px/1 var(--serif);color:var(--foam)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(238,246,244,.74);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--foam)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:500 12px/1 var(--mono);letter-spacing:.1em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--foam)}.lang a{color:rgba(238,246,244,.45);transition:color .25s}.lang a:hover{color:var(--lime)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--foam);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(6,20,27,.9);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--foam);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:600 40px/1.05 var(--serif);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1300vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--ink) 0, rgba(6,20,27,.5) 12%, transparent 30%),
+             linear-gradient(to bottom, rgba(6,20,27,.45), transparent 20%)}
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:560px}
+.ch h2{font-size:clamp(46px,5.2vw,92px);margin:14px 0 18px}
+.ch p{max-width:36ch;color:rgba(238,246,244,.9)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--lagoon)}
+.ch::before{content:"";position:absolute;inset:-80px -120px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(4,14,20,.62),transparent)}
+.l{left:var(--pad);top:50%;transform:translateY(-50%)}
+.tl{left:var(--pad);top:calc(var(--hdr) + 9vh)}
+.r{right:var(--pad);top:26%}
+.bl{left:var(--pad);bottom:19vh}
+.br{right:var(--pad);bottom:12vh}
+.ch.dim::before{inset:-110px -150px;background:radial-gradient(closest-side,rgba(4,14,20,.8),rgba(4,14,20,.4) 60%,transparent)}
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:15vh;max-width:min(820px,60vw);pointer-events:none}
+.ch-hero::before{inset:-140px -160px -120px -140px;background:radial-gradient(closest-side,rgba(4,14,20,.7),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ch-hero .kicker .logo{font-size:20px}
+.ch-hero .kicker .word{font:italic 500 28px/1 var(--serif)}
+.ch-hero h1{font-size:clamp(64px,8vw,156px);line-height:.9}
+.ch-hero p{max-width:36ch;margin:22px 0 26px;font-size:18px;color:rgba(238,246,244,.92)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+.ch-end h2{font-size:clamp(44px,4.4vw,84px)}
+.ch-end .facts{display:flex;gap:30px;margin:6px 0 28px;font:500 13px/1.5 var(--sans);color:var(--mist)}
+.ch-end .facts b{display:block;font:600 30px/1.1 var(--serif);color:var(--foam)}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+/* island clock — the signature: day of the trip and local time move with the story */
+.alt{position:absolute;z-index:4;left:var(--pad);bottom:34px;pointer-events:none;display:flex;align-items:baseline;gap:16px}
+.alt .num{font:500 clamp(28px,2.6vw,44px)/1 var(--mono);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.alt .lbl{font:500 11px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mist);display:flex;align-items:center;gap:8px}
+.alt .lbl i{flex:none;width:8px;height:8px;border-radius:50%;background:var(--sun);box-shadow:0 0 12px var(--sun)}
+.days{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;display:grid;grid-template-columns:repeat(7,1fr);gap:3px;pointer-events:none}
+.days i{background:rgba(238,246,244,.14);position:relative;overflow:hidden}
+.days i::after{content:"";position:absolute;inset:0;background:var(--lagoon);transform-origin:left;transform:scaleX(var(--k,0))}
+.skip{position:absolute;z-index:5;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(238,246,244,.74);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--foam)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--lagoon),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(50px,6vw,112px);margin-top:14px}
+.head>p{max-width:42ch;color:rgba(238,246,244,.78);justify-self:end}
+.tours{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.4vw,40px)}
+.tour{display:flex;flex-direction:column}
+.tour figure{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--deep);border-radius:6px}
+.tour img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tour:hover img{transform:scale(1.04)}
+.tour figcaption{position:absolute;left:14px;top:14px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;background:rgba(6,20,27,.72);padding:8px 10px;border-radius:4px}
+.tour h3{font-size:clamp(32px,2.8vw,46px);margin:22px 0 10px}
+.tour .when{font:500 12px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lagoon)}
+.tour p{color:rgba(238,246,244,.74);font-size:15px;margin-top:10px;max-width:38ch}
+.tour .price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:20px;border-top:1px solid var(--line)}
+.tour .price b{font:600 34px/1 var(--serif)}
+.tour .price small{font-size:13px;color:var(--mist)}
+.tour .top{margin-bottom:20px}
+.tag{display:inline-block;font:500 10px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--sun);border-radius:99px;padding:6px 9px}
+.fine-print{margin-top:26px;font-size:13px;color:var(--mist)}
+
+.inc{background:linear-gradient(var(--ink),var(--deep) 25%,var(--deep) 75%,var(--ink))}
+.wide{display:grid;grid-template-columns:6fr 6fr;gap:clamp(28px,4vw,72px);align-items:start}
+.wide figure{overflow:hidden;aspect-ratio:16/10;border-radius:6px}
+.wide img{width:100%;height:100%;object-fit:cover}
+.wide figcaption{margin-top:12px;font-size:13px;color:var(--mist)}
+.list{list-style:none;border-top:1px solid var(--line)}
+.list li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+.list li::before{content:"";width:12px;height:12px;margin-top:8px;border-radius:50%;border:2px solid var(--lagoon)}
+.list b{display:block;font-weight:700}
+.list span{font-size:15px;color:rgba(238,246,244,.7)}
+.not{margin-top:22px;font-size:14px;color:var(--mist)}
+.not b{color:var(--foam);font-weight:500}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.step{padding:34px 28px 10px 0;border-right:1px solid var(--line)}
+.step+.step{padding-left:28px}.step:last-child{border-right:0}
+.step .n{font:500 14px/1 var(--mono);color:var(--lagoon)}
+.step h3{font-size:clamp(26px,2.1vw,34px);margin:14px 0 12px}
+.step p{color:rgba(238,246,244,.72);max-width:32ch;font-size:15px}
+
+.book{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(127,227,214,.08), transparent 70%)}
+.book h2{font-size:clamp(50px,5.6vw,100px);margin:14px 0 22px}
+.book .lead{color:rgba(238,246,244,.8);max-width:36ch}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.f3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px}
+label{display:grid;gap:10px;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+input[type=text],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(238,246,244,.3);color:var(--foam);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0;color-scheme:dark}
+select option{background:var(--ink)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--lime)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--foam);transition:.25s}
+.chip input:checked+span{background:var(--foam);color:var(--ink);border-color:var(--foam)}
+.chip input:focus-visible+span{outline:2px solid var(--lime);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--mist);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--lime)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:center;gap:.22em;white-space:nowrap;line-height:.9}
+.big .logo{font-size:clamp(64px,16vw,280px)}
+.big .ring{font-size:clamp(56px,11vw,200px);flex:none}
+.big .ring .logo{font-size:.24em}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--mist)}
+.credit strong{color:var(--foam);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--foam)}
+.credit a:hover{color:var(--lime)}
+.fine{margin-top:14px;font-size:12px;color:rgba(169,195,196,.8)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .alt,.static .days{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 70vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--ink) 100svh)}
+
+/* ---------- mobile: its own composition, portrait frames ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn{display:none}
+  .brand .word{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:20px}
+  .ch{max-width:none}
+  .ch h2{font-size:42px;margin:10px 0 0}
+  .ch p.more,.ch-hero p,.ch-hero .link,.ch-end .facts,.ch-end .link{display:none}
+  .l,.r,.bl,.tl,.br{left:var(--pad);right:var(--pad);top:auto;bottom:calc(92px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(88px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:12px}
+  .ch-hero h1{font-size:17vw}
+  .ch-hero .row{margin-top:20px}
+  .ch-end h2{font-size:42px;margin:10px 0 20px}
+  .alt{bottom:calc(22px + env(safe-area-inset-bottom));gap:10px;right:var(--pad)}
+  .alt .num{font-size:24px}.alt .lbl{font-size:10px;letter-spacing:.12em}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .tours{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .tours::-webkit-scrollbar{display:none}
+  .tour{flex:0 0 84%;scroll-snap-align:start}
+  .steps{grid-template-columns:1fr}
+  .step,.step+.step{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .wide,.book{grid-template-columns:1fr}
+  .f2,.f3{grid-template-columns:1fr}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:72vw}
+  .tours{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}.step:nth-child(3){padding-left:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. islands, back to top"><span class="logo">g.a.d.</span><span class="word">islands</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#tours">Tours</a><a href="#included">What's included</a><a href="#how">How we book</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#request">Find my tour</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#tours">Tours</a><a href="#included">What's included</a><a href="#how">How we book</a><a href="#request">Find my tour</a>
+  </nav>
+  <a class="btn" href="#request">Find my tour</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="The story: seven days on the island, from the sunrise landing to the last evening">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="An island from above at sunrise: a lagoon, a villa on a pier and palms along the beach" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span class="word">islands</span></div>
+      <h1>Seven days<br><em>off the map</em></h1>
+      <p>Island tours in the Indian Ocean: a villa over the lagoon, a beach with nobody on it, sunsets like clockwork. Scroll down, day one starts at sunrise.</p>
+      <div class="row"><a class="btn" href="#request">Find my tour</a><a class="link" href="#tours">See the tours</a></div>
+    </div>
+
+    <div class="ch tl dim" data-seg="2">
+      <p class="eyebrow">Day 1 · Check-in</p>
+      <h2>Forty steps<br><em>to the lagoon</em></h2>
+      <p class="more">Seaplane at dawn, keys by nine. The villa stands on the sand and the boardwalk ends in the water.</p>
+    </div>
+
+    <div class="ch tl dim" data-seg="3-5">
+      <p class="eyebrow">Day 2 · Nothing planned</p>
+      <h2>The whole plan:<br><em>a cold coconut</em></h2>
+      <p class="more">Shade, a lounger and a lagoon at 29 °C. Everything else is booked, so you don't have to think.</p>
+    </div>
+
+    <div class="ch l dim" data-seg="6">
+      <p class="eyebrow">Day 4 · The long beach</p>
+      <h2>Two kilometres<br><em>of empty sand</em></h2>
+      <p class="more">Walk it barefoot at low tide. The island takes forty guests, so the beach stays yours.</p>
+    </div>
+
+    <div class="ch r dim" data-seg="7-9">
+      <p class="eyebrow">Day 6 · Sunset</p>
+      <h2>Same swing,<br><em>every sunset</em></h2>
+      <p class="more">The sun goes down at 18:04. The coconuts arrive at six sharp.</p>
+    </div>
+
+    <div class="ch br ch-end dim" data-seg="10-11" data-delay="0.3">
+      <p class="eyebrow">Day 7 · The last evening</p>
+      <h2>Leaving is<br>the hard part.<br><em>Where next?</em></h2>
+      <div class="facts"><span><b>7 nights</b>Villa, flights, transfers</span><span><b>from $2,690</b>Per person, concept price</span></div>
+      <div class="row"><a class="btn" href="#request">Find my tour</a><a class="link" href="#tours">See the tours</a></div>
+    </div>
+
+    <div class="alt" aria-hidden="true"><div class="num">06:05</div><div class="lbl"><i></i><span>Day 1 of 7 · Sunrise over the reef</span></div></div>
+    <div class="days" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <a class="skip" href="#tours"><span>Skip to the tours</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== TOURS ===== -->
+<section class="sec" id="tours">
+  <div class="head rv">
+    <div><p class="eyebrow">Tours</p><h2>Three islands,<br><em>seven nights each</em></h2></div>
+    <p>Small resorts, forty to sixty guests. Every tour has fixed dates, flights and a host who meets you at the seaplane.</p>
+  </div>
+  <div class="tours">
+    <article class="tour rv">
+      <figure><img src="frames/stills/lagoon.webp" alt="A villa on a pier over a turquoise lagoon at sunrise, seen from above" width="720" height="900" loading="lazy"><figcaption>Overwater villa</figcaption></figure>
+      <h3>Lagoon week</h3>
+      <p class="when">14 – 21 Nov 2026 · 7 nights</p>
+      <p>A villa on stilts with a ladder straight into the lagoon. House reef for snorkelling, breakfast brought by boat.</p>
+      <div class="price"><b>from $3,480</b><small>per person</small><span class="tag">Concept price</span></div>
+    </article>
+    <article class="tour rv">
+      <figure><img src="frames/stills/barefoot.webp" alt="A woman in white walks down a wooden boardwalk from a thatched beach villa" width="720" height="900" loading="lazy"><figcaption>Beach villa</figcaption></figure>
+      <h3>Barefoot island</h3>
+      <p class="when">5 – 12 Dec 2026 · 7 nights</p>
+      <p>A thatched villa on the sand, twenty steps to the water. No shoes, no schedule, half board.</p>
+      <div class="price"><b>from $2,690</b><small>per person</small><span class="tag">Concept price</span></div>
+    </article>
+    <article class="tour rv">
+      <figure><img src="frames/stills/sunset.webp" alt="A woman on a rope swing between palms, holding a coconut against the setting sun" width="720" height="900" loading="lazy"><figcaption>For two</figcaption></figure>
+      <h3>Sunset for two</h3>
+      <p class="when">9 – 16 Feb 2027 · 7 nights</p>
+      <p>A west-facing villa, dinner on the sandbank and a boat trip to the dolphins. Made for honeymoons.</p>
+      <div class="price"><b>from $3,960</b><small>per person</small><span class="tag">Concept price</span></div>
+    </article>
+  </div>
+  <p class="fine-print">Concept tours: islands, dates and prices are sample content.</p>
+</section>
+
+<!-- ===== WHAT'S INCLUDED ===== -->
+<section class="sec inc" id="included">
+  <div class="head rv">
+    <div><p class="eyebrow">What's included</p><h2>One price,<br><em>door to villa</em></h2></div>
+    <p>You pay once and know the total before you fly. The only thing left to pack is sunscreen.</p>
+  </div>
+  <div class="wide">
+    <ul class="list rv">
+      <li><div><b>Flights both ways</b><span>Economy by default, business on request.</span></div></li>
+      <li><div><b>Seaplane or speedboat transfer</b><span>From the airport to the island jetty, luggage included.</span></div></li>
+      <li><div><b>Seven nights in the villa</b><span>The villa type named in the tour, never a downgrade.</span></div></li>
+      <li><div><b>Breakfast and dinner</b><span>Half board on every tour, full board on request.</span></div></li>
+      <li><div><b>One trip out</b><span>Reef snorkelling, a sandbank picnic or the dolphin boat.</span></div></li>
+      <li><div><b>A host in your language</b><span>On the island and in the chat, day and night.</span></div></li>
+    </ul>
+    <figure class="rv"><img src="frames/stills/island.webp" alt="The island at sunset from above: a pool on the beach, villas under palms and a long pier" width="1600" height="1000" loading="lazy">
+      <figcaption>Evening on the island: pool, beach villas and the pier to the water villas.</figcaption></figure>
+  </div>
+  <p class="not rv"><b>Not included:</b> travel insurance, spa, drinks with dinner. We'll quote them if you want them.</p>
+</section>
+
+<!-- ===== HOW WE BOOK ===== -->
+<section class="sec" id="how">
+  <div class="head rv">
+    <div><p class="eyebrow">How we book</p><h2>Four steps,<br><em>one chat</em></h2></div>
+    <p>No call centre and no forty-tab comparison. One person handles your trip from the first message to the flight home.</p>
+  </div>
+  <div class="steps">
+    <div class="step rv"><span class="n">01</span><h3>Tell us the basics</h3><p>Dates, how many of you and a rough budget. The form below takes two minutes.</p></div>
+    <div class="step rv"><span class="n">02</span><h3>Get three options</h3><p>Within a day: three islands that fit, with photos of the actual villas and the full price.</p></div>
+    <div class="step rv"><span class="n">03</span><h3>Hold it</h3><p>A 20% deposit holds the villa and fixes the price. The rest is due a month before you fly.</p></div>
+    <div class="step rv"><span class="n">04</span><h3>Fly</h3><p>Tickets, transfer and villa in one message. The host meets you at the seaplane dock.</p></div>
+  </div>
+</section>
+
+<!-- ===== REQUEST (concept: nothing is sent) ===== -->
+<section class="sec book" id="request">
+  <div class="rv">
+    <p class="eyebrow">Tour request</p>
+    <h2>Find me<br><em>an island</em></h2>
+    <p class="lead">Tell us when and who's coming. We'll send three options with prices within a day.</p>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Email or phone<input type="text" name="contact" autocomplete="email" required></label>
+    </div>
+    <div class="f3">
+      <label>When<select name="month"><option>November 2026</option><option>December 2026</option><option>January 2027</option><option>February 2027</option><option>March 2027</option><option>Any month</option></select></label>
+      <label>Nights<select name="nights"><option>5</option><option selected>7</option><option>10</option><option>14</option></select></label>
+      <label>Travellers<select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+    </div>
+    <fieldset>
+      <legend>Which tour</legend>
+      <label class="chip"><input type="radio" name="tour" value="lagoon"><span>Lagoon week</span></label>
+      <label class="chip"><input type="radio" name="tour" value="barefoot"><span>Barefoot island</span></label>
+      <label class="chip"><input type="radio" name="tour" value="sunset"><span>Sunset for two</span></label>
+      <label class="chip"><input type="radio" name="tour" value="any" checked><span>Not sure yet</span></label>
+    </fieldset>
+    <div class="send"><button class="btn" type="submit">Find my tour</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><span class="ring"><span class="logo">g.a.d.</span></span></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. islands is a concept: tours, dates, prices and inclusions are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. 452 frames at 30 fps; cuts at 71, 133, 198, 326, 388 (see NOTES.md).
+  const SEG = [
+    [0.55, 0.38,   0,   0], // 0 opening hold: the island at sunrise, read the hero
+    [1.30, 0.90,   0,  70], // 1 drone over the reef (hero fades out)
+    [1.30, 0.90,  71, 132], // 2 day 1: down the boardwalk from the villa
+    [1.00, 0.70, 133, 165], // 3 day 2: the lounger and the coconut
+    [0.60, 0.40, 165, 165], // 4 hold on her smile
+    [0.80, 0.55, 165, 197], // 5 lounger, the wave
+    [2.00, 1.40, 198, 325], // 6 day 4: the long beach walk
+    [1.00, 0.70, 326, 356], // 7 day 6: the swing at sunset
+    [0.60, 0.40, 356, 356], // 8 hold on the sun
+    [0.80, 0.55, 356, 387], // 9 swing, coconut raised
+    [1.50, 1.00, 388, 451], // 10 day 7: the island from above, evening
+    [0.70, 0.50, 451, 451], // 11 closing hold
+  ];
+  // island clock: [trip day, local minutes at segment start, at end] + caption per segment
+  const CLK = [[1,365,365],[1,365,381],[1,550,582],[2,690,706],[2,706,706],[2,706,722],[4,970,1012],[6,1076,1082],[6,1082,1082],[6,1082,1086],[7,1100,1116],[7,1116,1116]];
+  const LBL = ['Sunrise over the reef','Sunrise over the reef','Check-in, beach villa','Lagoon, 29 °C','Lagoon, 29 °C','Lagoon, 29 °C','Low tide','Sunset 18:04','Sunset 18:04','Sunset 18:04','The last evening','The last evening'];
+  const dayTxt = d => `Day ${d} of 7`;
+  const FRAMES = 'frames/';
+  const N = 452, NET = 6, DEC = 3;
+  let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 810x1440 ≈ 4.7 MB
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.alt .num'), lbl = $('.alt .lbl span'), dayI = [...stage.querySelectorAll('.days i')], skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- request form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then requests are really sent
+  const form = $('#form'), status = $('#status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements;
+    if (!el.namedItem('name').value.trim() || el.namedItem('contact').value.trim().length < 5) { status.textContent = 'Add your name and an email or phone number.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no inbox. On a live site the request goes straight to your travel host.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Sent. Three options are on their way within a day.' : 'The request didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';          // pinned travel counted apart from the stage height
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;   // fade out across the whole last segment
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 16 : 12; MAXBMP = mob ? 40 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  const hhmm = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(Math.floor(m % 60)).padStart(2, '0');
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      const base = el.classList.contains('l') && !mob ? 'translateY(-50%) ' : '';
+      el.style.transform = base + `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s, p] = at(v), c = CLK[s], txt = hhmm(c[1] + (c[2] - c[1]) * p), cap = dayTxt(c[0]) + ' · ' + LBL[s];
+    if (num.textContent !== txt) num.textContent = txt;
+    if (lbl.textContent !== cap) lbl.textContent = cap;
+    // seven thin bars along the bottom: one per day, the current day fills with the story
+    const d = c[0] - 1 + (s === SEG.length - 1 ? 1 : p);
+    dayI.forEach((el, k) => el.style.setProperty('--k', clamp(d - k).toFixed(3)));
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>
