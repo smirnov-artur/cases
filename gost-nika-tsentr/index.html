@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Ника Центр — Гостевой дом в центре Геленджика</title>
+<meta name="description" content="Ника Центр: Гостевой дом в центре Геленджика. Номера, как добраться, бронь по телефону +7 921 554-49-82.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2032%2032%27%3E%3Crect%20width%3D%2732%27%20height%3D%2732%27%20rx%3D%277%27%20fill%3D%27%230B181C%27/%3E%3Ctext%20x%3D%2716%27%20y%3D%2723%27%20text-anchor%3D%27middle%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2720%27%20fill%3D%27%23D9C29C%27%3E%D0%9D%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0B181C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../gost-dva-mayaka/frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="../gost-dva-mayaka/frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --deep:#0B181C; --deep2:#10252B; --foam:#F2EEE6; --sand:#D9C29C; --sea:#86BDB6; --beacon:#D4553E; --beacon-h:#E2654E;
+  --muted:#A3B2B0; --line:rgba(242,238,230,.14);
+  --serif:"Playfair Display", Georgia, serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--deep);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--deep);color:var(--foam);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sea);outline-offset:4px}
+.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--sand)}
+h1,h2,h3,.facts b,.room-p,.score{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1;font-variant-numeric:lining-nums}
+.nw{white-space:nowrap}
+h1 em,h2 em{font-style:italic;color:var(--sand)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:52px;padding:0 28px;border-radius:999px;
+  background:var(--beacon);color:#fff;font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:var(--beacon-h);transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:15px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--sea)}
+.mk{width:1.15em;height:1.15em;flex:none;color:var(--foam)}
+.wm{font-family:var(--serif);font-weight:600;letter-spacing:.01em}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:linear-gradient(rgba(11,24,28,.62),rgba(11,24,28,.36));-webkit-backdrop-filter:blur(16px) saturate(130%);backdrop-filter:blur(16px) saturate(130%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px;font-size:24px;line-height:1}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(242,238,230,.76);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--foam)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;background:none;border:0;color:var(--foam);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(11,24,28,.94);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--foam);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:500 40px/1.1 var(--serif);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the flight: pinned stage, canvas frames, timed copy ---------- */
+.story{position:relative;height:930vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, rgba(11,24,28,.92) 0, rgba(11,24,28,.5) 16%, transparent 38%),
+             linear-gradient(to bottom, rgba(11,24,28,.4), transparent 18%)}
+
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:540px}
+.ch h2{font-size:clamp(40px,4.4vw,78px);margin:14px 0 18px}
+.ch p{max-width:38ch;color:rgba(242,238,230,.9)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center;color:var(--foam)}
+.ch,.ch-hero{text-shadow:0 1px 20px rgba(8,18,21,.5)}
+.ch p.eyebrow .n{color:var(--foam);opacity:.6;font-variant-numeric:tabular-nums}
+.ch p.eyebrow .n::after{content:"";display:inline-block;width:28px;height:1px;background:var(--sand);vertical-align:middle;margin-left:12px}
+.ch .link{display:inline-block;margin-top:16px}
+.ch::before{content:"";position:absolute;inset:-90px -130px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(8,18,21,.6),transparent)}
+.bl{left:var(--pad);bottom:13vh}
+.br{right:var(--pad);bottom:13vh}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:12vh;max-width:min(820px,60vw);pointer-events:none}
+.ch-hero::before{inset:-150px -170px -120px -150px;background:radial-gradient(closest-side,rgba(8,18,21,.66),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:22px}
+.ch-hero .kicker .eyebrow{color:var(--foam);opacity:.86}
+.ch-hero h1{font-size:clamp(62px,7.6vw,140px);line-height:.95}
+.ch-hero p{max-width:40ch;margin:22px 0 28px;font-size:18px;color:rgba(242,238,230,.92)}
+.row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.ch-hero .row{pointer-events:auto}
+.rating{font:500 14px/1.3 var(--sans);color:rgba(242,238,230,.8)}
+.rating b{font-weight:700;color:var(--foam)}
+
+.ch-end{max-width:600px}
+.ch-end h2{font-size:clamp(48px,5.4vw,96px)}
+.facts{display:flex;gap:34px;margin:4px 0 28px;font:500 13px/1.5 var(--sans);color:var(--muted)}
+.facts b{display:block;font:500 28px/1.15 var(--serif);color:var(--foam)}
+.tel-line{margin-top:14px;font-size:15px;color:var(--muted)}
+
+.hud{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(242,238,230,.7);display:flex;gap:14px;align-items:center}
+.hud i{width:7px;height:7px;border-radius:50%;background:var(--beacon);box-shadow:0 0 10px var(--beacon);animation:blink 3s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.bar{position:absolute;z-index:4;left:0;right:0;bottom:0;height:3px;background:rgba(242,238,230,.1)}
+.bar i{display:block;height:100%;background:var(--sea);transform-origin:left;transform:scaleX(0)}
+.skip{position:absolute;z-index:5;right:var(--pad);bottom:22px;display:flex;align-items:center;gap:10px;
+  font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:rgba(242,238,230,.78);text-decoration:none;padding:10px 0;min-height:44px}
+.skip:hover{color:var(--foam)}
+.skip i{width:1px;height:22px;background:linear-gradient(var(--sea),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the site below ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(88px,13vh,150px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(40px,6vh,72px)}
+.head h2{font-size:clamp(48px,5.6vw,100px);margin-top:14px}
+.head>p{max-width:44ch;color:rgba(242,238,230,.78);justify-self:end}
+
+.rooms{border-top:1px solid var(--line)}
+.room{display:grid;grid-template-columns:1.4fr .8fr auto;gap:24px 40px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line)}
+.room h3{font-size:clamp(28px,2.4vw,40px)}
+.room p{color:rgba(242,238,230,.7);font-size:15px;margin-top:6px}
+.room-m{font:500 14px/1.4 var(--sans);color:var(--muted)}
+.room-p{font:500 clamp(26px,2.2vw,36px)/1 var(--serif);white-space:nowrap}
+.room-p small{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:10px;vertical-align:middle}
+.note{margin-top:22px;font-size:14px;color:var(--muted);max-width:70ch}
+.pics{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,24px);margin-top:clamp(40px,6vh,72px)}
+.pics:empty{display:none}
+figure{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--deep2);border-radius:6px}
+figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+figure:hover img{transform:scale(1.03)}
+figcaption{position:absolute;left:12px;bottom:12px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:rgba(11,24,28,.74);padding:8px 10px;border-radius:4px}
+.cta{margin-top:clamp(40px,6vh,64px)}
+
+.dom{background:linear-gradient(var(--deep),var(--deep2) 22%,var(--deep2) 78%,var(--deep))}
+.dom ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(32px,5vw,96px);border-top:1px solid var(--line)}
+.dom li{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.dom li b{font-weight:700}
+.dom li span{color:var(--muted);text-align:right}
+
+.rate{display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,5vw,90px);align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 var(--pad);padding-left:0;padding-right:0}
+.score{font:500 clamp(96px,12vw,200px)/.9 var(--serif)}
+.score small{font:500 .3em/1 var(--serif);color:var(--muted)}
+.rate h2{font-size:clamp(34px,3.4vw,56px);margin:12px 0 16px}
+.rate p{color:rgba(242,238,230,.76);max-width:48ch;margin-bottom:10px}
+
+.contact{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,5vw,96px);align-items:start}
+.cl{list-style:none;border-top:1px solid var(--line)}
+.cl li{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px}
+.cl li span{font:700 11px/1.9 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.cl li b{font-weight:500}
+.cl a{text-decoration:none;border-bottom:1px solid var(--line)}
+.cl a:hover{border-color:var(--sea)}
+.contact .row{margin-top:26px}
+
+footer{padding:72px var(--pad) calc(30px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:center;gap:.22em;font-size:clamp(52px,11vw,190px);line-height:1;white-space:nowrap}
+.foot-adr{margin-top:22px;color:var(--muted);font-size:15px}
+.foot-adr a{text-decoration:none;color:var(--foam)}
+.credit{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:rgba(163,178,176,.8)}
+.credit a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line);padding:6px 0}
+.credit a:hover{color:var(--foam)}
+
+/* после шорткатов font: у Playfair по умолчанию старые цифры */
+.facts b,.room-p,.score,.score small,.big{font-variant-numeric:lining-nums}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 45%}
+    @keyframes rv{from{opacity:0;transform:translateY(40px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: still frames, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:12vh;padding:calc(100svh + 8vh) var(--pad) 12vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .hud,.static .bar{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 72vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--deep) 100svh)}
+
+/* ---------- phone: own composition, portrait frames ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn{display:none}
+  .burger{display:block}
+  .brand{font-size:21px}
+  .ch{max-width:none}
+  .ch h2{font-size:40px;margin:10px 0 12px}
+  .ch p.more{font-size:15px;line-height:1.5}
+  .ch .link,.ch-hero p,.ch-hero .link,.ch-end .facts span+span{display:none}
+  .bl,.br{left:var(--pad);right:var(--pad);bottom:calc(76px + env(safe-area-inset-bottom))}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(74px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:14px;font-size:18px}
+  .ch-hero .kicker .eyebrow{font-size:10px;letter-spacing:.16em}
+  .ch-hero h1{font-size:12.4vw}
+  .ch-hero .row{margin-top:22px;gap:16px}
+  .ch-end h2{font-size:44px}
+  .facts{margin:0 0 20px}
+  .facts b{font-size:24px}
+  .hud{bottom:calc(20px + env(safe-area-inset-bottom));font-size:9px;letter-spacing:.16em}
+  .skip{right:auto;left:8px;top:calc(var(--hdr) + env(safe-area-inset-top) + 4px);bottom:auto;letter-spacing:.18em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:16px}.head>p{justify-self:start}
+  .room{grid-template-columns:1fr auto;gap:6px 16px}
+  .room>div:first-child{grid-column:1 / -1}
+  .pics{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .pics::-webkit-scrollbar{display:none}
+  .pics figure{flex:0 0 80%;scroll-snap-align:start}
+  .dom ul{grid-template-columns:1fr}
+  .rate{grid-template-columns:1fr;gap:10px}
+  .contact{grid-template-columns:1fr}
+  .cl li{grid-template-columns:1fr;gap:4px}
+  .cta .btn{width:100%}
+  .static .ch-hero{top:calc(100svh - 66vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.hdr .btn{margin-left:auto}
+  .ch-hero{max-width:74vw}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="Ника Центр, наверх"><span class="wm">Ника Центр</span></a>
+  <nav class="nav" aria-label="Главное">
+    <a href="#nomera">Номера</a><a href="#dom">В доме</a><a href="#otzyvy">Отзывы</a><a href="#kontakty">Контакты</a>
+  </nav>
+  <a class="btn" href="tel:+79215544982">Забронировать</a>
+  <button class="burger" id="burger" aria-label="Открыть меню" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Меню">
+  <div class="menu-top"><span class="brand"><span class="wm">Ника Центр</span></span>
+    <button class="close" aria-label="Закрыть меню">&times;</button></div>
+  <nav aria-label="Меню">
+    <a href="#nomera">Номера</a><a href="#dom">В доме</a><a href="#otzyvy">Отзывы</a><a href="#kontakty">Контакты</a>
+  </nav>
+  <a class="btn" href="tel:+79215544982">Забронировать · +7 921 554-49-82</a>
+</dialog>
+
+<main id="top">
+<!-- ===== ПРОЛЁТ. Тексты — блоки .ch; data-seg — на каких отрезках шкалы SEG они видны ===== -->
+<section class="story" id="story" aria-label="Пролёт над берегом к пляжу">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="../gost-dva-mayaka/frames/stills/poster-m.webp">
+      <img src="../gost-dva-mayaka/frames/stills/poster-d.webp" alt="Зелёный склон над морем, впереди бухта" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="eyebrow">Семейный гостевой дом · Геленджик</span></div>
+      <h1>К морю —<br><em>по Платановой аллее</em></h1>
+      <p>Семейный гостевой дом в центре Геленджика. 40 номеров с ремонтом 2024 года, открыты круглый год.</p>
+      <div class="row"><a class="btn" href="tel:+79215544982">Забронировать</a><a class="link" href="#nomera">Номера и цены</a>
+        <span class="rating"><b>4,7</b> в 2ГИС · 174 оценки</span></div>
+    </div>
+
+    <div class="ch bl" data-seg="2">
+      <p class="eyebrow"><span class="n">01</span>Что рядом</p>
+      <h2>600 метров<br>до пляжей</h2>
+      <p class="more">По тенистой Платановой аллее мимо городского рынка — к центральным песчаным пляжам. Рядом столовая, кофейня и круглосуточный магазин.</p>
+    </div>
+    <div class="ch br" data-seg="4">
+      <p class="eyebrow"><span class="n">02</span>Чем заняться</p>
+      <h2>С детьми<br>здесь просто</h2>
+      <p class="more">Коляски и пляжные игрушки дают бесплатно. Пешком — парк развлечений с колесом обозрения и океанариум на набережной. В холле ждёт плюшевый медведь Никуша.</p>
+    </div>
+    <div class="ch bl" data-seg="5">
+      <p class="eyebrow"><span class="n">03</span>Как добраться</p>
+      <h2>Колхозная, 77,<br>стеклянное здание</h2>
+      <p class="more">Центр Геленджика, 200 метров от городского рынка. Каждого гостя встречают по звонку, трансфер — по заказу.</p><a class="link" href="https://2gis.ru/gelendzhik/firm/70000001044218166" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+    </div>
+
+    <div class="ch bl ch-end" data-seg="6-7" data-delay="0.3">
+      <p class="eyebrow">Бронь</p>
+      <h2>Напрямую —<br><em>всегда выгоднее</em></h2>
+      <div class="facts"><span><b>от 2 000 ₽</b>за номер в сутки</span><span><b>4,7 в 2ГИС</b>174 оценки гостей</span></div>
+      <div class="row"><a class="btn" href="tel:+79215544982">Забронировать</a><a class="link" href="https://наюг.рус/booking/" target="_blank" rel="noopener">Онлайн-бронь</a></div>
+      <p class="tel-line">+7 921 554-49-82</p>
+    </div>
+
+    <div class="hud" aria-hidden="true"><i></i><span>44,5582° с. ш. · 38,0836° в. д.</span></div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <a class="skip" href="#nomera"><span>Пропустить пролёт</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== НОМЕРА ===== -->
+<section class="sec" id="nomera">
+  <div class="head rv">
+    <div><p class="eyebrow">Номера</p><h2>40 номеров<br>на 1–6 гостей</h2></div>
+    <p>В каждом номере душ и туалет, фен, холодильник и чайник, в каждой спальне кондиционер и телевизор. До брони пришлют видеообзор номера.</p>
+  </div>
+  <div class="rooms"><div class="room rv"><div><h3>Мансардный</h3><p>Мансардные окна, затонированы от солнца.</p></div>
+        <div class="room-m">20 м² · для двоих</div><div class="room-p"><small>от</small>2 000 ₽</div></div><div class="room rv"><div><h3>Стандарт</h3><p>Двуспальная кровать, сейф, стол.</p></div>
+        <div class="room-m">18 м² · 1–2 гостя</div><div class="room-p"><small>от</small>2 200 ₽</div></div><div class="room rv"><div><h3>Улучшенный</h3><p>Окна в зелёный двор с соснами.</p></div>
+        <div class="room-m">20 м² · для двоих</div><div class="room-p"><small>от</small>2 500 ₽</div></div><div class="room rv"><div><h3>Двухкомнатный улучшенный</h3><p>Две спальни, в каждой двуспальная кровать.</p></div>
+        <div class="room-m">45 м² · до 4 гостей</div><div class="room-p"><small>от</small>4 000 ₽</div></div><div class="room rv"><div><h3>Люкс с балконом</h3><p>Балкон с видом на сосны.</p></div>
+        <div class="room-m">25 м² · для двоих</div><div class="room-p"><small>от</small>5 000 ₽</div></div><div class="room rv"><div><h3>Суперлюкс</h3><p>Две комнаты, балкон с видом на сосны.</p></div>
+        <div class="room-m">60 м² · до 6 гостей</div><div class="room-p"><small>от</small>6 500 ₽</div></div></div>
+  <p class="note">Цена за номер в сутки, без питания. Цену на ваши даты покажет онлайн-бронь или назовут по телефону. Дополнительное место — 700–1000 ₽ в сутки. Заезд с 14:00, выезд до 11:00.</p>
+  <div class="pics"><figure class="rv "><img src="foto/00.webp" alt="Светлый номер с белой кроватью и окном в пол" width="1200" height="900" loading="lazy"><figcaption>Номер</figcaption></figure><figure class="rv "><img src="foto/01.webp" alt="Большой номер: кровать, диван, телевизор, обеденный стол" width="1200" height="900" loading="lazy"><figcaption>Номер с диваном</figcaption></figure><figure class="rv "><img src="foto/02.webp" alt="Кровать с синими подушками и мягким изголовьем" width="1200" height="900" loading="lazy"><figcaption>Номер</figcaption></figure></div>
+  <div class="cta row rv"><a class="btn" href="tel:+79215544982">Забронировать · +7 921 554-49-82</a><a class="link" href="https://наюг.рус/booking/" target="_blank" rel="noopener">Онлайн-бронь</a></div>
+</section>
+
+
+<!-- ===== В ДОМЕ ===== -->
+<section class="sec dom" id="dom">
+  <div class="head rv">
+    <div><p class="eyebrow">В доме</p><h2>Что есть<br>в доме</h2></div>
+    <p>Коротко, что есть в доме и рядом. Остальное спросите по телефону.</p>
+  </div>
+  <ul class="rv"><li><b>Кухня</b><span>общая: плита, микроволновка, посуда</span></li><li><b>Питьевая вода</b><span>пурифайер</span></li><li><b>Wi-Fi</b><span>бесплатно на всей территории</span></li><li><b>Парковка</b><span>4 места у дома, 500 ₽ в сутки, без брони</span></li><li><b>Утюг</b><span>две гладильные зоны в холле</span></li><li><b>Детям</b><span>коляски и игрушки бесплатно, кроватка и стульчик по запросу</span></li><li><b>С питомцем</b><span>можно, условия обсуждают при брони</span></li><li><b>Трансфер</b><span>по заказу</span></li><li><b>Рядом</b><span>кофейня напротив, шашлычная, городской рынок</span></li><li><b>Бассейна нет</b><span>море в 600 метрах</span></li></ul>
+  <div class="pics"><figure class="rv "><img src="foto/03.webp" alt="Белая кухня с плитой, столами и стульями" width="1200" height="900" loading="lazy"><figcaption>Общая кухня</figcaption></figure><figure class="rv "><img src="foto/04.webp" alt="Балкон с кованой решёткой, стеклянный столик и плетёные кресла" width="1200" height="900" loading="lazy"><figcaption>Балкон</figcaption></figure><figure class="rv "><img src="foto/05.webp" alt="Холл с мраморной лестницей" width="1200" height="900" loading="lazy"><figcaption>Холл</figcaption></figure></div>
+</section>
+
+
+<!-- ===== ОТЗЫВЫ: только рейтинг из 2ГИС, без пересказа ===== -->
+<section class="sec rate" id="otzyvy">
+  <div class="score rv">4,7<small> / 5</small></div>
+  <div class="rv">
+    <p class="eyebrow">Отзывы</p>
+    <h2>174 оценки в 2ГИС</h2>
+    <p>Отзывы гостей с именами и датами — в карточке 2ГИС.</p>
+    <a class="link" href="https://2gis.ru/gelendzhik/firm/70000001044218166/tab/reviews" target="_blank" rel="noopener">Читать отзывы в 2ГИС</a>
+  </div>
+</section>
+
+<!-- ===== КОНТАКТЫ ===== -->
+<section class="sec" id="kontakty">
+  <div class="head rv">
+    <div><p class="eyebrow">Контакты</p><h2>Как нас<br>найти</h2></div>
+    <p>Центр Геленджика, 200 метров от городского рынка. Каждого гостя встречают по звонку, заселение — через администратора: +7 928 880-80-09. Трансфер — по заказу.</p>
+  </div>
+  <div class="contact">
+    <div class="rv">
+      <ul class="cl">
+        <li><span>Адрес</span><b>Геленджик, ул. Колхозная, 77, стеклянное здание</b></li>
+        <li><span>Телефон</span><a href="tel:+79215544982">+7 921 554-49-82</a></li>
+        <li><span>Почта</span><a href="mailto:89219769442s@gmail.com">89219769442s@gmail.com</a></li><li><span>Сайт</span><a href="https://наюг.рус" target="_blank" rel="noopener">наюг.рус</a></li><li><span>Время</span><b>Заезд с 14:00, выезд до 11:00</b></li>
+      </ul>
+      <div class="row"><a class="btn" href="https://2gis.ru/gelendzhik/firm/70000001044218166" target="_blank" rel="noopener">Открыть в 2ГИС</a><a class="link" href="tel:+79215544982">Позвонить</a></div>
+    </div>
+    <div><figure class="rv house"><img src="foto/06.webp" alt="Стеклянный фасад дома среди деревьев" width="1200" height="900" loading="lazy"><figcaption>Стеклянное здание на Колхозной, 77</figcaption></figure></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="wm">Ника Центр</span></div>
+  <p class="foot-adr">Геленджик, ул. Колхозная, 77, стеклянное здание · <a href="tel:+79215544982">+7 921 554-49-82</a></p>
+  <p class="credit">Демо-концепт от g.a.d. — сайты для бизнеса · <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a> · <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a></p>
+</footer>
+
+<script>
+(() => {
+  // ---- шкала: [длина в экранах (ПК, телефон), первый кадр, последний кадр]; равные кадры = стоп-кадр
+  const SEG = [
+    [0.50, 0.35,   0,   0], // 0 старт: заголовок
+    [1.00, 0.70,   0,  95], // 1 над лесом, заголовок уходит
+    [1.50, 1.00,  95, 225], // 2 открывается бухта: глава 01
+    [0.80, 0.55, 225, 290], // 3 спуск к пляжу, без текста
+    [1.40, 0.95, 290, 380], // 4 низко над мокрым песком: глава 02
+    [1.40, 0.95, 380, 460], // 5 пляж выравнивается: глава 03
+    [1.10, 0.80, 460, 525], // 6 подлёт к мысу: бронь
+    [0.80, 0.55, 525, 525], // 7 стоп-кадр у пустого пляжа
+  ];
+  const FRAMES = '../gost-dva-mayaka/frames/';
+  const N = 526, NET = 6, DEC = 3;
+  let WIN, MAXBMP;
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')], barI = $('.bar i'), skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- меню (родной <dialog>: фокус внутри, Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- статичная версия: reduced motion или экономия трафика ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- загрузка: сначала ближние к текущему кадру, запросов и декодированных кадров — не больше лимита ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 22 : 12; MAXBMP = mob ? 56 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- рисование: на экране всегда один целый кадр, в целых пикселях (без смешивания и сдвига на полпикселя) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- прокрутка → шкала ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    barI.style.transform = `scaleX(${v / TOTAL})`;
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // панель адреса на телефоне — не пересчитывать
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+</body>
+</html>
