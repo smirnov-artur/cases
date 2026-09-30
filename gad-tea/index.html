@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. tea — matcha house and tea room</title>
+<meta name="description" content="g.a.d. tea: ceremonial matcha, hojicha and genmaicha by the tin, the ware to whisk it, and a six-seat tea room with a bookable ceremony. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --ink:#0A0A0C; --char:#15130F; --char2:#1D1A15; --cream:#F2EBDC; --lime:#D6FF3F; --lacquer:#A8261D;
+  --smoke:#A89F8D; --line:rgba(242,235,220,.14); --paper:#EEE6D4; --sumi:#1B1814; --sumi2:#5B5347;
+  --serif:"Cormorant Garamond", Georgia, serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --mark:"Unbounded", var(--sans);
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--cream);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--lime)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:.96}
+h1 em,h2 em{font-style:italic}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--lime);color:var(--ink);font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:#E6FF7A;transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--lime)}
+/* logo g.a.d.: Unbounded, lime #D6FF3F on #0A0A0C — the owner's mark, as in video/brend/LOGO-g.a.d.png */
+.logo{font-family:var(--mark);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--lime)}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(10,10,12,.74);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:22px;line-height:1}
+.brand small{font:500 20px/1 var(--serif);font-style:italic;color:var(--cream)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(242,235,220,.74);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--cream)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:700 12px/1 var(--sans);letter-spacing:.12em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--cream)}.lang a{color:rgba(242,235,220,.45);transition:color .25s}.lang a:hover{color:var(--lime)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--cream);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(10,10,12,.93);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--cream);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:500 36px/1.1 var(--serif);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1500vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--ink) 0, rgba(10,10,12,.5) 12%, transparent 30%),
+             linear-gradient(to bottom, rgba(10,10,12,.45), transparent 20%)}
+
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:540px}
+.ch h2{font-size:clamp(44px,4.4vw,82px);margin:14px 0 18px}
+.ch p{max-width:36ch;color:rgba(242,235,220,.9)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--lime)}
+.ch::before{content:"";position:absolute;inset:-80px -120px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(8,6,4,.7),transparent)}
+.r{right:var(--pad);top:24%}
+.bl{left:var(--pad);bottom:19vh}
+.tl{left:var(--pad);top:calc(var(--hdr) + 6vh)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tags span{font:600 12px/1 var(--sans);letter-spacing:.06em;padding:9px 12px;border:1px solid rgba(242,235,220,.28);border-radius:99px;background:rgba(10,10,12,.35)}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:15vh;max-width:min(600px,40vw);pointer-events:none}
+.ch-hero::before{inset:-140px -170px -120px -140px;background:radial-gradient(closest-side,rgba(8,6,4,.72),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:14px;margin-bottom:22px;font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.ch-hero .kicker .logo{font-size:20px;letter-spacing:0}
+.ch-hero h1{font-size:clamp(60px,6.4vw,118px);line-height:.9}
+.ch-hero h1 em{color:var(--lime)}
+.ch-hero p{max-width:36ch;margin:24px 0 28px;font-size:18px;color:rgba(242,235,220,.92)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+
+.ch-end h2{font-size:clamp(50px,5vw,92px)}
+.ch-end .facts{display:flex;gap:30px;margin:6px 0 28px;font:500 13px/1.5 var(--sans);color:var(--smoke)}
+.ch-end .facts b{display:block;font:500 30px/1.1 var(--serif);color:var(--cream)}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+/* signature: water temperature and the 16 movements of the ceremony, bottom left */
+.meter{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none}
+.meter .num{font:500 clamp(28px,2.4vw,40px)/1 var(--mark);font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:.25em}
+.meter .num small{font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--smoke)}
+.meter .lbl{display:block;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--cream);margin:10px 0 10px}
+.meter .lbl b{color:var(--lime);font-weight:700;margin-right:.6em}
+.ticks{display:flex;gap:4px}
+.ticks i{width:12px;height:3px;border-radius:2px;background:rgba(242,235,220,.22);transition:background .3s}
+.ticks i.on{background:var(--lime)}
+.skip{position:absolute;z-index:5;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(242,235,220,.74);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--cream)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--lime),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the shop below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(52px,6vw,112px);margin-top:14px}
+.head>p{max-width:42ch;color:rgba(242,235,220,.78);justify-self:end}
+.tbd{display:inline-block;justify-self:start;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+.fine-print{margin-top:22px;font-size:13px;color:var(--smoke)}
+
+/* teas */
+.teas{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,24px)}
+.tea{position:relative;border-radius:18px;overflow:hidden;background:var(--char);display:flex;flex-direction:column}
+.tea figure{aspect-ratio:4/5;overflow:hidden}
+.tea img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tea:hover img{transform:scale(1.04)}
+.tea .body{padding:22px 22px 24px;display:grid;gap:8px;flex:1;align-content:start}
+.tea h3{font-size:clamp(28px,2.2vw,36px)}
+.tea .orig{font:700 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--smoke)}
+.tea p{font-size:15px;color:rgba(242,235,220,.74)}
+.tea .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1 var(--sans);color:var(--smoke)}
+.tea .meta b{font:500 22px/1 var(--mark);color:var(--cream)}
+.tea .meta b small{font:600 12px/1 var(--sans);color:var(--smoke);margin-right:.35em}
+.badge{position:absolute;top:16px;left:16px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:8px 10px;border-radius:99px}
+.tea .tbd{margin-top:4px}
+
+/* ware */
+.ware{background:linear-gradient(var(--ink),var(--char) 22%,var(--char) 78%,var(--ink))}
+.pieces{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,24px)}
+.piece figure{aspect-ratio:1;border-radius:16px;overflow:hidden;background:var(--char2)}
+.piece img{width:100%;height:100%;object-fit:cover}
+.piece .jp{display:block;margin-top:18px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--lime)}
+.piece h3{font-size:30px;margin:8px 0 8px}
+.piece p{font-size:15px;color:rgba(242,235,220,.72)}
+.piece .price{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font:600 13px/1 var(--sans);color:var(--smoke)}
+.piece .price b{font:500 20px/1 var(--mark);color:var(--cream)}
+.set{margin-top:clamp(40px,6vh,72px);display:grid;grid-template-columns:auto 1fr auto;gap:18px 40px;align-items:center;border:1px solid var(--lime);border-radius:20px;padding:28px 32px;background:rgba(214,255,63,.05)}
+.set h3{font-size:clamp(30px,2.6vw,44px)}
+.set p{color:rgba(242,235,220,.8);max-width:48ch;font-size:15px}
+.set .price{font:500 34px/1 var(--mark);white-space:nowrap}
+.set .price small{display:block;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:8px}
+
+/* ceremony: paper */
+.cer{background:var(--paper);color:var(--sumi);color-scheme:light}
+.cer .eyebrow{color:#4F6B12}
+.cer .head>p{color:var(--sumi2)}
+.cer-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,4vw,72px);align-items:start}
+.cer-grid figure{border-radius:18px;overflow:hidden;aspect-ratio:16/10}
+.cer-grid figure img{width:100%;height:100%;object-fit:cover}
+.facts-list{border-top:1px solid rgba(27,24,20,.18)}
+.facts-list div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(27,24,20,.18)}
+.facts-list dt{font:700 11px/1.6 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--sumi2)}
+.facts-list dd{font-size:16px}
+.facts-list dd b{font:500 26px/1 var(--serif)}
+.cer .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.cer .btn{background:var(--sumi);color:var(--paper)}
+.cer .btn:hover{background:#000}
+.cer .link{border-color:rgba(27,24,20,.25)}.cer .link:hover{border-color:var(--sumi)}
+.cer .tbd{color:var(--sumi2);border-color:rgba(27,24,20,.2)}
+.board-h{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:clamp(64px,9vh,110px) 0 22px;padding-top:24px;border-top:1px solid rgba(27,24,20,.18)}
+.board-h h3{font-size:clamp(30px,2.8vw,48px)}
+.board-h p{max-width:44ch;font-size:15px;color:var(--sumi2)}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,20px)}
+.board figure{background:#fff;border-radius:12px;padding:10px;box-shadow:0 1px 0 rgba(27,24,20,.08)}
+.board img{width:100%;aspect-ratio:456/214;object-fit:cover;border-radius:4px}
+.board figcaption{display:flex;gap:10px;align-items:baseline;padding:12px 4px 4px;font:500 15px/1.3 var(--sans)}
+.board figcaption b{font:600 12px/1 var(--mark);color:#4F6B12}
+
+/* delivery */
+.where{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.where>div{padding:30px 32px 30px 0;border-right:1px solid var(--line)}
+.where>div+div{padding-left:32px}.where>div:last-child{border-right:0}
+.where h3{font-size:32px;margin:12px 0 10px}
+.where p{font-size:15px;color:rgba(242,235,220,.72)}
+.where .tbd{margin-top:14px}
+
+/* order */
+.order{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(214,255,63,.07), transparent 70%)}
+.order h2{font-size:clamp(52px,5.4vw,100px);margin:14px 0 22px}
+.order .lead{color:rgba(242,235,220,.8);max-width:36ch}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+input[type=text],input[type=email],input[type=date],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(242,235,220,.3);color:var(--cream);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0;color-scheme:dark}
+select option{background:var(--ink)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--lime)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--cream);transition:.25s}
+.chip input:checked+span{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.chip input:focus-visible+span{outline:2px solid var(--lime);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--smoke);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--lime)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:baseline;gap:.3em;white-space:nowrap;line-height:.9;margin-left:-.04em}
+.big .logo{font-size:clamp(64px,17vw,300px)}
+.big small{font:500 clamp(28px,4vw,72px)/1 var(--serif);font-style:italic;color:var(--smoke)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--smoke)}
+.credit strong{color:var(--cream);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--cream)}
+.credit a:hover{color:var(--lime)}
+.fine{margin-top:14px;font-size:12px;color:rgba(168,159,141,.85)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .meter{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 70vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--ink) 100svh)}
+
+/* ---------- mobile: its own composition, 9:16 windows cut from the film ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:20px}.brand small{font-size:18px}
+  .ch{max-width:none}
+  .ch h2{font-size:44px;margin:10px 0 0}
+  .ch p.more,.ch .tags,.ch-hero p,.ch-hero .link,.ch-end .facts,.ch-end .link{display:none}
+  .r,.bl,.tl{left:var(--pad);right:var(--pad);top:auto;bottom:calc(104px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(100px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:14px}
+  .ch-hero h1{font-size:17vw}
+  .ch-hero .row{margin-top:22px}
+  .ch-end h2{font-size:50px;margin:10px 0 20px}
+  .meter{bottom:calc(18px + env(safe-area-inset-bottom))}
+  .meter .num{font-size:24px}.meter .lbl{font-size:10px;margin:7px 0 8px}
+  .ticks i{width:9px}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .teas,.pieces{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .teas::-webkit-scrollbar,.pieces::-webkit-scrollbar{display:none}
+  .tea{flex:0 0 80%;scroll-snap-align:start}
+  .piece{flex:0 0 70%;scroll-snap-align:start}
+  .set{grid-template-columns:1fr;padding:24px 22px}
+  .cer-grid,.order{grid-template-columns:1fr}
+  .facts-list div{grid-template-columns:100px 1fr}
+  .board-h{flex-direction:column;align-items:start}
+  .board{grid-template-columns:1fr 1fr}
+  .where{grid-template-columns:1fr}
+  .where>div,.where>div+div{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .f2{grid-template-columns:1fr}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:66vw}
+  .teas,.pieces{grid-template-columns:1fr 1fr}
+  .board{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. tea, back to top"><span class="logo">g.a.d.</span><small>tea</small></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#teas">Teas</a><a href="#ware">Tea ware</a><a href="#ceremony">Ceremony</a><a href="#delivery">Delivery</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#order">Book a seat</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#teas">Teas</a><a href="#ware">Tea ware</a><a href="#ceremony">Ceremony</a><a href="#delivery">Delivery</a><a href="#order">Order</a>
+  </nav>
+  <a class="btn" href="#order">Book a seat</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="The story: one bowl of matcha, made in sixteen movements">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="A tea host in a black kimono, in profile, lifting a red silk cloth in a lamplit tea room" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span>Matcha house · tea room</span></div>
+      <h1>One bowl,<br><em>made slowly</em></h1>
+      <p>Ceremonial matcha by the tin, the ware to whisk it, and six seats at our counter. Buy the tea, or come and watch it made.</p>
+      <div class="row"><a class="btn" href="#order">Book a seat</a><a class="link" href="#teas">Shop matcha</a></div>
+    </div>
+
+    <div class="ch tl" data-seg="2">
+      <p class="eyebrow">Movement 02 · Fukusa</p>
+      <h2>Fold the silk.<br><em>Then begin.</em></h2>
+      <p class="more">Before any tea, the host folds a square of silk and wipes each tool in front of the guest. Nothing happens out of sight.</p>
+    </div>
+
+    <div class="ch r" data-seg="3-4" data-delay="0.35">
+      <p class="eyebrow">Movement 03 · Natsume</p>
+      <h2>Matcha keeps<br><em>in the dark</em></h2>
+      <p class="more">Stone-ground leaf fades in light and air. Ours ships in 50&nbsp;g tins sealed with nitrogen, and the first time it meets the air is at your table.</p>
+    </div>
+
+    <div class="ch r" data-seg="6">
+      <p class="eyebrow">Movement 05 · Water</p>
+      <h2>80&nbsp;°C,<br><em>never boiling</em></h2>
+      <p class="more">Boiling water scalds matcha bitter. We draw it from the iron kettle just before the boil and let it rest a moment in the bowl.</p>
+    </div>
+
+    <div class="ch bl" data-seg="7">
+      <p class="eyebrow">Movements 06–07</p>
+      <h2>Warm the whisk,<br><em>dry the bowl</em></h2>
+      <p class="more">Hot water softens the bamboo tines so they bend instead of snapping. Then the bowl is wiped dry: a spoon of water left in it thins the tea.</p>
+    </div>
+
+    <div class="ch tl" data-seg="8-9">
+      <p class="eyebrow">Movements 08–09 · Chashaku</p>
+      <h2>Two scoops,<br><em>two grams</em></h2>
+      <p class="more">Sifted first, so there are no lumps. Two heaped bamboo scoops make one bowl of usucha, the thin tea.</p>
+    </div>
+
+    <div class="ch r" data-seg="11">
+      <p class="eyebrow">Movements 11–12 · Chasen</p>
+      <h2>Fifteen seconds,<br><em>in an M</em></h2>
+      <p class="more">Fast, from the wrist, zig-zag rather than circles. Stop when the foam is fine and the bubbles are too small to see.</p>
+      <div class="tags"><span>2 g matcha</span><span>70 ml water</span><span>80 °C</span><span>15 s</span></div>
+    </div>
+
+    <div class="ch bl" data-seg="15">
+      <p class="eyebrow">Movements 14–15</p>
+      <h2>Turn the bowl,<br><em>then drink</em></h2>
+      <p class="more">The host sets the bowl down with its face toward you. Turn it twice so you don't drink from the front, and finish in three sips.</p>
+    </div>
+
+    <div class="ch tl ch-end" data-seg="16-17" data-delay="0.3">
+      <p class="eyebrow">Movement 16 · The tea room</p>
+      <h2>Come for<br><em>a bowl</em></h2>
+      <div class="facts"><span><b>45 min</b>One ceremony</span><span><b>6 seats</b>At the counter</span></div>
+      <div class="row"><a class="btn" href="#order">Book a seat</a><a class="link" href="#teas">Shop matcha</a></div>
+    </div>
+
+    <div class="meter" aria-hidden="true">
+      <div class="num">20°<small>water</small></div>
+      <span class="lbl"><b>01/16</b>Cloth opened</span>
+      <div class="ticks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <a class="skip" href="#teas"><span>Skip the story</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== TEAS ===== -->
+<section class="sec" id="teas">
+  <div class="head rv">
+    <div><p class="eyebrow">The teas</p><h2>Four teas,<br><em>one counter</em></h2></div>
+    <p>Everything we pour in the tea room, sold by the tin. Prices are from, for 50&nbsp;g.</p>
+  </div>
+  <div class="teas">
+    <article class="tea rv"><span class="badge">For the ceremony</span>
+      <figure><img src="frames/stills/powder.webp" alt="Two mounds of bright green matcha in a pale bowl, a bamboo scoop above them" width="720" height="900" loading="lazy"></figure>
+      <div class="body"><span class="orig">Uji · first harvest</span><h3>Ceremonial matcha</h3>
+        <p>Shaded for three weeks, stone-milled. Deep and sweet, almost no bitterness. For usucha and koicha.</p>
+        <div class="meta"><span>50 g tin</span><b><small>from</small>$38</b></div><span class="tbd">Concept price</span></div></article>
+    <article class="tea rv">
+      <figure><img src="frames/stills/swirl.webp" alt="A bamboo whisk turning bright green matcha in a white bowl" width="720" height="900" loading="lazy"></figure>
+      <div class="body"><span class="orig">Kagoshima · second harvest</span><h3>Daily matcha</h3>
+        <p>Brighter and grassier. Stands up to milk and ice, and forgives a heavy hand with the whisk.</p>
+        <div class="meta"><span>50 g tin</span><b><small>from</small>$22</b></div><span class="tbd">Concept price</span></div></article>
+    <article class="tea rv">
+      <figure><img src="frames/stills/fire.webp" alt="An iron kettle over glowing charcoal, hot water poured into a small bowl" width="720" height="900" loading="lazy"></figure>
+      <div class="body"><span class="orig">Shizuoka · roasted</span><h3>Hojicha</h3>
+        <p>Green tea roasted over charcoal until it turns brown. Toasty, low in caffeine, good after dinner.</p>
+        <div class="meta"><span>50 g bag</span><b><small>from</small>$16</b></div><span class="tbd">Concept price</span></div></article>
+    <article class="tea rv">
+      <figure><img src="frames/stills/pour.webp" alt="A thin stream of hot water falling into a painted tea bowl" width="720" height="900" loading="lazy"></figure>
+      <div class="body"><span class="orig">Sencha · toasted rice</span><h3>Genmaicha</h3>
+        <p>Sencha with roasted brown rice and a little matcha. Nutty and easy, the tea we pour first-timers.</p>
+        <div class="meta"><span>50 g bag</span><b><small>from</small>$12</b></div><span class="tbd">Concept price</span></div></article>
+  </div>
+  <p class="fine-print">Concept site: teas, origins and prices are sample content.</p>
+</section>
+
+<!-- ===== TEA WARE ===== -->
+<section class="sec ware" id="ware">
+  <div class="head rv">
+    <div><p class="eyebrow">Tea ware</p><h2>What it takes<br><em>to whisk it</em></h2></div>
+    <p>Four pieces, all of them in the film above. Buy them one at a time, or start with the set.</p>
+  </div>
+  <div class="pieces">
+    <article class="piece rv"><figure><img src="frames/stills/bowl.webp" alt="A painted white tea bowl with red and green leaves, a drop of matcha falling from the whisk above it" width="920" height="920" loading="lazy"></figure>
+      <span class="jp">Chawan</span><h3>The bowl</h3><p>Wide and deep enough for the whisk to move. Glazed stoneware, each one a little different.</p>
+      <div class="price"><span>Stoneware</span><b>from $48</b></div></article>
+    <article class="piece rv"><figure><img src="frames/stills/whisk.webp" alt="A bamboo whisk soaking in a dark pot of warm water" width="800" height="800" loading="lazy"></figure>
+      <span class="jp">Chasen</span><h3>The whisk</h3><p>Carved from one piece of bamboo, 80 tines. Soak it before use and it lasts a season of daily bowls.</p>
+      <div class="price"><span>80 tines</span><b>from $24</b></div></article>
+    <article class="piece rv"><figure><img src="frames/stills/scoop.webp" alt="A bamboo scoop lifting matcha over a painted bowl" width="780" height="780" loading="lazy"></figure>
+      <span class="jp">Chashaku</span><h3>The scoop</h3><p>A bent strip of bamboo. One heaped scoop is about a gram, so you never need scales.</p>
+      <div class="price"><span>Bamboo</span><b>from $12</b></div></article>
+    <article class="piece rv"><figure><img src="frames/stills/caddy.webp" alt="A red lacquer hexagonal tea caddy with the gold g.a.d. seal on its lid" width="830" height="830" loading="lazy"></figure>
+      <span class="jp">Natsume</span><h3>The caddy</h3><p>Lacquered wood with the g.a.d. seal in gold. Holds one tin of matcha and keeps the light out.</p>
+      <div class="price"><span>Lacquer</span><b>from $36</b></div></article>
+  </div>
+  <div class="set rv">
+    <div><p class="eyebrow">Starter set</p><h3>Everything for your first bowl</h3></div>
+    <p>Bowl, whisk, scoop and a 30&nbsp;g tin of daily matcha, with a printed card of the sixteen movements.</p>
+    <div class="price"><small>From, concept price</small>$89</div>
+  </div>
+</section>
+
+<!-- ===== CEREMONY ===== -->
+<section class="sec cer" id="ceremony">
+  <div class="head rv">
+    <div><p class="eyebrow">The tea room</p><h2>The ceremony,<br><em>by booking</em></h2></div>
+    <p>Six seats at a low counter. The host makes the first bowl for you, then hands you the whisk for the second.</p>
+  </div>
+  <div class="cer-grid">
+    <figure class="rv"><img src="frames/stills/room.webp" alt="A guest in a blue kimono drinking from the bowl in a lamplit tea room, a scroll on the wall behind her" width="1728" height="1080" loading="lazy"></figure>
+    <div class="rv">
+      <dl class="facts-list">
+        <div><dt>Length</dt><dd><b>45 minutes</b></dd></div>
+        <div><dt>Guests</dt><dd>Up to six, one host</dd></div>
+        <div><dt>Sessions</dt><dd>Thursday to Sunday · 12:00, 15:00, 18:00</dd></div>
+        <div><dt>In the bowl</dt><dd>Two bowls of usucha, a seasonal sweet, and you whisk the second one yourself</dd></div>
+        <div><dt>Price</dt><dd><b>from $35</b> per guest</dd></div>
+      </dl>
+      <div class="row"><a class="btn" href="#order">Book a seat</a><span class="tbd">Concept schedule</span></div>
+    </div>
+  </div>
+  <div class="board-h rv">
+    <h3>Sixteen movements, <em>drawn first</em></h3>
+    <p>Every ceremony follows the same score. These are four pages of it, the ones guests ask about most.</p>
+  </div>
+  <div class="board">
+    <figure class="rv"><img src="frames/stills/board05.webp" alt="Pencil sketch: the host ladles hot water from an iron kettle into a small bowl" width="456" height="214" loading="lazy"><figcaption><b>05</b>Warming the water</figcaption></figure>
+    <figure class="rv"><img src="frames/stills/board08.webp" alt="Pencil sketch: a scoop of matcha lifted over the bowl, a whisk and a caddy beside it" width="455" height="214" loading="lazy"><figcaption><b>08</b>Lifting the matcha</figcaption></figure>
+    <figure class="rv"><img src="frames/stills/board11.webp" alt="Pencil sketch: over the host's shoulder, the whisk working in the bowl" width="454" height="200" loading="lazy"><figcaption><b>11</b>The whisk meets the tea</figcaption></figure>
+    <figure class="rv"><img src="frames/stills/board14.webp" alt="Pencil sketch: the host kneels and offers the bowl to a seated guest" width="454" height="202" loading="lazy"><figcaption><b>14</b>Offering the bowl</figcaption></figure>
+  </div>
+</section>
+
+<!-- ===== DELIVERY ===== -->
+<section class="sec" id="delivery">
+  <div class="head rv">
+    <div><p class="eyebrow">Delivery</p><h2>Sealed tins,<br><em>to your door</em></h2></div>
+    <p>We pack in the week an order ships, so the matcha in your tin was milled a few weeks ago, not a few seasons.</p>
+  </div>
+  <div class="where rv">
+    <div><p class="eyebrow">In the city</p><h3>Next day</h3><p>By courier, in a paper box that fits a letterbox slot. Free on orders from $60.</p><span class="tbd">Concept terms</span></div>
+    <div><p class="eyebrow">Across the country</p><h3>Two to five days</h3><p>Tracked parcel. Tins travel in a cool pack from May to September.</p><span class="tbd">Concept terms</span></div>
+    <div><p class="eyebrow">Once it's open</p><h3>Four weeks</h3><p>Keep the tin shut and in the fridge. After a month the colour dulls and the sweetness goes first.</p></div>
+  </div>
+</section>
+
+<!-- ===== ORDER (concept: nothing is sent) ===== -->
+<section class="sec order" id="order">
+  <div class="rv">
+    <p class="eyebrow">Order or book</p>
+    <h2>Tea to your door,<br><em>or a seat</em></h2>
+    <p class="lead">Tell us what you'd like. For the ceremony, pick a day and we'll offer the nearest free session by email.</p>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    </div>
+    <fieldset>
+      <legend>I'd like</legend>
+      <label class="chip"><input type="radio" name="kind" value="tea" checked><span>Tea delivered</span></label>
+      <label class="chip"><input type="radio" name="kind" value="seat"><span>A seat at the ceremony</span></label>
+      <label class="chip"><input type="radio" name="kind" value="both"><span>Both</span></label>
+    </fieldset>
+    <div class="f2">
+      <label>Tea<select name="tea"><option selected>Ceremonial matcha, 50 g</option><option>Daily matcha, 50 g</option><option>Hojicha, 50 g</option><option>Genmaicha, 50 g</option><option>Starter set</option></select></label>
+      <label>Ceremony day<input type="date" name="day"></label>
+    </div>
+    <div class="send"><button class="btn" type="submit">Send</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>tea</small></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. tea is a concept: teas, prices, the tea room and its schedule are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Frame numbers are source frames 0-451 (see NOTES.md).
+  const SEG = [
+    [0.45, 0.35,   0,   0], // 0  opening hold: the host in profile, lamplight — read the hero
+    [0.90, 0.65,   0,  24], // 1  she lifts the red silk (hero fades)
+    [1.20, 0.85,  25,  64], // 2  the fold
+    [0.60, 0.45,  65,  78], // 3  the caddy: the lid comes down
+    [0.80, 0.60,  78,  83], // 4  the g.a.d. seal on the lid, almost still
+    [0.60, 0.40,  84, 104], // 5  the scoop wiped (no copy)
+    [1.10, 0.80, 105, 129], // 6  iron kettle, water drawn
+    [1.20, 0.85, 130, 196], // 7  whisk softened, bowl dried
+    [1.00, 0.70, 197, 222], // 8  matcha lifted, powder set
+    [0.45, 0.35, 222, 222], // 9  hold: two mounds of matcha from above
+    [0.60, 0.45, 223, 249], // 10 water joined (no copy)
+    [1.30, 0.90, 250, 297], // 11 whisking, green turns to fine foam
+    [0.50, 0.40, 298, 315], // 12 the whisk lifts
+    [0.35, 0.25, 315, 315], // 13 hold: the last drop
+    [0.30, 0.20, 315, 328], // 14 drop falls
+    [1.20, 0.85, 329, 379], // 15 the bowl offered
+    [1.00, 0.70, 380, 451], // 16 the guest drinks, the room
+    [0.60, 0.45, 451, 451], // 17 closing hold
+  ];
+  // the meter: sixteen movements (source frame where each starts) and the water temperature
+  const CUTS = [0, 25, 65, 84, 105, 130, 154, 197, 214, 232, 250, 274, 298, 329, 380, 413];
+  const MOVES = ['Cloth opened','Silk folded','Caddy wiped','Scoop wiped','Water warming','Whisk softened','Bowl dried','Matcha lifted','Powder set','Water joined','Whisking','Fine foam','Last drop','Bowl offered','Bowl turned','Served'];
+  const WATER = ['water', 'in the bowl'];
+  const temp = f => f <= 240 ? 20 + 60 * f / 240 : 80 - 10 * (f - 240) / 211;
+  const FRAMES = 'frames/';
+  const N = 452, NET = 6, DEC = 3;
+  let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 608x1080 ≈ 2.6 MB
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.meter .num'), lbl = $('.meter .lbl'), ticks = [...stage.querySelectorAll('.ticks i')], skip = $('.skip');
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- order form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then orders are really sent
+  const form = $('#form'), status = $('#status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements, kind = el.namedItem('kind').value;
+    if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value.trim())) { status.textContent = 'Add your name and an email.'; return; }
+    if (kind !== 'tea' && !el.namedItem('day').value) { status.textContent = 'Pick a day for the ceremony.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no shop behind it. On a live site this would go straight to the tea room.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Received. We’ll reply by email within a day.' : 'That didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';          // pinned travel counted apart from the stage height
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;   // fade out across the whole last segment
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 22 : 12; MAXBMP = mob ? 56 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0, lastMv = -1;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const f = Math.round(frameAt(v));
+    let mv = 0; while (mv < CUTS.length - 1 && f >= CUTS[mv + 1]) mv++;
+    const txt = Math.round(temp(f)) + `°<small>${WATER[f > 240 ? 1 : 0]}</small>`;
+    if (num.innerHTML !== txt) num.innerHTML = txt;
+    if (mv !== lastMv) {
+      lbl.innerHTML = `<b>${String(mv + 1).padStart(2, '0')}/16</b>${MOVES[mv]}`;
+      ticks.forEach((t, k) => t.classList.toggle('on', k <= mv)); lastMv = mv;
+    }
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get acc() { return acc; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+<script>new Image().src='https://gad-production.ru/px?p='+encodeURIComponent(location.pathname)+'&r='+encodeURIComponent(document.referrer)+'&s='+encodeURIComponent(new URLSearchParams(location.search).get('src')||'')</script>
+</body>
+</html>

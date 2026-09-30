@@ -3,8 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>g.a.d. cycles — bike shop and workshop</title>
-<meta name="description" content="g.a.d. cycles: road, gravel and city bikes fitted to your height, a workshop with fixed service prices and free test rides. Concept site by g.a.d.">
+<title>g.a.d. rain — waterproof cycling clothing</title>
+<meta name="description" content="g.a.d. rain: a 20,000 mm membrane jacket, pants, gloves, overshoes and a helmet cap for riding in the rain. Size by height, membrane care and repair, 30-day returns. Concept site by g.a.d.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="g.a.d.">
+<meta property="og:title" content="g.a.d. rain — waterproof cycling clothing">
+<meta property="og:description" content="A rainy ride as you scroll: drops bead on the membrane, fog on the climb, wind on the descent, reflective strips at night. Dry inside to the finish.">
+<meta property="og:url" content="https://smirnov-artur.github.io/cases/gad-cycles/">
+<meta property="og:image" content="https://smirnov-artur.github.io/cases/gad-cycles/frames/stills/poster-d.webp">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="favicon.png">
 <meta name="theme-color" content="#0A0A0C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +111,7 @@ dialog.menu::backdrop{background:transparent}
 .ch-end .facts b{display:block;font:600 24px/1.2 var(--display);color:var(--cream)}
 .ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-/* signature: a bike computer bottom-left — distance grows with the story, speed follows the scroll */
+/* signature: a rain gauge bottom-left — km in the rain grow with the story, "dry inside" stays at 100 % */
 .cc{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;display:flex;align-items:center;gap:16px;
   padding:12px 18px 12px 14px;border:1px solid rgba(241,240,236,.22);border-radius:16px;background:rgba(10,10,12,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .dial{width:46px;height:46px;flex:none}
@@ -118,28 +128,28 @@ dialog.menu::backdrop{background:transparent}
 .skip i{width:2px;height:30px;background:linear-gradient(var(--lime),transparent);animation:drip 2.4s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* ---------- the shop below the story ---------- */
+/* ---------- the store below the story ---------- */
 section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
 .sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
 .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
 .head h2{font-size:clamp(40px,5vw,92px);margin-top:14px}
 .head>p{max-width:42ch;color:rgba(241,240,236,.78);justify-self:end}
 
-/* bikes */
-.bikes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px)}
-.bike{position:relative;border-radius:18px;overflow:hidden;background:var(--night);display:flex;flex-direction:column}
-.bike figure{aspect-ratio:4/5;overflow:hidden}
-.bike img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.bike:hover img{transform:scale(1.04)}
-.bike .body{padding:24px 24px 26px;display:grid;gap:10px;flex:1}
-.bike .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
-.bike h3{font-size:clamp(22px,1.8vw,30px)}
-.bike p{font-size:15px;color:rgba(241,240,236,.72)}
-.bike ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.bike li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(241,240,236,.8)}
-.bike .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
-.bike .meta b{font:600 22px/1 var(--display);color:var(--cream);white-space:nowrap}
-.bike .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
+/* kit */
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,28px)}
+.item{position:relative;border-radius:18px;overflow:hidden;background:var(--night);display:flex;flex-direction:column}
+.item figure{aspect-ratio:4/5;overflow:hidden}
+.item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.item:hover img{transform:scale(1.04)}
+.item .body{padding:24px 24px 26px;display:grid;gap:10px;flex:1}
+.item .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+.item h3{font-size:clamp(22px,1.8vw,30px)}
+.item p{font-size:15px;color:rgba(241,240,236,.72)}
+.item ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.item li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(241,240,236,.8)}
+.item .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
+.item .meta b{font:600 22px/1 var(--display);color:var(--cream);white-space:nowrap}
+.item .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
 .badge{position:absolute;top:16px;left:16px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:8px 10px;border-radius:99px}
 .tbd{display:inline-block;justify-self:start;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
 .fine-print{margin-top:22px;font-size:13px;color:var(--smoke)}
@@ -162,8 +172,8 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .sizes p{grid-column:1 / -1;font-size:14px;color:rgba(241,240,236,.62)}
 .fit-note{margin-top:22px;font-size:15px;color:rgba(241,240,236,.78);max-width:52ch}
 
-/* workshop */
-.shop{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
+/* care & repair */
+.care{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
 .price{width:100%;border-collapse:collapse}
 .price td{padding:18px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
 .price tr:first-child td{border-top:1px solid var(--line)}
@@ -172,7 +182,7 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .price td:last-child{text-align:right;font:600 20px/1 var(--display);white-space:nowrap;padding-left:20px}
 .price .free{color:var(--lime)}
 .side figure{overflow:hidden;aspect-ratio:16/10;border-radius:18px}
-.side img{width:100%;height:100%;object-fit:cover}
+.side img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .side blockquote{margin-top:28px;font:500 clamp(22px,2vw,32px)/1.25 var(--display);color:var(--cream)}
 .side blockquote+p{margin-top:14px;color:var(--smoke);font-size:15px;max-width:44ch}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(48px,7vh,80px)}
@@ -181,10 +191,10 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .steps h3{font-size:22px;margin:12px 0 10px}
 .steps p{font-size:15px;color:rgba(241,240,236,.72)}
 
-/* test ride */
+/* fitting & returns */
 .order{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(214,255,63,.08), transparent 70%)}
 .order h2{font-size:clamp(40px,4.6vw,84px);margin:14px 0 22px}
-.order .lead{color:rgba(241,240,236,.8);max-width:36ch}
+.order .lead{color:rgba(241,240,236,.8);max-width:40ch}
 .order figure{margin-top:36px;overflow:hidden;border-radius:18px;aspect-ratio:16/10}
 .order figure img{width:100%;height:100%;object-fit:cover}
 form{display:grid;gap:22px}
@@ -255,32 +265,33 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
   .skip i{display:none}
   .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
-  .bikes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
-  .bikes{scroll-padding-inline:var(--pad)}.bikes::-webkit-scrollbar{display:none}
-  .bike{flex:0 0 82%;scroll-snap-align:start}
-  .fit,.shop,.order{grid-template-columns:1fr}
+  .items{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .items{scroll-padding-inline:var(--pad)}.items::-webkit-scrollbar{display:none}
+  .item{flex:0 0 82%;scroll-snap-align:start}
+  .fit,.care,.order{grid-template-columns:1fr}
   .hgt{padding:22px}
   .steps{grid-template-columns:1fr}
   .steps>div,.steps>div+div{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}
   .f2{grid-template-columns:1fr}
+  .price td b{font-size:17px}.price td:last-child{font-size:17px;padding-left:12px}
   .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
 }
 @media (min-width: 761px) and (max-width: 1100px){
   .nav{display:none}.lang{margin-left:auto}
   .ch-hero{max-width:66vw}
-  .bikes{grid-template-columns:1fr 1fr}
+  .items{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <a class="brand" href="#top" aria-label="g.a.d. cycles, back to top"><span class="logo">g.a.d.</span><small>cycles</small></a>
+  <a class="brand" href="#top" aria-label="g.a.d. rain, back to top"><span class="logo">g.a.d.</span><small>rain</small></a>
   <nav class="nav" aria-label="Main">
-    <a href="#bikes">Bikes</a><a href="#fit">Find your size</a><a href="#workshop">Workshop</a>
+    <a href="#kit">Kit</a><a href="#fit">Find your size</a><a href="#care">Care &amp; repair</a>
   </nav>
   <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
-  <a class="btn" href="#test">Book a test ride</a>
+  <a class="btn" href="#try">Book a fitting</a>
   <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
 </header>
 
@@ -288,9 +299,9 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
     <button class="close" aria-label="Close menu">&times;</button></div>
   <nav aria-label="Menu">
-    <a href="#bikes">Bikes</a><a href="#fit">Find your size</a><a href="#workshop">Workshop</a><a href="#test">Test ride</a>
+    <a href="#kit">Kit</a><a href="#fit">Find your size</a><a href="#care">Care &amp; repair</a><a href="#try">Fitting &amp; returns</a>
   </nav>
-  <a class="btn" href="#test">Book a test ride</a>
+  <a class="btn" href="#try">Book a fitting</a>
 </dialog>
 
 <main id="top">
@@ -305,92 +316,98 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     <div class="shade"></div>
 
     <div class="ch ch-hero" data-seg="0-1" data-fade="1">
-      <div class="kicker"><span class="logo">g.a.d.</span><span>Cycles · shop &amp; workshop</span></div>
+      <div class="kicker"><span class="logo">g.a.d.</span><span>Rainwear for cycling</span></div>
       <h1>Ride when<br>others <em>wait</em></h1>
-      <p>Road, gravel and city bikes, fitted to your height and serviced in our own workshop. Test ride any of them this week.</p>
-      <div class="row"><a class="btn" href="#test">Book a test ride</a><a class="link" href="#bikes">See the bikes</a></div>
+      <p>A membrane jacket, pants, gloves, overshoes and a cap for under the helmet. Still dry inside after three hours of rain.</p>
+      <div class="row"><a class="btn" href="#try">Book a fitting</a><a class="link" href="#kit">See the kit</a></div>
     </div>
 
     <div class="ch r" data-seg="2">
-      <p class="eyebrow">Kit</p>
-      <h2>Dressed<br>for the rain</h2>
-      <p class="more">Shells, gloves, overshoes and neck warmers we ride in ourselves. Try them on with the bike, not in a changing room.</p>
+      <p class="eyebrow">Waterproof · 20,000 mm</p>
+      <h2>Rain stays<br>outside</h2>
+      <p class="more">A three-layer membrane that holds back a column of water 20&nbsp;metres high. Seams taped, zips sealed: drops bead up and roll off instead of soaking in.</p>
     </div>
 
     <div class="ch tr" data-seg="4">
-      <p class="eyebrow">The bikes</p>
-      <h2>Built for long,<br>wet miles</h2>
-      <p class="more">Disc brakes, room for fenders and wide tyres, lights that charge while you ride. Three frames, all on the floor.</p>
+      <p class="eyebrow">Windproof</p>
+      <h2>No chill<br>on the descent</h2>
+      <p class="more">Downhill at 50 km/h, wet wind cools you faster than the rain does. The membrane blocks it completely, cuffs and a high collar close the gaps.</p>
     </div>
 
     <div class="ch bl" data-seg="5">
-      <p class="eyebrow">The fit</p>
-      <h2>Set up for you<br>before you roll</h2>
-      <p class="more">Saddle height, reach and bar width checked on the day you buy. Fifteen minutes, free.</p>
-      <div class="tags"><span>Saddle height</span><span>Reach</span><span>Bar width</span><span>Cleats</span></div>
+      <p class="eyebrow">Breathable</p>
+      <h2>Fog outside,<br>no steam inside</h2>
+      <p class="more">On the climb you sweat more than it rains. Vapour leaves through the membrane, and pit zips open for the steep part.</p>
+      <div class="tags"><span>20,000 g/m² / 24 h</span><span>Pit zips</span><span>Mesh lining</span><span>Two-way zip</span></div>
     </div>
 
     <div class="ch r" data-seg="6">
-      <p class="eyebrow">The workshop</p>
-      <h2>Serviced<br>for the wet</h2>
-      <p class="more">Brakes bled, chain waxed, bearings greased against the spray. Fixed prices, ready the next day.</p>
+      <p class="eyebrow">Hands &amp; feet</p>
+      <h2>Puddles are<br>for overshoes</h2>
+      <p class="more">Spray off the front wheel hits feet and hands first. Neoprene overshoes and membrane gloves keep them warm to the last kilometre.</p>
     </div>
 
     <div class="ch tl" data-seg="7">
-      <p class="eyebrow">Thursday, 7 pm</p>
-      <h2>Lights on,<br>ride together</h2>
-      <p class="more">A 40 km group ride from the shop door. Any bike, any pace, back by nine.</p>
+      <p class="eyebrow">Reflective</p>
+      <h2>Seen from<br>150 metres</h2>
+      <p class="more">Reflective strips on the back, sleeves and ankles flash in headlights. Drivers see moving hands and feet, not just a dot.</p>
     </div>
 
     <div class="ch tl ch-end" data-seg="8-9" data-delay="0.3">
-      <p class="eyebrow">Test ride</p>
-      <h2>Ride it before<br>you buy it</h2>
-      <div class="facts"><span><b>3 bikes</b>On the floor</span><span><b>45 min</b>Free test ride</span></div>
-      <div class="row"><a class="btn" href="#test">Book a test ride</a><a class="link" href="#workshop">Workshop prices</a></div>
+      <p class="eyebrow">g.a.d. rain</p>
+      <h2>Dry to<br>the finish</h2>
+      <div class="facts"><span><b>20,000 mm</b>Waterproof</span><span><b>30 days</b>To ride and return</span></div>
+      <div class="row"><a class="btn" href="#try">Book a fitting</a><a class="link" href="#care">Care &amp; repair</a></div>
     </div>
 
     <div class="cc" aria-hidden="true">
       <svg class="dial" viewBox="0 0 46 46"><circle class="trk" cx="23" cy="23" r="19"/><circle class="val" cx="23" cy="23" r="19" stroke-dasharray="0 120"/></svg>
-      <div><div class="num">0.0<small>km</small></div><span class="lbl"><span class="seg">Warm-up</span><b class="spd">0 km/h</b></span></div>
+      <div><div class="num">0.0<small>km in rain</small></div><span class="lbl"><span class="seg">Start</span><b>Dry inside 100%</b></span></div>
     </div>
-    <a class="skip" href="#bikes"><span>Skip the ride</span><i></i></a>
+    <a class="skip" href="#kit"><span>Skip the ride</span><i></i></a>
   </div>
 </section>
 
-<!-- ===== BIKES ===== -->
-<section class="sec" id="bikes">
+<!-- ===== KIT ===== -->
+<section class="sec" id="kit">
   <div class="head rv">
-    <div><p class="eyebrow">The bikes</p><h2>Three bikes,<br>one workshop</h2></div>
-    <p>Each one is assembled, fitted and serviced here. Pick the road you ride most, we'll size the rest.</p>
+    <div><p class="eyebrow">The kit</p><h2>Dry from<br>head to toe</h2></div>
+    <p>A jacket, pants, gloves with overshoes and a cap under the helmet. Each piece works on its own and seals against the next one.</p>
   </div>
-  <div class="bikes">
-    <article class="bike rv"><span class="badge">Most ridden</span>
-      <figure><img src="frames/stills/road.webp" alt="Two riders in pink kit side by side on a wet mountain road in the fog" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">Road · endurance</span><h3>g.a.d. Nightline</h3>
-        <p>Carbon frame, hydraulic discs, 32 mm tyres and hidden fender mounts. Fast on dry roads, calm on wet ones.</p>
-        <ul><li>8.4 kg</li><li>2×12</li><li>XS–XXL</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$2,400</b></div></div></article>
-    <article class="bike rv">
+  <div class="items">
+    <article class="item rv"><span class="badge">Most worn</span>
+      <figure><img src="frames/stills/road.webp" alt="Two riders in pink rain jackets side by side on a wet mountain road in the fog" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Jacket · 3-layer membrane</span><h3>g.a.d. Storm jacket</h3>
+        <p>20,000 mm waterproof, 20,000 g/m² breathable, taped seams, pit zips and a long tail against the spray off the rear wheel.</p>
+        <ul><li>240 g</li><li>Reflective</li><li>XS–XXL</li></ul>
+        <div class="meta"><span class="tbd">Concept</span><b><small>from</small>$290</b></div></div></article>
+    <article class="item rv">
       <figure><img src="frames/stills/gravel.webp" alt="Riders on a road cut into a forested mountainside, seen from above" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">Gravel · all-road</span><h3>g.a.d. Ridge</h3>
-        <p>Alloy frame, 45 mm tyres, three bottle mounts and a rack. Takes the forest road when the tarmac ends.</p>
-        <ul><li>9.6 kg</li><li>1×12</li><li>XS–XL</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$1,690</b></div></div></article>
-    <article class="bike rv">
-      <figure><img src="frames/stills/city.webp" alt="Three riders with lights in a line on a dark road through the forest, seen from straight above" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">City · all-weather</span><h3>g.a.d. Lumen</h3>
-        <p>Steel frame, dynamo lights, full fenders and a hub gear that doesn't mind salt. For every day, not only the dry ones.</p>
-        <ul><li>12.8 kg</li><li>8-speed hub</li><li>S–L</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$1,190</b></div></div></article>
+      <div class="body"><span class="type">Pants · membrane</span><h3>g.a.d. Storm pants</h3>
+        <p>The same membrane, a stretch panel where you sit on the saddle and ankle zips to pull them on over shoes.</p>
+        <ul><li>210 g</li><li>Ankle zips</li><li>XS–XXL</li></ul>
+        <div class="meta"><span class="tbd">Concept</span><b><small>from</small>$190</b></div></div></article>
+    <article class="item rv">
+      <figure><img src="frames/stills/workshop.webp" alt="A raindrop splashing into a puddle on a night road, blue light behind" width="1728" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Gloves &amp; overshoes</span><h3>g.a.d. Splash set</h3>
+        <p>Membrane gloves with a palm that grips a wet bar, neoprene overshoes cut for cleats. Puddles stay outside.</p>
+        <ul><li>Neoprene 3 mm</li><li>Touchscreen tips</li><li>S–XL</li></ul>
+        <div class="meta"><span class="tbd">Concept</span><b><small>from</small>$110</b></div></div></article>
+    <article class="item rv">
+      <figure><img src="frames/stills/poster-d.webp" alt="A rider in a helmet and glasses, head down, raindrops on her face and pink jacket" width="1920" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Cap under the helmet</span><h3>g.a.d. Cap</h3>
+        <p>A thin membrane cap: a short peak keeps rain off your glasses, the ears are covered, a slot at the back for a ponytail.</p>
+        <ul><li>35 g</li><li>Fits any helmet</li><li>S/M, L/XL</li></ul>
+        <div class="meta"><span class="tbd">Concept</span><b><small>from</small>$45</b></div></div></article>
   </div>
-  <p class="fine-print">Concept site: models, specs and prices are sample content.</p>
+  <p class="fine-print">Concept site: items, specs and prices are sample content.</p>
 </section>
 
 <!-- ===== FIT BY HEIGHT ===== -->
 <section class="sec fitsec" id="fit">
   <div class="head rv">
     <div><p class="eyebrow">Find your size</p><h2>Start with<br>your height</h2></div>
-    <p>Move the slider and see the frame size for each bike. At the shop we check it against your reach and inseam.</p>
+    <p>Move the slider and see the size of each piece. At the fitting we check it against your chest, waist and inseam.</p>
   </div>
   <div class="fit">
     <div class="hgt rv">
@@ -401,51 +418,52 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     </div>
     <div class="rv">
       <ul class="sizes" id="sizes">
-        <li data-bike="road"><b>Nightline · road</b><span class="sz">M</span><span class="cm">54 cm</span><p>Endurance geometry: a little taller at the front for long rides.</p></li>
-        <li data-bike="gravel"><b>Ridge · gravel</b><span class="sz">M</span><span class="cm">52 cm</span><p>Shorter reach, longer wheelbase, steadier on loose ground.</p></li>
-        <li data-bike="city"><b>Lumen · city</b><span class="sz">M</span><span class="cm">52 cm</span><p>Upright position, only three sizes: the stem does the rest.</p></li>
+        <li data-item="jacket"><b>Storm · jacket</b><span class="sz">M</span><span class="cm">171–177 cm</span><p>Cut for the riding position: roomy in the shoulders, longer at the back.</p></li>
+        <li data-item="pants"><b>Storm · pants</b><span class="sz">M</span><span class="cm">172–178 cm</span><p>Length follows your height, the waist adjusts by ±4 cm.</p></li>
+        <li data-item="cap"><b>Cap · under the helmet</b><span class="sz">S/M</span><span class="cm">up to 175 cm</span><p>Two sizes: S/M for 54–57 cm heads, L/XL for 57–60 cm.</p></li>
       </ul>
-      <p class="fit-note">Between two sizes? Book a test ride on both. The fit on the day you buy is free.</p>
+      <p class="fit-note">Between two sizes? Order both: the one that doesn't fit goes back free.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== WORKSHOP ===== -->
-<section class="sec" id="workshop">
+<!-- ===== CARE & REPAIR ===== -->
+<section class="sec" id="care">
   <div class="head rv">
-    <div><p class="eyebrow">Workshop</p><h2>Fixed prices,<br>next-day bikes</h2></div>
-    <p>Drop the bike off before 10 am, pick it up the next evening. Any bike, not only ours.</p>
+    <div><p class="eyebrow">Care &amp; repair</p><h2>Wash it,<br>proof it, patch&nbsp;it</h2></div>
+    <p>A membrane rarely wears out: it clogs with dirt and stops breathing. Bring any rain jacket, not only ours. Ready in three days.</p>
   </div>
-  <div class="shop">
+  <div class="care">
     <table class="price rv">
-      <tr><td><b>Safety check</b><span>Brakes, tyres, quick releases. Ten minutes while you wait.</span></td><td class="free">Free</td></tr>
-      <tr><td><b>Basic service</b><span>Gears and brakes adjusted, chain cleaned, bolts torqued.</span></td><td>$65</td></tr>
-      <tr><td><b>Full service</b><span>Strip, clean, new cables, bearings checked and greased.</span></td><td>$149</td></tr>
-      <tr><td><b>Wet-weather package</b><span>Chain waxed, seals greased, fenders fitted and aligned.</span></td><td>$79</td></tr>
-      <tr><td><b>Brake bleed</b><span>Hydraulic disc, per brake, new fluid.</span></td><td>$35</td></tr>
-      <tr><td><b>Wheel true</b><span>Per wheel, spoke tension checked.</span></td><td>$25</td></tr>
-      <tr><td><b>Tubeless setup</b><span>Per wheel, valve and sealant included.</span></td><td>$30</td></tr>
+      <tr><td><b>Membrane check</b><span>Seams, zips and cuffs under the shower. Ten minutes while you wait.</span></td><td class="free">Free</td></tr>
+      <tr><td><b>Wash and re-proof</b><span>Technical wash, new water-repellent coating, heat-set: drops bead up again.</span></td><td>$25</td></tr>
+      <tr><td><b>Seam re-taping</b><span>Per 10 cm, membrane tape pressed on with heat.</span></td><td>$12</td></tr>
+      <tr><td><b>Patch on a tear</b><span>Up to 3 cm, from the inside, holds the full 20,000 mm.</span></td><td>$20</td></tr>
+      <tr><td><b>Zip replacement</b><span>Waterproof zip, on a jacket or pants.</span></td><td>$39</td></tr>
+      <tr><td><b>Reflective refresh</b><span>New reflective strips on the back, sleeves or ankles.</span></td><td>$15</td></tr>
+      <tr><td><b>Overshoe repair</b><span>Sole reinforced, new zip pull, per pair.</span></td><td>$18</td></tr>
     </table>
     <div class="side rv">
-      <figure><img src="frames/stills/workshop.webp" alt="A raindrop splashing into a puddle on a night road, blue light behind" width="1728" height="1080" loading="lazy"></figure>
-      <blockquote>“Rain is the best test a bike gets. We service for it.”</blockquote>
-      <p>Every service ends with a test ride around the block, wet or dry.</p>
+      <figure><img src="frames/stills/city.webp" alt="Three riders with lights in a line on a dark road through the forest, seen from straight above" width="864" height="1080" loading="lazy"></figure>
+      <blockquote>“A membrane doesn’t wear out. It clogs up. We wash it back to work.”</blockquote>
+      <p>At home: wash at 30°, no softener, then 20 minutes in the dryer on low. The heat wakes the coating up.</p>
       <p class="fine-print">Concept prices, for illustration.</p>
     </div>
   </div>
   <div class="steps rv">
-    <div><p class="eyebrow">01</p><h3>Drop it off</h3><p>Before 10 am, or book a slot below.</p></div>
-    <div><p class="eyebrow">02</p><h3>We call first</h3><p>If a part needs replacing, we tell you the price before we fit it.</p></div>
-    <div><p class="eyebrow">03</p><h3>Ride it home</h3><p>Next evening, cleaned and test-ridden.</p></div>
+    <div><p class="eyebrow">01</p><h3>Bring it in</h3><p>Any day, or send it by courier: leave a note in the form below.</p></div>
+    <div><p class="eyebrow">02</p><h3>We show the leak</h3><p>Under the shower, before any work, with the price.</p></div>
+    <div><p class="eyebrow">03</p><h3>Dry again</h3><p>In three days, tested under the same shower.</p></div>
   </div>
 </section>
 
-<!-- ===== TEST RIDE (concept: nothing is sent) ===== -->
-<section class="sec order" id="test">
+<!-- ===== FITTING & RETURNS (concept: nothing is sent) ===== -->
+<section class="sec order" id="try">
   <div class="rv">
-    <p class="eyebrow">Test ride</p>
-    <h2>Take one<br>out for an hour</h2>
-    <p class="lead">Pick a bike and a day. We set it to your height before you arrive, helmet and lights included.</p>
+    <p class="eyebrow">Fitting &amp; returns</p>
+    <h2>Try it on.<br>Ride it a&nbsp;month.</h2>
+    <p class="lead">Book a fitting or order two sizes home. Ride in the rain for 30 days: if you get wet inside, bring it back for a full refund.</p>
+    <div class="tags"><span>30 days to return</span><span>Free size exchange</span><span>Two sizes to try at home</span></div>
     <figure><img src="frames/stills/ride.webp" alt="Close-up of the rider at night, rain on her face, g.a.d. printed on her pink helmet" width="1728" height="1080" loading="lazy"></figure>
   </div>
   <form id="form" class="rv" novalidate>
@@ -454,23 +472,23 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       <label>Email<input type="email" name="email" autocomplete="email" required></label>
     </div>
     <div class="f2">
-      <label>Bike<select name="bike"><option selected>Nightline · road</option><option>Ridge · gravel</option><option>Lumen · city</option><option>Not sure yet</option></select></label>
+      <label>What to try<select name="item"><option selected>Storm jacket</option><option>Storm pants</option><option>Splash set</option><option>Cap</option><option>The full kit</option></select></label>
       <label>Day<input type="date" name="day" required></label>
     </div>
     <fieldset>
-      <legend>Time</legend>
-      <label class="chip"><input type="radio" name="time" value="morning"><span>Morning</span></label>
-      <label class="chip"><input type="radio" name="time" value="afternoon" checked><span>Afternoon</span></label>
-      <label class="chip"><input type="radio" name="time" value="evening"><span>Evening, with lights</span></label>
+      <legend>Where</legend>
+      <label class="chip"><input type="radio" name="where" value="showroom" checked><span>In the showroom</span></label>
+      <label class="chip"><input type="radio" name="where" value="courier"><span>Courier, two sizes</span></label>
+      <label class="chip"><input type="radio" name="where" value="pickup"><span>Pick-up point</span></label>
     </fieldset>
-    <div class="send"><button class="btn" type="submit">Book a test ride</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <div class="send"><button class="btn" type="submit">Book a fitting</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
     <p class="status" id="status" role="status" aria-live="polite"></p>
   </form>
 </section>
 </main>
 
 <footer>
-  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>cycles</small></div>
+  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>rain</small></div>
   <div class="credit">
     <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
     <nav aria-label="Contacts">
@@ -479,7 +497,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
     </nav>
   </div>
-  <p class="fine">g.a.d. cycles is a concept: bikes, specs, prices and the shop itself are placeholders.</p>
+  <p class="fine">g.a.d. rain is a concept: the clothing, specs, prices and the store itself are placeholders.</p>
 </footer>
 
 <script>
@@ -498,9 +516,9 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     [1.00, 0.70, 352, 391], // 8 close-up, g.a.d. on the helmet
     [0.70, 0.50, 391, 391], // 9 closing hold
   ];
-  // bike computer: label per segment, distance = progress through the story, speed = how fast you scroll
-  const LBL = ['Warm-up','Warm-up','Kit check','Climb','Climb','Pace line','Night','Group ride','Last km','Home'];
-  const KM = 42.2, KMH = 'km/h';
+  // rain gauge: label per segment, km in the rain = progress through the story, "dry inside" stays 100 %
+  const LBL = ['Start','Start','Downpour','Fog','Descent','Climb','Spray','Night','Finish','Home'];
+  const KM = 42.2;
   const FRAMES = 'frames/';
   const N = 392, NET = 6, DEC = 3;
   let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 810x1440 ≈ 4.7 MB
@@ -509,7 +527,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
   const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
   const chs = [...stage.querySelectorAll('.ch')];
-  const num = $('.cc .num'), seg = $('.cc .seg'), spd = $('.cc .spd'), dial = $('.dial .val'), skip = $('.skip');
+  const num = $('.cc .num'), seg = $('.cc .seg'), dial = $('.dial .val'), skip = $('.skip');
   const portrait = matchMedia('(max-aspect-ratio: 4/5)');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -521,11 +539,11 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
 
-  // ---------- size by height: [up to cm, size, frame cm] per bike ----------
+  // ---------- size by height: [up to cm, size] per item; the right column shows the height range of that size ----------
   const SIZES = {
-    road:   [[159, 'XS', 48], [166, 'S', 51], [174, 'M', 54], [182, 'L', 56], [190, 'XL', 58], [999, 'XXL', 61]],
-    gravel: [[159, 'XS', 47], [167, 'S', 50], [176, 'M', 52], [185, 'L', 55], [999, 'XL', 58]],
-    city:   [[164, 'S', 48], [180, 'M', 52], [999, 'L', 56]],
+    jacket: [[163, 'XS'], [170, 'S'], [177, 'M'], [184, 'L'], [191, 'XL'], [999, 'XXL']],
+    pants:  [[164, 'XS'], [171, 'S'], [178, 'M'], [185, 'L'], [192, 'XL'], [999, 'XXL']],
+    cap:    [[175, 'S/M'], [999, 'L/XL']],
   };
   const h = $('#h'), hout = $('#hout'), halt = $('#halt');
   function fit() {
@@ -533,24 +551,25 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     hout.innerHTML = v + '<small>cm</small>';
     halt.textContent = `${Math.floor(inch / 12)} ft ${inch % 12} in`;
     document.querySelectorAll('#sizes li').forEach(li => {
-      const s = SIZES[li.dataset.bike].find(r => v <= r[0]);
-      li.querySelector('.sz').textContent = s[1]; li.querySelector('.cm').textContent = s[2] + ' cm';
+      const t = SIZES[li.dataset.item], i = t.findIndex(r => v <= r[0]), lo = i ? t[i - 1][0] + 1 : 0, hi = t[i][0];
+      li.querySelector('.sz').textContent = t[i][1];
+      li.querySelector('.cm').textContent = (!i ? 'up to ' + hi : hi > 300 ? lo + '+' : lo + '–' + hi) + ' cm';
     });
   }
   h.addEventListener('input', fit); fit();
 
-  // ---------- test ride form: concept, nothing is sent unless an endpoint is set ----------
-  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then bookings are really sent
+  // ---------- fitting form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then fitting requests are really sent
   const form = $('#form'), status = $('#status');
   form.elements.namedItem('day').min = new Date().toISOString().slice(0, 10);
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const el = form.elements;
     if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value.trim()) || !el.namedItem('day').value) { status.textContent = 'Add your name, an email and a day.'; return; }
-    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no shop behind it. On a live site the booking would go straight to the workshop.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no brand behind it. On a live site the fitting request would go straight to the store.'; return; }
     try {
       const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      status.textContent = r.ok ? 'Booked. We’ll email you to confirm the time.' : 'The booking didn’t go through. Try again in a minute.';
+      status.textContent = r.ok ? 'Booked. We’ll email you to confirm the fitting.' : 'The request didn’t go through. Try again in a minute.';
       if (r.ok) form.reset();
     } catch { status.textContent = 'No connection. Check it and send again.'; }
   });
@@ -627,7 +646,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   // ---------- scroll → timeline ----------
   function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
   function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
-  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0, speed = 0;
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
   function onScroll() {
     u = clamp((scrollY - top0) / vh, 0, TOTAL);
     const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
@@ -646,7 +665,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
     }
     const [s] = at(v), p = v / TOTAL;
-    const txt = (KM * p).toFixed(1) + '<small>km</small>';
+    const txt = (KM * p).toFixed(1) + '<small>km in rain</small>';
     if (num.innerHTML !== txt) num.innerHTML = txt;
     if (seg.textContent !== LBL[s]) seg.textContent = LBL[s];
     dial.setAttribute('stroke-dasharray', `${(119.4 * p).toFixed(1)} 120`);
@@ -656,16 +675,11 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   function tick(t) {
     const dt = Math.min(64, t - lastT || 16.7); lastT = t;
     const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
-    const before = uS;
     uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
-    // speed: screens per second of travel -> km/h, eased, capped at a sprint
-    const target = Math.min(58, Math.abs(uS - before) / dt * 1000 * 16);
-    speed += (target - speed) * 0.12; if (speed < 0.5 && uS === u) speed = 0;
-    const st = Math.round(speed) + ' ' + KMH; if (spd.textContent !== st) spd.textContent = st;
     const f = Math.round(frameAt(uS));
     if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
     if (uS !== last) { ui(uS); last = uS; }
-    raf = (uS !== u || dirty || speed > 0) ? requestAnimationFrame(tick) : 0;
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
   }
 
   // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------

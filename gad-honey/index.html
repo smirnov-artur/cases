@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>g.a.d. honey — apiary and honey shop</title>
+<meta name="description" content="g.a.d. honey: raw single-field honey from our own hives. Sunflower, wildflower meadow, linden and creamed honey, gift sets and delivery in 2–5 days. Concept site by g.a.d.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="theme-color" content="#0A0A0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="frames/stills/poster-d.webp" media="(min-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<link rel="preload" as="image" href="frames/stills/poster-m.webp" media="(max-aspect-ratio: 4/5) and (prefers-reduced-motion: no-preference)">
+<style>
+:root{
+  --ink:#0A0A0C; --comb:#15100A; --comb2:#211910; --wax:#F6EDD9; --honey:#F4B63E; --amber:#E0891E; --lime:#D6FF3F;
+  --smoke:#A99F8C; --line:rgba(246,237,217,.14);
+  --display:"Unbounded", "Arial Black", sans-serif;
+  --sans:"Manrope", system-ui, sans-serif;
+  --hdr:72px; --pad:clamp(20px, 3.4vw, 56px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--ink);color:var(--wax);font:400 17px/1.6 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--honey);outline-offset:4px}
+.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--honey)}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.02em;line-height:.98}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:50px;padding:0 26px;border-radius:999px;
+  background:var(--honey);color:var(--ink);font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;
+  transition:background .25s, transform .25s}
+.btn:hover{background:#FFCB63;transform:translateY(-1px)}
+.link{font:700 13px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:14px 0;border-bottom:2px solid var(--line);transition:border-color .25s}
+.link:hover{border-color:var(--honey)}
+/* logo g.a.d.: Unbounded. Lime #D6FF3F on #0A0A0C in the footer (the owner's mark, video/brend/LOGO-g.a.d.png);
+   over the golden film it goes monochrome wax, lime fights the sunflower yellow there */
+.logo{font-family:"Unbounded",var(--sans);font-weight:500;font-style:normal;letter-spacing:0;text-transform:none;color:var(--wax)}
+.logo.lime{color:var(--lime)}
+
+/* ---------- header ---------- */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:50;height:calc(var(--hdr) + env(safe-area-inset-top));padding:env(safe-area-inset-top) max(var(--pad), env(safe-area-inset-right)) 0 max(var(--pad), env(safe-area-inset-left));
+  display:flex;align-items:center;gap:30px;background:rgba(10,10,12,.5);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
+.brand .logo{font-size:22px;line-height:1}
+.brand small{font:500 12px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--honey)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nav a{font:500 14px/1 var(--sans);text-decoration:none;color:rgba(246,237,217,.74);padding:14px 0;transition:color .25s}
+.nav a:hover{color:var(--wax)}
+.hdr .btn{min-height:42px;padding:0 20px;font-size:12px}
+.lang{display:flex;align-items:center;font:700 12px/1 var(--sans);letter-spacing:.12em}
+.lang>*{display:grid;place-items:center;min-width:34px;min-height:44px;text-decoration:none}
+.lang span{color:var(--wax)}.lang a{color:rgba(246,237,217,.45);transition:color .25s}.lang a:hover{color:var(--honey)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;color:var(--wax);cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:currentColor;border-radius:2px}
+.burger i:first-child{top:17px}.burger i:last-child{top:25px}
+
+dialog.menu{margin:0;width:100%;max-width:none;height:100%;max-height:none;border:0;background:rgba(10,10,12,.93);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);color:var(--wax);
+  padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 24px)}
+dialog.menu::backdrop{background:transparent}
+.menu-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.menu .close{width:44px;height:44px;background:none;border:0;color:inherit;font:300 32px/1 var(--sans);cursor:pointer}
+.menu nav{display:flex;flex-direction:column;margin-top:8vh}
+.menu nav a{font:600 30px/1.1 var(--display);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line)}
+.menu .btn{margin-top:36px;width:100%}
+
+/* ---------- the story: pinned stage, canvas frames, timed HTML copy ---------- */
+.story{position:relative;height:1000vh}
+.stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.stage picture img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage canvas{opacity:0;transition:opacity .5s}
+.stage canvas.on{opacity:1}
+.shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top, var(--ink) 0, rgba(10,10,12,.5) 12%, transparent 30%),
+             linear-gradient(to bottom, rgba(10,10,12,.45), transparent 20%)}
+
+.ch{position:absolute;z-index:3;opacity:0;visibility:hidden;will-change:opacity,transform;max-width:540px}
+.ch h2{font-size:clamp(34px,3.6vw,66px);margin:14px 0 18px}
+.ch p{max-width:36ch;color:rgba(246,237,217,.9)}
+.ch p.eyebrow{max-width:none;display:flex;gap:12px;align-items:center}
+.ch p.eyebrow::before{content:"";width:28px;height:2px;background:var(--honey)}
+.ch::before{content:"";position:absolute;inset:-80px -120px;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(12,8,4,.78),transparent)}
+.r{right:var(--pad);top:26%}
+.r::before{inset:-90px -110px -90px -130px;background:radial-gradient(closest-side,rgba(12,8,4,.88),rgba(12,8,4,.5) 60%,transparent)}
+.bl{left:var(--pad);bottom:19vh}
+.tl{left:var(--pad);top:calc(var(--hdr) + 6vh)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tags span{font:600 12px/1 var(--sans);letter-spacing:.06em;padding:9px 12px;border:1px solid rgba(246,237,217,.28);border-radius:99px;background:rgba(10,10,12,.35)}
+
+.ch-hero{opacity:1;visibility:visible;left:var(--pad);bottom:15vh;max-width:min(600px,42vw);pointer-events:none}
+.ch-hero::before{inset:-140px -170px -120px -140px;background:radial-gradient(closest-side,rgba(12,8,4,.8),transparent)}
+.ch-hero .kicker{display:flex;align-items:center;gap:14px;margin-bottom:22px;font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.ch-hero .kicker .logo{font-size:20px;letter-spacing:0}
+.ch-hero h1{font-size:clamp(44px,4.6vw,88px);font-weight:700;line-height:.94}
+.ch-hero h1 em{font-style:normal;color:var(--honey)}
+.ch-hero p{max-width:36ch;margin:22px 0 26px;font-size:18px;color:rgba(246,237,217,.92)}
+.ch-hero .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap;pointer-events:auto}
+
+.ch-end h2{font-size:clamp(38px,4vw,76px)}
+.ch-end .facts{display:flex;gap:30px;margin:6px 0 28px;font:500 13px/1.5 var(--sans);color:var(--smoke)}
+.ch-end .facts b{display:block;font:600 24px/1.2 var(--display);color:var(--wax)}
+.ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+
+/* signature: a honeycomb cell fills with the story, flowers visited 0 -> 1,500 (one forager's day) */
+.cc{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;display:flex;align-items:center;gap:16px;
+  padding:12px 18px 12px 14px;border:1px solid rgba(246,237,217,.22);border-radius:16px;background:rgba(10,10,12,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.hex{width:42px;height:48px;flex:none}
+.hex .trk{fill:rgba(246,237,217,.08);stroke:rgba(246,237,217,.3);stroke-width:2}
+.hex .fill{fill:var(--honey)}
+.cc .num{font:600 clamp(24px,2vw,34px)/1 var(--display);font-variant-numeric:tabular-nums;min-width:3.4ch}
+.cc .num small{font:500 .42em/1 var(--sans);letter-spacing:.06em;margin-left:.45em;color:var(--smoke)}
+.cc .lbl{display:flex;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-top:8px}
+.cc .lbl b{color:var(--honey);font-weight:700}
+.skip{position:absolute;z-index:5;left:50%;bottom:30px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;
+  font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(246,237,217,.74);text-decoration:none;padding:10px 12px;min-height:44px}
+.skip:hover{color:var(--wax)}
+.skip i{width:2px;height:30px;background:linear-gradient(var(--honey),transparent);animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- the shop below the story ---------- */
+section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
+.sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
+.head h2{font-size:clamp(40px,5vw,92px);margin-top:14px}
+.head>p{max-width:42ch;color:rgba(246,237,217,.78);justify-self:end}
+
+/* varieties */
+.jars{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.6vw,24px)}
+.jar{position:relative;border-radius:18px;overflow:hidden;background:var(--comb);display:flex;flex-direction:column}
+.jar figure{aspect-ratio:4/5;overflow:hidden}
+.jar img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.jar:hover img{transform:scale(1.04)}
+.jar .body{padding:22px 22px 24px;display:grid;gap:10px;flex:1}
+.jar .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--honey)}
+.jar h3{font-size:clamp(20px,1.6vw,26px)}
+.jar p{font-size:15px;color:rgba(246,237,217,.72)}
+.jar ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.jar li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(246,237,217,.8)}
+.jar .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
+.jar .meta b{font:600 20px/1 var(--display);color:var(--wax);white-space:nowrap}
+.jar .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
+.badge{position:absolute;top:16px;left:16px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--honey);color:var(--ink);padding:8px 10px;border-radius:99px}
+.tbd{display:inline-block;justify-self:start;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+.fine-print{margin-top:22px;font-size:13px;color:var(--smoke)}
+
+/* how we collect */
+.howsec{background:linear-gradient(var(--ink),var(--comb) 25%,var(--comb) 75%,var(--ink))}
+.how{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
+.how figure{overflow:hidden;aspect-ratio:16/10;border-radius:18px}
+.how figure img{width:100%;height:100%;object-fit:cover}
+.how blockquote{margin-top:28px;font:500 clamp(22px,2vw,32px)/1.25 var(--display);color:var(--wax)}
+.how blockquote+p{margin-top:14px;color:var(--smoke);font-size:15px;max-width:44ch}
+.steps{list-style:none;border-top:1px solid var(--line);counter-reset:s}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;padding:24px 0;border-bottom:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:"0" counter(s);grid-row:span 2;font:600 14px/1.9 var(--display);color:var(--honey)}
+.steps b{font:600 20px/1.3 var(--display)}
+.steps span{font-size:15px;color:rgba(246,237,217,.7)}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(48px,7vh,80px)}
+.proof>div{padding:30px 32px 30px 0;border-right:1px solid var(--line)}
+.proof>div+div{padding-left:32px}.proof>div:last-child{border-right:0}
+.proof b{display:block;font:600 clamp(34px,3.4vw,56px)/1 var(--display);color:var(--honey);letter-spacing:-.02em}
+.proof span{display:block;margin-top:10px;font-size:15px;color:rgba(246,237,217,.72);max-width:30ch}
+
+/* gift sets */
+.gifts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.6vw,24px)}
+.gift{border:1px solid var(--line);border-radius:18px;padding:30px;display:grid;gap:14px;align-content:start;background:linear-gradient(160deg,rgba(244,182,62,.07),transparent 60%)}
+.gift h3{font-size:clamp(22px,1.8vw,30px)}
+.gift p{font-size:15px;color:rgba(246,237,217,.72)}
+.gift ul{list-style:none;display:grid;gap:8px;font-size:15px;color:rgba(246,237,217,.86)}
+.gift li::before{content:"";display:inline-block;width:10px;height:11px;margin-right:12px;background:var(--honey);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.gift .meta{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:16px;margin-top:6px;border-top:1px solid var(--line)}
+.gift .meta b{font:600 22px/1 var(--display);white-space:nowrap}
+.gift .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
+.gift.wide{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;overflow:hidden}
+.gift.wide figure{min-height:320px}.gift.wide img{width:100%;height:100%;object-fit:cover}
+.gift.wide .in{padding:clamp(28px,3vw,48px);display:grid;gap:14px;align-content:center}
+
+/* delivery */
+.ship{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
+.price{width:100%;border-collapse:collapse}
+.price td{padding:18px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
+.price tr:first-child td{border-top:1px solid var(--line)}
+.price td b{display:block;font:600 19px/1.25 var(--display)}
+.price td span{display:block;margin-top:6px;font-size:14px;color:rgba(246,237,217,.62)}
+.price td:last-child{text-align:right;font:600 20px/1 var(--display);white-space:nowrap;padding-left:20px}
+.price .free{color:var(--honey)}
+.pack{border:1px solid var(--line);border-radius:18px;padding:30px;background:rgba(33,25,16,.6)}
+.pack h3{font-size:24px;margin:12px 0 14px}
+.pack p{font-size:15px;color:rgba(246,237,217,.74)}
+.pack p+p{margin-top:12px}
+
+/* order */
+.order{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(244,182,62,.1), transparent 70%)}
+.order h2{font-size:clamp(40px,4.6vw,84px);margin:14px 0 22px}
+.order .lead{color:rgba(246,237,217,.8);max-width:36ch}
+.order figure{margin-top:36px;overflow:hidden;border-radius:18px;aspect-ratio:16/10}
+.order figure img{width:100%;height:100%;object-fit:cover}
+form{display:grid;gap:22px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+input[type=text],input[type=email],select{width:100%;height:54px;background:transparent;border:0;border-bottom:1px solid rgba(246,237,217,.3);color:var(--wax);font:400 18px/1 var(--sans);letter-spacing:0;text-transform:none;padding:0 2px;border-radius:0;color-scheme:dark}
+select option{background:var(--ink)}
+input:focus,select:focus{outline:none;border-bottom-color:var(--honey)}
+fieldset{border:0;display:flex;flex-wrap:wrap;gap:10px}
+legend{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:14px}
+.chip{position:relative;display:block}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line);border-radius:99px;font:500 14px/1 var(--sans);letter-spacing:0;text-transform:none;color:var(--wax);transition:.25s}
+.chip input:checked+span{background:var(--wax);color:var(--ink);border-color:var(--wax)}
+.chip input:focus-visible+span{outline:2px solid var(--honey);outline-offset:3px}
+.send{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:6px}
+.note{font-size:13px;color:var(--smoke);max-width:42ch}
+.status{min-height:1.6em;font:500 16px/1.5 var(--sans);color:var(--honey)}
+
+footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-top:1px solid var(--line);overflow:hidden}
+.big{display:flex;align-items:baseline;gap:.3em;white-space:nowrap;line-height:.9;margin-left:-.04em}
+.big .logo{font-size:clamp(64px,17vw,300px)}
+.big small{font:500 clamp(14px,1.6vw,26px)/1.2 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+.credit{display:flex;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--smoke)}
+.credit strong{color:var(--wax);font-weight:500}
+.credit nav{display:flex;gap:22px;flex-wrap:wrap}
+.credit a{text-decoration:none;padding:12px 0;color:var(--wax)}
+.credit a:hover{color:var(--honey)}
+.fine{margin-top:14px;font-size:12px;color:rgba(169,159,140,.85)}
+
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rv linear both;animation-timeline:view();animation-range:entry 5% entry 50%}
+    @keyframes rv{from{opacity:0;transform:translateY(44px)}}
+  }
+}
+
+/* ---------- reduced motion / save-data: composed still, normal flow ---------- */
+.static .story{height:auto!important}
+.static .stage{position:relative;height:auto;min-height:100svh;display:flex;flex-direction:column;gap:14vh;padding:calc(100svh + 8vh) var(--pad) 14vh}
+.static .stage picture img{height:100svh}
+.static canvas,.static .skip,.static .cc{display:none}
+.static .ch{position:relative;inset:auto;margin:0;opacity:1!important;visibility:visible!important;transform:none!important;max-width:640px}
+.static .ch-hero{position:absolute;left:var(--pad);bottom:auto;top:calc(100svh - 70vh)}
+.static .shade{background:linear-gradient(to bottom,transparent 55vh,var(--ink) 100svh)}
+
+/* ---------- mobile: its own composition, portrait frames ---------- */
+@media (max-width: 760px){
+  :root{--hdr:60px;--pad:20px}
+  body{font-size:16px}
+  .nav,.hdr .btn,.brand small{display:none}
+  .lang{margin-left:auto}
+  .burger{display:block}
+  .brand .logo{font-size:20px}
+  .ch{max-width:none}
+  .ch h2{font-size:34px;margin:10px 0 0}
+  .ch p.more,.ch .tags,.ch-hero p,.ch-hero .link,.ch-end .facts,.ch-end .link{display:none}
+  .r,.bl,.tl{left:var(--pad);right:var(--pad);top:auto;bottom:calc(104px + env(safe-area-inset-bottom));transform:none;margin:0}
+  .ch::before{inset:-60px -40px}
+  .ch-hero{left:var(--pad);right:var(--pad);bottom:calc(100px + env(safe-area-inset-bottom));max-width:none}
+  .ch-hero .kicker{margin-bottom:14px}
+  .ch-hero h1{font-size:11vw}
+  .ch-hero .row{margin-top:20px}
+  .ch-end h2{font-size:36px;margin:10px 0 20px}
+  .cc{bottom:calc(16px + env(safe-area-inset-bottom));gap:10px;padding:8px 14px 8px 10px;border-radius:12px}
+  .hex{width:30px;height:34px}
+  .cc .num{font-size:20px}.cc .lbl{font-size:9px;margin-top:5px;gap:8px}
+  .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
+  .skip i{display:none}
+  .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
+  .jars{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .jars{scroll-padding-inline:var(--pad)}.jars::-webkit-scrollbar{display:none}
+  .jar{flex:0 0 80%;scroll-snap-align:start}
+  .how,.ship,.order,.gifts{grid-template-columns:1fr}
+  .gift.wide{grid-template-columns:1fr}.gift.wide figure{min-height:0;aspect-ratio:16/10}
+  .proof{grid-template-columns:1fr}
+  .proof>div,.proof>div+div{padding:24px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .f2{grid-template-columns:1fr}
+  .pack,.gift{padding:22px}
+  .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
+}
+@media (min-width: 761px) and (max-width: 1100px){
+  .nav{display:none}.lang{margin-left:auto}
+  .ch-hero{max-width:66vw}
+  .jars{grid-template-columns:1fr 1fr}
+  .gifts{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="brand" href="#top" aria-label="g.a.d. honey, back to top"><span class="logo">g.a.d.</span><small>honey</small></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#honey">Honey</a><a href="#how">How we collect</a><a href="#gifts">Gift sets</a><a href="#delivery">Delivery</a>
+  </nav>
+  <nav class="lang" aria-label="Language"><span aria-current="page">EN</span><a href="ru/" hreflang="ru" lang="ru">RU</a></nav>
+  <a class="btn" href="#order">Order honey</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
+</header>
+
+<dialog class="menu" id="menu-dlg" aria-label="Menu">
+  <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
+    <button class="close" aria-label="Close menu">&times;</button></div>
+  <nav aria-label="Menu">
+    <a href="#honey">Honey</a><a href="#how">How we collect</a><a href="#gifts">Gift sets</a><a href="#delivery">Delivery</a>
+  </nav>
+  <a class="btn" href="#order">Order honey</a>
+</dialog>
+
+<main id="top">
+<!-- ===== THE STORY. Copy lives in the .ch blocks; data-seg = which timeline segments it spans (see SEG in the script) ===== -->
+<section class="story" id="story" aria-label="The story: a morning on one sunflower, from the first bee to the last">
+  <div class="stage">
+    <picture>
+      <source media="(max-aspect-ratio: 4/5)" srcset="frames/stills/poster-m.webp">
+      <img src="frames/stills/poster-d.webp" alt="A honeybee on a sunflower in a meadow, a waterfall behind" fetchpriority="high">
+    </picture>
+    <canvas aria-hidden="true"></canvas>
+    <div class="shade"></div>
+
+    <div class="ch ch-hero" data-seg="0-1" data-fade="1">
+      <div class="kicker"><span class="logo">g.a.d.</span><span>Honey · apiary &amp; shop</span></div>
+      <h1>Honey from<br><em>one</em> field</h1>
+      <p>Raw honey from our own hives, one field per jar: sunflower, wildflower meadow, linden. Jarred by hand, at your door in 2–5 days.</p>
+      <div class="row"><a class="btn" href="#order">Order honey</a><a class="link" href="#honey">See the varieties</a></div>
+    </div>
+
+    <div class="ch r" data-seg="2-3">
+      <p class="eyebrow">The apiary</p>
+      <h2>Forty hives,<br>one meadow</h2>
+      <p class="more">Our hives stand at the edge of the field all summer. The bees work the flowers within two kilometres and nothing further.</p>
+    </div>
+
+    <div class="ch bl" data-seg="4">
+      <p class="eyebrow">Nectar</p>
+      <h2>Nectar,<br>not syrup</h2>
+      <p class="more">No sugar feeding in summer, no heating, no blending. What the bees bring home is what goes in the jar.</p>
+      <div class="tags"><span>Raw</span><span>Unheated</span><span>Unblended</span><span>Lab-tested</span></div>
+    </div>
+
+    <div class="ch tl" data-seg="5">
+      <p class="eyebrow">Single field</p>
+      <h2>One field,<br>one jar</h2>
+      <p class="more">Every label names the field, the week it was taken and the row of hives. Sunflower honey tastes of sunflower.</p>
+    </div>
+
+    <div class="ch r" data-seg="6">
+      <p class="eyebrow">Back to the hive</p>
+      <h2>Home<br>before noon</h2>
+      <p class="more">A forager flies nectar home dozens of times a day. The hive thickens it into honey, and we wait until the comb is capped.</p>
+    </div>
+
+    <div class="ch tl ch-end" data-seg="7-8" data-delay="0.3">
+      <p class="eyebrow">Harvest 2026</p>
+      <h2>From our hives<br>to your spoon</h2>
+      <div class="facts"><span><b>4 honeys</b>On the shelf</span><span><b>2–5 days</b>Delivery</span></div>
+      <div class="row"><a class="btn" href="#order">Order honey</a><a class="link" href="#gifts">Gift sets</a></div>
+    </div>
+
+    <div class="cc" aria-hidden="true">
+      <svg class="hex" viewBox="0 0 42 48"><defs><clipPath id="hc"><path d="M21 2 40 13v22L21 46 2 35V13z"/></clipPath></defs>
+        <path class="trk" d="M21 2 40 13v22L21 46 2 35V13z"/><rect class="fill" clip-path="url(#hc)" x="0" y="48" width="42" height="48"/></svg>
+      <div><div class="num">0<small>flowers</small></div><span class="lbl"><span class="seg">First light</span><b>one bee, one day</b></span></div>
+    </div>
+    <a class="skip" href="#honey"><span>Skip to the honey</span><i></i></a>
+  </div>
+</section>
+
+<!-- ===== VARIETIES ===== -->
+<section class="sec" id="honey">
+  <div class="head rv">
+    <div><p class="eyebrow">The honey</p><h2>Four honeys,<br>four fields</h2></div>
+    <p>Each one comes from a single bloom and a single week. Taste them side by side at the apiary, or order the tasting trio.</p>
+  </div>
+  <div class="jars">
+    <article class="jar rv"><span class="badge">Most loved</span>
+      <figure><img src="frames/stills/sunflower.webp" alt="A honeybee working the centre of a sunflower" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Sunflower · July</span><h3>Sunflower</h3>
+        <p>Bright gold, sets creamy in about three weeks. Mild and warm, a little like butter on toast.</p>
+        <ul><li>250 g</li><li>500 g</li><li>1 kg</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$12</b></div></div></article>
+    <article class="jar rv">
+      <figure><img src="frames/stills/meadow.webp" alt="A wildflower meadow with a waterfall behind it" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Meadow · June</span><h3>Wildflower meadow</h3>
+        <p>Thirty-odd plants, clover to cornflower. Floral with a light sour finish, stays runny until winter.</p>
+        <ul><li>250 g</li><li>500 g</li><li>1 kg</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$14</b></div></div></article>
+    <article class="jar rv">
+      <figure><img src="frames/stills/flight.webp" alt="A honeybee in flight over the meadow, coming in to land" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Linden · early July</span><h3>Linden</h3>
+        <p>Pale and fragrant, almost minty. Our favourite in tea; it sets white by the autumn.</p>
+        <ul><li>250 g</li><li>500 g</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$16</b></div></div></article>
+    <article class="jar rv">
+      <figure><img src="frames/stills/creamed.webp" alt="Close-up of a sunflower centre with a bee at its edge" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Creamed · all year</span><h3>Creamed sunflower</h3>
+        <p>Stirred cool for ten days until it spreads like soft butter. Nothing added, only time.</p>
+        <ul><li>250 g</li><li>500 g</li></ul>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$13</b></div></div></article>
+  </div>
+  <p class="fine-print">Concept site: varieties, weights and prices are sample content.</p>
+</section>
+
+<!-- ===== HOW WE COLLECT ===== -->
+<section class="sec howsec" id="how">
+  <div class="head rv">
+    <div><p class="eyebrow">How we collect</p><h2>Slow<br>on purpose</h2></div>
+    <p>Four steps from the flower to the jar, and none of them is a machine that speeds things up.</p>
+  </div>
+  <div class="how">
+    <ol class="steps rv">
+      <li><b>Hives go to the bloom</b><span>We move the hives to the field when it flowers, not the other way round.</span></li>
+      <li><b>Only capped comb</b><span>A frame comes out when the bees have sealed it. Then the honey is ripe and under 18% water.</span></li>
+      <li><b>Cold extraction</b><span>Spun out of the comb, strained through a fine mesh, never warmed above the temperature of the hive.</span></li>
+      <li><b>Jarred by hand</b><span>Glass jars, field and week on the label, every batch checked in a lab before it ships.</span></li>
+    </ol>
+    <div class="rv">
+      <figure><img src="frames/stills/pair.webp" alt="Two honeybees side by side on a sunflower, collecting nectar" width="1728" height="1080" loading="lazy"></figure>
+      <blockquote>“We don’t make honey. We carry the hives and wait.”</blockquote>
+      <p>Visitors are welcome on summer weekends: veil on, smoker lit, a spoon from the frame.</p>
+    </div>
+  </div>
+  <div class="proof rv">
+    <div><b>40</b><span>hives, moved three times a summer to follow the bloom</span></div>
+    <div><b>&lt;18%</b><span>water in every batch, the line between honey and nectar</span></div>
+    <div><b>≤35 °C</b><span>the warmest our honey gets after it leaves the hive</span></div>
+  </div>
+</section>
+
+<!-- ===== GIFT SETS ===== -->
+<section class="sec" id="gifts">
+  <div class="head rv">
+    <div><p class="eyebrow">Gift sets</p><h2>Honey worth<br>giving</h2></div>
+    <p>Wrapped in kraft and wax paper, with a card that says which field each jar comes from.</p>
+  </div>
+  <div class="gifts">
+    <article class="gift rv"><span class="type eyebrow">Tasting trio</span><h3>Three fields</h3>
+      <ul><li>Sunflower, 150 g</li><li>Wildflower meadow, 150 g</li><li>Linden, 150 g</li></ul>
+      <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$29</b></div></article>
+    <article class="gift rv"><span class="type eyebrow">Comb box</span><h3>Straight from the frame</h3>
+      <ul><li>A cut piece of capped comb</li><li>Two jars, 250 g each</li><li>Wooden honey dipper</li></ul>
+      <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$42</b></div></article>
+    <article class="gift rv"><span class="type eyebrow">For the team</span><h3>Ten boxes and up</h3>
+      <ul><li>Any set above</li><li>Your card or logo on the ribbon</li><li>Delivered to one address or many</li></ul>
+      <div class="meta"><span class="tbd">Concept</span><b>On request</b></div></article>
+    <article class="gift wide rv">
+      <figure><img src="frames/stills/takeoff.webp" alt="A honeybee lifting off a sunflower, heading home" width="1728" height="1080" loading="lazy"></figure>
+      <div class="in"><p class="eyebrow">Honey subscription</p><h3>A jar a month, a new field each time</h3>
+        <p>We send whatever the bees brought in that month, from the first spring willow to the last heather. Pause or stop in one click.</p>
+        <div class="meta"><span class="tbd">Concept price</span><b><small>from</small>$15 / month</b></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== DELIVERY ===== -->
+<section class="sec" id="delivery">
+  <div class="head rv">
+    <div><p class="eyebrow">Delivery</p><h2>Glass that<br>arrives whole</h2></div>
+    <p>Orders placed before noon leave the apiary the same day.</p>
+  </div>
+  <div class="ship">
+    <table class="price rv">
+      <tr><td><b>Courier in the city</b><span>Next day, a two-hour window you pick.</span></td><td>$5</td></tr>
+      <tr><td><b>Courier, orders over $50</b><span>Same window, same care.</span></td><td class="free">Free</td></tr>
+      <tr><td><b>Parcel lockers and post</b><span>Anywhere in the country, 2–5 days, tracking number by email.</span></td><td>from $7</td></tr>
+      <tr><td><b>Pick up at the apiary</b><span>Saturdays and Sundays, 10 am to 6 pm, with a tasting.</span></td><td class="free">Free</td></tr>
+    </table>
+    <div class="pack rv">
+      <p class="eyebrow">Packing</p>
+      <h3>Paper honeycomb, no plastic</h3>
+      <p>Each jar goes into a sleeve of paper honeycomb and a box that fits it. Nothing to throw into the sea.</p>
+      <p>If a jar breaks on the way, send us a photo and we ship a new one the next morning.</p>
+      <p class="fine-print">Concept prices, for illustration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ORDER (concept: nothing is sent) ===== -->
+<section class="sec order" id="order">
+  <div class="rv">
+    <p class="eyebrow">Order</p>
+    <h2>Honey at your door<br>this week</h2>
+    <p class="lead">Pick a honey, a size and how you want it. We jar it from this summer’s harvest the day your order comes in.</p>
+    <figure><img src="frames/stills/last.webp" alt="One honeybee left on the sunflower, working its centre" width="1728" height="1080" loading="lazy"></figure>
+  </div>
+  <form id="form" class="rv" novalidate>
+    <div class="f2">
+      <label>Name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+    </div>
+    <div class="f2">
+      <label>Honey<select name="honey"><option selected>Sunflower</option><option>Wildflower meadow</option><option>Linden</option><option>Creamed sunflower</option><option>Tasting trio</option><option>Comb box</option></select></label>
+      <label>Delivery<select name="delivery"><option selected>Courier in the city</option><option>Parcel locker or post</option><option>Pick up at the apiary</option></select></label>
+    </div>
+    <fieldset>
+      <legend>Size</legend>
+      <label class="chip"><input type="radio" name="size" value="250"><span>250 g</span></label>
+      <label class="chip"><input type="radio" name="size" value="500" checked><span>500 g</span></label>
+      <label class="chip"><input type="radio" name="size" value="1000"><span>1 kg</span></label>
+    </fieldset>
+    <div class="send"><button class="btn" type="submit">Place the order</button><p class="note">Concept site: this form checks your answers but sends nothing anywhere.</p></div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="big" aria-hidden="true"><span class="logo lime">g.a.d.</span><small>honey</small></div>
+  <div class="credit">
+    <span><strong>Concept site by g.a.d. — websites and 3D for brands</strong></span>
+    <nav aria-label="Contacts">
+      <a href="mailto:paladei702@gmail.com">paladei702@gmail.com</a>
+      <a href="https://max.ru/u/f9LHodD0cOIMR2bjYkF5W52F58UVcSSkA4J80AyBbUl_fCEugAMeFqDb4LQ" target="_blank" rel="noopener">MAX</a>
+      <a href="https://smirnov-artur.github.io/works/en" target="_blank" rel="noopener">Portfolio</a>
+    </nav>
+  </div>
+  <p class="fine">g.a.d. honey is a concept: the apiary, varieties, prices and delivery terms are placeholders.</p>
+</footer>
+
+<script>
+(() => {
+  // ---- timeline: [scroll length in viewport heights (desktop, mobile), first frame, last frame]
+  // equal frames = still-frame hold. Site frame = source frame (one continuous shot, see NOTES.md).
+  const SEG = [
+    [0.50, 0.35,   0,   0], // 0 opening hold: one bee on the sunflower, read the hero
+    [1.00, 0.70,   0, 100], // 1 she works the centre, hero fades
+    [1.10, 0.80, 100, 184], // 2 a second bee flies in from the meadow and lands
+    [0.40, 0.30, 184, 184], // 3 hold: both on the flower
+    [1.20, 0.85, 184, 262], // 4 two bees working
+    [1.20, 0.85, 262, 340], // 5 two bees working, closer to the centre
+    [1.00, 0.70, 340, 384], // 6 one lifts off and flies home
+    [1.00, 0.70, 384, 451], // 7 the last bee on the flower
+    [0.70, 0.50, 451, 451], // 8 closing hold
+  ];
+  // signature: label per segment; flowers = progress through the story (one forager's day)
+  const LBL = ['First light','First light','Company','Company','Nectar','One field','Homeward','Last flower','In the jar'];
+  const FLOWERS = 1500, fmt = n => n.toLocaleString('en-US');
+  const FRAMES = 'frames/';
+  const N = 452, NET = 6, DEC = 3;
+  let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 608x1080 ≈ 2.6 MB
+
+  const $ = s => document.querySelector(s);
+  const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
+  const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
+  const chs = [...stage.querySelectorAll('.ch')];
+  const num = $('.cc .num'), seg = $('.cc .seg'), fill = $('.hex .fill'), skip = $('.skip');
+  const unit = num.querySelector('small').outerHTML;
+  const portrait = matchMedia('(max-aspect-ratio: 4/5)');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- menu (native <dialog>: focus containment + Escape) ----------
+  const menu = $('#menu-dlg'), burger = $('#burger');
+  burger.addEventListener('click', () => { menu.showModal(); burger.setAttribute('aria-expanded', 'true'); });
+  menu.querySelector('.close').addEventListener('click', () => menu.close());
+  menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
+
+  // ---------- order form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then orders are really sent
+  const form = $('#form'), status = $('#status');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const el = form.elements;
+    if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value.trim())) { status.textContent = 'Add your name and an email.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Not sent: this is a concept site with no apiary behind it. On a live site the order would go straight to the beekeeper.'; return; }
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      status.textContent = r.ok ? 'Ordered. We’ll email you when the jars leave the apiary.' : 'The order didn’t go through. Try again in a minute.';
+      if (r.ok) form.reset();
+    } catch { status.textContent = 'No connection. Check it and send again.'; }
+  });
+
+  // ---------- still mode: reduced motion or save-data ----------
+  if (reduce.matches || (navigator.connection && navigator.connection.saveData)) { root.classList.add('static'); return; }
+
+  // ---------- layout ----------
+  let mob, dir, vh, top0, acc, TOTAL, fw, fh;
+  function layout() {
+    mob = portrait.matches;
+    vh = root.clientHeight;
+    const k = mob ? 1 : 0;
+    acc = [0]; SEG.forEach(s => acc.push(acc[acc.length - 1] + s[k]));
+    TOTAL = acc[acc.length - 1];
+    story.style.height = (TOTAL + 1) * vh + 'px';          // pinned travel counted apart from the stage height
+    top0 = story.getBoundingClientRect().top + scrollY;
+    chs.forEach(el => {
+      const [a, b = a] = el.dataset.seg.split('-').map(Number);
+      el._a = acc[a] + (+el.dataset.delay || 0); el._b = acc[b + 1];
+      el._f = el.dataset.fade ? acc[b + 1] - acc[b] : 0;   // fade out across the whole last segment
+    });
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    canvas.width = Math.round(stage.clientWidth * dpr); canvas.height = Math.round(stage.clientHeight * dpr);
+    dirty = true;
+  }
+
+  // ---------- frame loader: nearest first, bounded requests and decoded memory ----------
+  let gen = 0, ac, blobs, bmps, fetching, decoding, failed, want = 0;
+  const url = i => `${FRAMES}${dir}/${String(i).padStart(4, '0')}.webp`;
+  function reset() {
+    gen++; if (ac) ac.abort(); ac = new AbortController();
+    if (bmps) bmps.forEach(b => b.close());
+    dir = mob ? 'm' : 'd'; fw = 0; WIN = mob ? 16 : 12; MAXBMP = mob ? 40 : 30;
+    blobs = new Array(N); bmps = new Map(); fetching = new Set(); decoding = new Set(); failed = new Array(N).fill(0);
+    canvas.classList.remove('on'); drawn = -1;
+    pump();
+  }
+  function pump() {
+    const g = gen, c = want;
+    for (let d = 0; d <= WIN && decoding.size < DEC; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || !blobs[i] || bmps.has(i) || decoding.has(i) || decoding.size >= DEC) continue;
+      decoding.add(i);
+      createImageBitmap(blobs[i]).then(bm => {
+        if (g !== gen) return bm.close();
+        if (!fw) { fw = bm.width; fh = bm.height; }
+        bmps.set(i, bm); dirty = true; if (!raf) raf = requestAnimationFrame(tick);
+      }).catch(() => {}).finally(() => { if (g === gen) { decoding.delete(i); pump(); } });
+    }
+    for (let d = 0; d < N && fetching.size < NET; d++) for (const i of d ? [c + d, c - d] : [c]) {
+      if (i < 0 || i >= N || blobs[i] || fetching.has(i) || failed[i] > 2 || fetching.size >= NET) continue;
+      fetching.add(i);
+      fetch(url(i), { signal: ac.signal }).then(r => r.ok ? r.blob() : Promise.reject(r.status))
+        .then(b => { if (g === gen) blobs[i] = b; })
+        .catch(() => { if (g === gen) failed[i]++; })
+        .finally(() => { if (g === gen) { fetching.delete(i); pump(); } });
+    }
+    if (bmps.size > MAXBMP) for (const [i, b] of bmps) if (Math.abs(i - c) > WIN) { b.close(); bmps.delete(i); }
+  }
+
+  // ---------- drawing: exactly one frame on screen, whole pixels (no blending, no half-pixel blur) ----------
+  let dirty = true, drawn = -1;
+  function nearest(i) { for (let d = 0; d <= 14; d++) { if (bmps.has(i - d)) return i - d; if (bmps.has(i + d)) return i + d; } return -1; }
+  function draw(f) {
+    const a = nearest(f);
+    if (a < 0 || !fw) return;
+    const W = canvas.width, H = canvas.height;
+    const s = Math.max(W / fw, H / fh), w = Math.round(fw * s), h = Math.round(fh * s), x = Math.round((W - w) / 2), y = Math.round((H - h) / 2);
+    ctx.imageSmoothingQuality = 'high'; ctx.drawImage(bmps.get(a), x, y, w, h);
+    if (drawn < 0) canvas.classList.add('on');
+    drawn = a;
+  }
+
+  // ---------- scroll → timeline ----------
+  function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
+  function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
+  function onScroll() {
+    u = clamp((scrollY - top0) / vh, 0, TOTAL);
+    const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function ui(v) {
+    const F = mob ? 0.2 : 0.28;
+    for (const el of chs) {
+      let o = 0, i = 1, x = 1;
+      if (v >= el._a - 1e-6 && v <= el._b + 1e-6) {
+        i = el._a === 0 ? 1 : clamp((v - el._a) / F); x = el._b >= TOTAL - 1e-6 ? 1 : clamp((el._b - v) / (el._f || F));
+        o = Math.min(i, x);
+      }
+      el.style.opacity = o;
+      el.style.visibility = o > 0.01 ? 'visible' : 'hidden';
+      el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
+    }
+    const [s] = at(v), p = v / TOTAL;
+    const txt = fmt(Math.round(FLOWERS * p / 10) * 10) + unit;
+    if (num.innerHTML !== txt) num.innerHTML = txt;
+    if (seg.textContent !== LBL[s]) seg.textContent = LBL[s];
+    fill.setAttribute('y', (48 - 44 * p - 2).toFixed(1));
+    skip.style.opacity = v > TOTAL - 0.8 ? clamp((TOTAL - v) / 0.8) : 1;
+    skip.style.visibility = v > TOTAL - 0.05 ? 'hidden' : 'visible';
+  }
+  function tick(t) {
+    const dt = Math.min(64, t - lastT || 16.7); lastT = t;
+    const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
+    uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
+    const f = Math.round(frameAt(uS));
+    if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
+    if (uS !== last) { ui(uS); last = uS; }
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
+  }
+
+  // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------
+  let lw = innerWidth, lh = innerHeight;
+  addEventListener('resize', () => {
+    if (innerWidth === lw && Math.abs(innerHeight - lh) < 120) return;  // ignore mobile toolbar show/hide
+    lw = innerWidth; lh = innerHeight;
+    const was = mob; layout(); if (was !== mob) reset(); onScroll();
+  });
+  portrait.addEventListener('change', () => { layout(); reset(); onScroll(); });
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('pagehide', () => { gen++; if (ac) ac.abort(); if (bmps) bmps.forEach(b => b.close()); });
+
+  layout(); reset(); onScroll(); uS = u; ui(u);
+  window.__story = { get frame() { return lastFrame; }, get total() { return TOTAL; }, get acc() { return acc; }, get loaded() { return blobs.filter(Boolean).length; }, get decoded() { return bmps.size; }, get dir() { return dir; } };
+})();
+</script>
+<script>new Image().src='https://gad-production.ru/px?p='+encodeURIComponent(location.pathname)+'&r='+encodeURIComponent(document.referrer)+'&s='+encodeURIComponent(new URLSearchParams(location.search).get('src')||'')</script>
+</body>
+</html>

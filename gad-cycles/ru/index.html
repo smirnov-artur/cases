@@ -3,8 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>g.a.d. cycles — веломагазин и мастерская</title>
-<meta name="description" content="g.a.d. cycles: шоссейные, гравийные и городские велосипеды под ваш рост, мастерская с твёрдыми ценами на ТО и бесплатный тест-драйв. Концепт-сайт g.a.d.">
+<title>g.a.d. rain — непромокаемая велоодежда</title>
+<meta name="description" content="g.a.d. rain: куртка-мембрана на 20 000 мм, штаны, перчатки, бахилы и шапочка под шлем для езды в дождь. Размер по росту, уход и ремонт мембраны, 30 дней на возврат. Концепт-сайт g.a.d.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="g.a.d.">
+<meta property="og:title" content="g.a.d. rain — непромокаемая велоодежда">
+<meta property="og:description" content="Заезд под дождём по прокрутке: капли скатываются с мембраны, туман на подъёме, ветер на спуске, светоотражатели ночью. Внутри сухо до финиша.">
+<meta property="og:url" content="https://smirnov-artur.github.io/cases/gad-cycles/ru/">
+<meta property="og:image" content="https://smirnov-artur.github.io/cases/gad-cycles/frames/stills/poster-d.webp">
+<meta property="og:image:width" content="1920">
+<meta property="og:image:height" content="1080">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="../favicon.png">
 <meta name="theme-color" content="#0A0A0C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +111,7 @@ dialog.menu::backdrop{background:transparent}
 .ch-end .facts b{display:block;font:600 24px/1.2 var(--display);color:var(--cream)}
 .ch-end .row{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 
-/* signature: a bike computer bottom-left — distance grows with the story, speed follows the scroll */
+/* signature: a rain gauge bottom-left — km in the rain grow with the story, "dry inside" stays at 100 % */
 .cc{position:absolute;z-index:4;left:var(--pad);bottom:30px;pointer-events:none;display:flex;align-items:center;gap:16px;
   padding:12px 18px 12px 14px;border:1px solid rgba(241,240,236,.22);border-radius:16px;background:rgba(10,10,12,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .dial{width:46px;height:46px;flex:none}
@@ -118,28 +128,28 @@ dialog.menu::backdrop{background:transparent}
 .skip i{width:2px;height:30px;background:linear-gradient(var(--lime),transparent);animation:drip 2.4s ease-in-out infinite}
 @keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* ---------- the shop below the story ---------- */
+/* ---------- the store below the story ---------- */
 section[id]{scroll-margin-top:calc(var(--hdr) + 12px)}
 .sec{padding:clamp(96px,14vh,160px) var(--pad);position:relative}
 .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,7vh,84px)}
 .head h2{font-size:clamp(40px,5vw,92px);margin-top:14px}
 .head>p{max-width:42ch;color:rgba(241,240,236,.78);justify-self:end}
 
-/* bikes */
-.bikes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,28px)}
-.bike{position:relative;border-radius:18px;overflow:hidden;background:var(--night);display:flex;flex-direction:column}
-.bike figure{aspect-ratio:4/5;overflow:hidden}
-.bike img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
-.bike:hover img{transform:scale(1.04)}
-.bike .body{padding:24px 24px 26px;display:grid;gap:10px;flex:1}
-.bike .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
-.bike h3{font-size:clamp(22px,1.8vw,30px)}
-.bike p{font-size:15px;color:rgba(241,240,236,.72)}
-.bike ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.bike li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(241,240,236,.8)}
-.bike .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
-.bike .meta b{font:600 22px/1 var(--display);color:var(--cream);white-space:nowrap}
-.bike .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
+/* kit */
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,1.8vw,28px)}
+.item{position:relative;border-radius:18px;overflow:hidden;background:var(--night);display:flex;flex-direction:column}
+.item figure{aspect-ratio:4/5;overflow:hidden}
+.item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.item:hover img{transform:scale(1.04)}
+.item .body{padding:24px 24px 26px;display:grid;gap:10px;flex:1}
+.item .type{font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--pink)}
+.item h3{font-size:clamp(22px,1.8vw,30px)}
+.item p{font-size:15px;color:rgba(241,240,236,.72)}
+.item ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.item li{font:600 12px/1 var(--sans);padding:8px 10px;border:1px solid var(--line);border-radius:99px;color:rgba(241,240,236,.8)}
+.item .meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font:600 13px/1.3 var(--sans);color:var(--smoke)}
+.item .meta b{font:600 22px/1 var(--display);color:var(--cream);white-space:nowrap}
+.item .meta b small{font:500 13px/1 var(--sans);color:var(--smoke);margin-right:6px}
 .badge{position:absolute;top:16px;left:16px;font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;background:var(--lime);color:var(--ink);padding:8px 10px;border-radius:99px}
 .tbd{display:inline-block;justify-self:start;font:700 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
 .fine-print{margin-top:22px;font-size:13px;color:var(--smoke)}
@@ -162,8 +172,8 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .sizes p{grid-column:1 / -1;font-size:14px;color:rgba(241,240,236,.62)}
 .fit-note{margin-top:22px;font-size:15px;color:rgba(241,240,236,.78);max-width:52ch}
 
-/* workshop */
-.shop{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
+/* care & repair */
+.care{display:grid;grid-template-columns:6fr 5fr;gap:clamp(32px,5vw,96px);align-items:start}
 .price{width:100%;border-collapse:collapse}
 .price td{padding:18px 0;border-bottom:1px solid var(--line);vertical-align:baseline}
 .price tr:first-child td{border-top:1px solid var(--line)}
@@ -172,7 +182,7 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .price td:last-child{text-align:right;font:600 20px/1 var(--display);white-space:nowrap;padding-left:20px}
 .price .free{color:var(--lime)}
 .side figure{overflow:hidden;aspect-ratio:16/10;border-radius:18px}
-.side img{width:100%;height:100%;object-fit:cover}
+.side img{width:100%;height:100%;object-fit:cover;object-position:50% 62%}
 .side blockquote{margin-top:28px;font:500 clamp(22px,2vw,32px)/1.25 var(--display);color:var(--cream)}
 .side blockquote+p{margin-top:14px;color:var(--smoke);font-size:15px;max-width:44ch}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:clamp(48px,7vh,80px)}
@@ -181,10 +191,10 @@ input[type=range]{width:100%;margin:26px 0 8px;accent-color:var(--lime);height:4
 .steps h3{font-size:22px;margin:12px 0 10px}
 .steps p{font-size:15px;color:rgba(241,240,236,.72)}
 
-/* test ride */
+/* fitting & returns */
 .order{display:grid;grid-template-columns:5fr 6fr;gap:clamp(32px,6vw,120px);align-items:start;background:radial-gradient(60% 80% at 8% 30%, rgba(214,255,63,.08), transparent 70%)}
 .order h2{font-size:clamp(40px,4.6vw,84px);margin:14px 0 22px}
-.order .lead{color:rgba(241,240,236,.8);max-width:36ch}
+.order .lead{color:rgba(241,240,236,.8);max-width:40ch}
 .order figure{margin-top:36px;overflow:hidden;border-radius:18px;aspect-ratio:16/10}
 .order figure img{width:100%;height:100%;object-fit:cover}
 form{display:grid;gap:22px}
@@ -255,32 +265,33 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   .skip{left:8px;transform:none;top:calc(var(--hdr) + env(safe-area-inset-top) + 6px);bottom:auto;flex-direction:row;letter-spacing:.2em;font-size:10px}
   .skip i{display:none}
   .head{grid-template-columns:1fr;gap:18px}.head>p{justify-self:start}
-  .bikes{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
-  .bikes{scroll-padding-inline:var(--pad)}.bikes::-webkit-scrollbar{display:none}
-  .bike{flex:0 0 82%;scroll-snap-align:start}
-  .fit,.shop,.order{grid-template-columns:1fr}
+  .items{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-left:calc(-1 * var(--pad));margin-right:calc(-1 * var(--pad));padding:0 var(--pad) 6px;scrollbar-width:none}
+  .items{scroll-padding-inline:var(--pad)}.items::-webkit-scrollbar{display:none}
+  .item{flex:0 0 82%;scroll-snap-align:start}
+  .fit,.care,.order{grid-template-columns:1fr}
   .hgt{padding:22px}
   .steps{grid-template-columns:1fr}
   .steps>div,.steps>div+div{padding:26px 0;border-right:0;border-bottom:1px solid var(--line)}
   .f2{grid-template-columns:1fr}
+  .price td b{font-size:17px}.price td:last-child{font-size:17px;padding-left:12px}
   .static .ch-hero{left:var(--pad);top:calc(100svh - 64vh)}
 }
 @media (min-width: 761px) and (max-width: 1100px){
   .nav{display:none}.lang{margin-left:auto}
   .ch-hero{max-width:66vw}
-  .bikes{grid-template-columns:1fr 1fr}
+  .items{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
 <header class="hdr">
-  <a class="brand" href="#top" aria-label="g.a.d. cycles, наверх"><span class="logo">g.a.d.</span><small>велосипеды</small></a>
+  <a class="brand" href="#top" aria-label="g.a.d. rain, наверх"><span class="logo">g.a.d.</span><small>rain</small></a>
   <nav class="nav" aria-label="Главное">
-    <a href="#bikes">Велосипеды</a><a href="#fit">Подбор по росту</a><a href="#workshop">Мастерская</a>
+    <a href="#kit">Вещи</a><a href="#fit">Подбор по росту</a><a href="#care">Уход и ремонт</a>
   </nav>
   <nav class="lang" aria-label="Язык"><a href="../" hreflang="en" lang="en">EN</a><span aria-current="page">RU</span></nav>
-  <a class="btn" href="#test">Записаться на тест-драйв</a>
+  <a class="btn" href="#try">Записаться на примерку</a>
   <button class="burger" id="burger" aria-label="Открыть меню" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-dlg"><i></i><i></i></button>
 </header>
 
@@ -288,9 +299,9 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   <div class="menu-top"><span class="brand"><span class="logo">g.a.d.</span></span>
     <button class="close" aria-label="Закрыть меню">&times;</button></div>
   <nav aria-label="Меню">
-    <a href="#bikes">Велосипеды</a><a href="#fit">Подбор по росту</a><a href="#workshop">Мастерская</a><a href="#test">Тест-драйв</a>
+    <a href="#kit">Вещи</a><a href="#fit">Подбор по росту</a><a href="#care">Уход и ремонт</a><a href="#try">Примерка и возврат</a>
   </nav>
-  <a class="btn" href="#test">Записаться на тест-драйв</a>
+  <a class="btn" href="#try">Записаться на примерку</a>
 </dialog>
 
 <main id="top">
@@ -305,147 +316,154 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     <div class="shade"></div>
 
     <div class="ch ch-hero" data-seg="0-1" data-fade="1">
-      <div class="kicker"><span class="logo">g.a.d.</span><span>Веломагазин и мастерская</span></div>
+      <div class="kicker"><span class="logo">g.a.d.</span><span>Велоодежда для дождя</span></div>
       <h1>Едем, пока<br>другие <em>ждут</em></h1>
-      <p>Шоссейные, гравийные и городские велосипеды: подберём под рост и обслужим в своей мастерской. Любой можно взять на тест-драйв уже на этой неделе.</p>
-      <div class="row"><a class="btn" href="#test">Записаться на тест-драйв</a><a class="link" href="#bikes">Смотреть велосипеды</a></div>
+      <p>Куртка-мембрана, штаны, перчатки, бахилы и шапочка под шлем. Внутри сухо и после трёх часов под дождём.</p>
+      <div class="row"><a class="btn" href="#try">Записаться на примерку</a><a class="link" href="#kit">Смотреть вещи</a></div>
     </div>
 
     <div class="ch r" data-seg="2">
-      <p class="eyebrow">Экипировка</p>
-      <h2>Одеты<br>под дождь</h2>
-      <p class="more">Куртки, перчатки, бахилы и баффы, в которых катаемся сами. Примеряйте вместе с велосипедом, а не в примерочной.</p>
+      <p class="eyebrow">Водостойкость 20&nbsp;000&nbsp;мм</p>
+      <h2>Дождь остаётся<br>снаружи</h2>
+      <p class="more">Трёхслойная мембрана держит столб воды высотой 20 метров. Швы проклеены, молнии влагозащитные: капли собираются в шарики и скатываются, а не впитываются.</p>
     </div>
 
     <div class="ch tr" data-seg="4">
-      <p class="eyebrow">Велосипеды</p>
-      <h2>Для длинных<br>мокрых дорог</h2>
-      <p class="more">Дисковые тормоза, место под крылья и широкие покрышки, свет, который заряжается на ходу. Три рамы, все в зале.</p>
+      <p class="eyebrow">Ветрозащита</p>
+      <h2>Не продувает<br>на спуске</h2>
+      <p class="more">На спуске под 50 км/ч мокрый ветер студит сильнее дождя. Мембрана его не пропускает совсем, манжеты и высокий воротник закрывают щели.</p>
     </div>
 
     <div class="ch bl" data-seg="5">
-      <p class="eyebrow">Посадка</p>
-      <h2>Настроим под вас<br>до первого метра</h2>
-      <p class="more">Высоту седла, вынос и ширину руля выставим в день покупки. Пятнадцать минут, бесплатно.</p>
-      <div class="tags"><span>Высота седла</span><span>Вынос</span><span>Ширина руля</span><span>Шипы</span></div>
+      <p class="eyebrow">Дышит</p>
+      <h2>Туман снаружи,<br>внутри не парит</h2>
+      <p class="more">На подъёме потеешь сильнее, чем льёт. Пар уходит сквозь мембрану, а на крутом участке открываются молнии подмышками.</p>
+      <div class="tags"><span>20&nbsp;000&nbsp;г/м² в сутки</span><span>Молнии подмышками</span><span>Сетчатая подкладка</span><span>Двусторонняя молния</span></div>
     </div>
 
     <div class="ch r" data-seg="6">
-      <p class="eyebrow">Мастерская</p>
-      <h2>ТО под<br>мокрую дорогу</h2>
-      <p class="more">Прокачаем тормоза, провощим цепь, смажем подшипники от брызг. Цены твёрдые, готово на следующий день.</p>
+      <p class="eyebrow">Руки и ноги</p>
+      <h2>Лужи —<br>работа бахил</h2>
+      <p class="more">Брызги с переднего колеса первыми летят в ноги и руки. Неопреновые бахилы и мембранные перчатки держат их в тепле до последнего километра.</p>
     </div>
 
     <div class="ch tl" data-seg="7">
-      <p class="eyebrow">Четверг, 19:00</p>
-      <h2>Включаем фары,<br>едем вместе</h2>
-      <p class="more">Групповой заезд на 40 км от дверей магазина. Любой велосипед, любой темп, к девяти обратно.</p>
+      <p class="eyebrow">Светоотражение</p>
+      <h2>Видно<br>за 150 метров</h2>
+      <p class="more">Полосы на спине, рукавах и щиколотках вспыхивают в свете фар. Водитель видит, как движутся руки и ноги, а не одну точку.</p>
     </div>
 
     <div class="ch tl ch-end" data-seg="8-9" data-delay="0.3">
-      <p class="eyebrow">Тест-драйв</p>
-      <h2>Прокатитесь,<br>потом покупайте</h2>
-      <div class="facts"><span><b>3 модели</b>В зале</span><span><b>45 минут</b>Тест-драйв бесплатно</span></div>
-      <div class="row"><a class="btn" href="#test">Записаться на тест-драйв</a><a class="link" href="#workshop">Цены мастерской</a></div>
+      <p class="eyebrow">g.a.d. rain</p>
+      <h2>Сухо<br>до финиша</h2>
+      <div class="facts"><span><b>20&nbsp;000&nbsp;мм</b>Водостойкость</span><span><b>30 дней</b>Катайтесь и возвращайте</span></div>
+      <div class="row"><a class="btn" href="#try">Записаться на примерку</a><a class="link" href="#care">Уход и ремонт</a></div>
     </div>
 
     <div class="cc" aria-hidden="true">
       <svg class="dial" viewBox="0 0 46 46"><circle class="trk" cx="23" cy="23" r="19"/><circle class="val" cx="23" cy="23" r="19" stroke-dasharray="0 120"/></svg>
-      <div><div class="num">0,0<small>км</small></div><span class="lbl"><span class="seg">Разминка</span><b class="spd">0 км/ч</b></span></div>
+      <div><div class="num">0,0<small>км под дождём</small></div><span class="lbl"><span class="seg">Старт</span><b>Сухо внутри 100&nbsp;%</b></span></div>
     </div>
-    <a class="skip" href="#bikes"><span>Пропустить заезд</span><i></i></a>
+    <a class="skip" href="#kit"><span>Пропустить заезд</span><i></i></a>
   </div>
 </section>
 
-<!-- ===== BIKES ===== -->
-<section class="sec" id="bikes">
+<!-- ===== KIT ===== -->
+<section class="sec" id="kit">
   <div class="head rv">
-    <div><p class="eyebrow">Велосипеды</p><h2>Три велосипеда,<br>одна мастерская</h2></div>
-    <p>Каждый собираем, настраиваем и обслуживаем здесь. Выберите дорогу, по которой ездите чаще, размер подберём сами.</p>
+    <div><p class="eyebrow">Вещи</p><h2>Сухо с головы<br>до ног</h2></div>
+    <p>Куртка, штаны, перчатки с бахилами и шапочка под шлем. Каждая вещь работает сама по себе и плотно стыкуется с соседней.</p>
   </div>
-  <div class="bikes">
-    <article class="bike rv"><span class="badge">Берут чаще всех</span>
-      <figure><img src="../frames/stills/road.webp" alt="Две велосипедистки в розовой форме рядом на мокрой горной дороге в тумане" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">Шоссе · эндуранс</span><h3>g.a.d. Nightline</h3>
-        <p>Карбоновая рама, гидравлические диски, покрышки 32 мм и скрытые крепления крыльев. Быстрый на сухом, спокойный на мокром.</p>
-        <ul><li>8,4 кг</li><li>2×12</li><li>XS–XXL</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>219&nbsp;000&nbsp;₽</b></div></div></article>
-    <article class="bike rv">
+  <div class="items">
+    <article class="item rv"><span class="badge">Берут чаще всех</span>
+      <figure><img src="../frames/stills/road.webp" alt="Две велосипедистки в розовых куртках рядом на мокрой горной дороге в тумане" width="864" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Куртка · мембрана в 3 слоя</span><h3>Куртка g.a.d. Storm</h3>
+        <p>Водостойкость 20&nbsp;000&nbsp;мм, паропроницаемость 20&nbsp;000&nbsp;г/м², проклеенные швы, молнии подмышками и длинная спинка от брызг с заднего колеса.</p>
+        <ul><li>240 г</li><li>Светоотражатели</li><li>XS–XXL</li></ul>
+        <div class="meta"><span class="tbd">Концепт</span><b><small>от</small>24&nbsp;900&nbsp;₽</b></div></div></article>
+    <article class="item rv">
       <figure><img src="../frames/stills/gravel.webp" alt="Велосипедисты на дороге, врезанной в лесистый склон, вид сверху" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">Гревел · любые дороги</span><h3>g.a.d. Ridge</h3>
-        <p>Алюминиевая рама, покрышки 45 мм, три крепления фляг и багажник. Уходит на лесную дорогу, где кончается асфальт.</p>
-        <ul><li>9,6 кг</li><li>1×12</li><li>XS–XL</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>149&nbsp;000&nbsp;₽</b></div></div></article>
-    <article class="bike rv">
-      <figure><img src="../frames/stills/city.webp" alt="Трое велосипедистов с фарами друг за другом на тёмной лесной дороге, вид строго сверху" width="864" height="1080" loading="lazy"></figure>
-      <div class="body"><span class="type">Город · в любую погоду</span><h3>g.a.d. Lumen</h3>
-        <p>Стальная рама, свет от динамо, полные крылья и планетарная втулка, которой не страшны реагенты. На каждый день, а не только на сухие.</p>
-        <ul><li>12,8 кг</li><li>Втулка на 8 передач</li><li>S–L</li></ul>
-        <div class="meta"><span class="tbd">Concept price</span><b><small>от</small>99&nbsp;000&nbsp;₽</b></div></div></article>
+      <div class="body"><span class="type">Штаны · мембрана</span><h3>Штаны g.a.d. Storm</h3>
+        <p>Та же мембрана, эластичная вставка там, где сидишь на седле, и молнии у щиколоток, чтобы надевать прямо поверх обуви.</p>
+        <ul><li>210 г</li><li>Молнии внизу</li><li>XS–XXL</li></ul>
+        <div class="meta"><span class="tbd">Концепт</span><b><small>от</small>15&nbsp;900&nbsp;₽</b></div></div></article>
+    <article class="item rv">
+      <figure><img src="../frames/stills/workshop.webp" alt="Капля дождя разбивается о лужу на ночной дороге, позади синий свет" width="1728" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Перчатки и бахилы</span><h3>Комплект g.a.d. Splash</h3>
+        <p>Мембранные перчатки с ладонью, которая держит мокрый руль, и неопреновые бахилы с вырезом под шипы. Лужи остаются снаружи.</p>
+        <ul><li>Неопрен 3 мм</li><li>Сенсорные пальцы</li><li>S–XL</li></ul>
+        <div class="meta"><span class="tbd">Концепт</span><b><small>от</small>8&nbsp;900&nbsp;₽</b></div></div></article>
+    <article class="item rv">
+      <figure><img src="../frames/stills/poster-d.webp" alt="Велосипедистка в шлеме и очках опустила голову, капли дождя на лице и розовой куртке" width="1920" height="1080" loading="lazy"></figure>
+      <div class="body"><span class="type">Шапочка под шлем</span><h3>Шапочка g.a.d. Cap</h3>
+        <p>Тонкая мембрана: короткий козырёк убирает дождь с очков, уши закрыты, сзади прорезь под хвост.</p>
+        <ul><li>35 г</li><li>Под любой шлем</li><li>S/M, L/XL</li></ul>
+        <div class="meta"><span class="tbd">Концепт</span><b><small>от</small>3&nbsp;500&nbsp;₽</b></div></div></article>
   </div>
-  <p class="fine-print">Концепт-сайт: модели, характеристики и цены для примера.</p>
+  <p class="fine-print">Концепт-сайт: вещи, характеристики и цены для примера.</p>
 </section>
 
 <!-- ===== FIT BY HEIGHT ===== -->
 <section class="sec fitsec" id="fit">
   <div class="head rv">
     <div><p class="eyebrow">Подбор по росту</p><h2>Начнём<br>с роста</h2></div>
-    <p>Двигайте ползунок и смотрите размер рамы для каждой модели. В магазине сверим с длиной ног и рук.</p>
+    <p>Двигайте ползунок и смотрите размер каждой вещи. На примерке сверим с обхватом груди, талии и длиной ног.</p>
   </div>
   <div class="fit">
     <div class="hgt rv">
       <label for="h">Ваш рост <output id="hout" for="h">172<small>см</small></output></label>
-      <p class="alt" id="halt">Размер рамы для каждой модели — в таблице</p>
+      <p class="alt" id="halt">Размер каждой вещи — в таблице</p>
       <input type="range" id="h" min="150" max="200" step="1" value="172" aria-describedby="halt">
       <div class="scale"><span>150 см</span><span>175</span><span>200 см</span></div>
     </div>
     <div class="rv">
       <ul class="sizes" id="sizes">
-        <li data-bike="road"><b>Nightline · шоссе</b><span class="sz">M</span><span class="cm">54 см</span><p>Геометрия эндуранс: руль чуть выше, чтобы спина не уставала на длинных заездах.</p></li>
-        <li data-bike="gravel"><b>Ridge · гревел</b><span class="sz">M</span><span class="cm">52 см</span><p>Вынос короче, база длиннее, устойчивее на сыпучем грунте.</p></li>
-        <li data-bike="city"><b>Lumen · город</b><span class="sz">M</span><span class="cm">52 см</span><p>Прямая посадка, всего три размера: остальное добирает вынос.</p></li>
+        <li data-item="jacket"><b>Storm · куртка</b><span class="sz">M</span><span class="cm">171–177 см</span><p>Крой под посадку на велосипеде: свободнее в плечах, длиннее сзади.</p></li>
+        <li data-item="pants"><b>Storm · штаны</b><span class="sz">M</span><span class="cm">172–178 см</span><p>Длина идёт по росту, пояс регулируется на ±4 см.</p></li>
+        <li data-item="cap"><b>Cap · под шлем</b><span class="sz">S/M</span><span class="cm">до 175 см</span><p>Два размера: S/M на голову 54–57 см, L/XL — 57–60 см.</p></li>
       </ul>
-      <p class="fit-note">Между двумя размерами? Запишитесь на тест-драйв обоих. Настройка посадки в день покупки бесплатная.</p>
+      <p class="fit-note">Между двумя размерами? Закажите оба, лишний вернём бесплатно.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== WORKSHOP ===== -->
-<section class="sec" id="workshop">
+<!-- ===== CARE & REPAIR ===== -->
+<section class="sec" id="care">
   <div class="head rv">
-    <div><p class="eyebrow">Мастерская</p><h2>Твёрдые цены,<br>готово завтра</h2></div>
-    <p>Привезите велосипед до 10 утра, заберите на следующий вечер. Любой, не только наш.</p>
+    <div><p class="eyebrow">Уход и ремонт мембраны</p><h2>Постирать,<br>пропитать, залатать</h2></div>
+    <p>Мембрана редко изнашивается: она забивается грязью и перестаёт дышать. Приносите любую непромокаемую куртку, не только нашу. Готово за три дня.</p>
   </div>
-  <div class="shop">
+  <div class="care">
     <table class="price rv">
-      <tr><td><b>Проверка безопасности</b><span>Тормоза, покрышки, эксцентрики. Десять минут при вас.</span></td><td class="free">Бесплатно</td></tr>
-      <tr><td><b>Базовое ТО</b><span>Настройка переключателей и тормозов, чистка цепи, протяжка болтов.</span></td><td>3&nbsp;500&nbsp;₽</td></tr>
-      <tr><td><b>Полное ТО</b><span>Разборка, мойка, новые тросики, проверка и смазка подшипников.</span></td><td>8&nbsp;900&nbsp;₽</td></tr>
-      <tr><td><b>Пакет «Мокрая погода»</b><span>Воск на цепь, смазка пыльников, установка и выставка крыльев.</span></td><td>4&nbsp;500&nbsp;₽</td></tr>
-      <tr><td><b>Прокачка тормоза</b><span>Гидравлический диск, за один тормоз, новая жидкость.</span></td><td>2&nbsp;000&nbsp;₽</td></tr>
-      <tr><td><b>Правка колеса</b><span>За колесо, с проверкой натяжения спиц.</span></td><td>1&nbsp;200&nbsp;₽</td></tr>
-      <tr><td><b>Бескамерка</b><span>За колесо, ниппель и герметик включены.</span></td><td>1&nbsp;500&nbsp;₽</td></tr>
+      <tr><td><b>Проверка мембраны</b><span>Швы, молнии и манжеты под душем. Десять минут при вас.</span></td><td class="free">Бесплатно</td></tr>
+      <tr><td><b>Стирка и пропитка</b><span>Стирка специальным средством, новая водоотталкивающая пропитка, закрепление теплом: капли снова скатываются.</span></td><td>1&nbsp;900&nbsp;₽</td></tr>
+      <tr><td><b>Переклейка шва</b><span>За 10 см, мембранная лента под горячим прессом.</span></td><td>900&nbsp;₽</td></tr>
+      <tr><td><b>Заплатка на разрыв</b><span>До 3 см, изнутри, держит те же 20&nbsp;000&nbsp;мм.</span></td><td>1&nbsp;500&nbsp;₽</td></tr>
+      <tr><td><b>Замена молнии</b><span>Влагозащитная молния на куртке или штанах.</span></td><td>2&nbsp;900&nbsp;₽</td></tr>
+      <tr><td><b>Новые отражатели</b><span>Светоотражающие полосы на спину, рукава или щиколотки.</span></td><td>1&nbsp;200&nbsp;₽</td></tr>
+      <tr><td><b>Ремонт бахил</b><span>Усиление подошвы и новый бегунок, за пару.</span></td><td>1&nbsp;400&nbsp;₽</td></tr>
     </table>
     <div class="side rv">
-      <figure><img src="../frames/stills/workshop.webp" alt="Капля дождя разбивается о лужу на ночной дороге, позади синий свет" width="1728" height="1080" loading="lazy"></figure>
-      <blockquote>«Дождь — лучшая проверка для велосипеда. Под него и обслуживаем».</blockquote>
-      <p>После любого ТО проезжаем круг вокруг квартала, в сухую погоду и в мокрую.</p>
+      <figure><img src="../frames/stills/city.webp" alt="Трое велосипедистов с фарами друг за другом на тёмной лесной дороге, вид строго сверху" width="864" height="1080" loading="lazy"></figure>
+      <blockquote>«Мембрана не изнашивается, она забивается. Отстираем, и она снова работает».</blockquote>
+      <p>Дома: стирка при 30°, без кондиционера, потом 20 минут в сушилке на слабом нагреве. Тепло оживляет пропитку.</p>
       <p class="fine-print">Цены концептуальные, для примера.</p>
     </div>
   </div>
   <div class="steps rv">
-    <div><p class="eyebrow">01</p><h3>Привезите</h3><p>До 10 утра или в своё время по записи.</p></div>
-    <div><p class="eyebrow">02</p><h3>Сначала звоним</h3><p>Если нужна замена детали, называем цену до того, как ставим.</p></div>
-    <div><p class="eyebrow">03</p><h3>Уезжайте своим ходом</h3><p>На следующий вечер, чистый и проверенный на ходу.</p></div>
+    <div><p class="eyebrow">01</p><h3>Сдайте</h3><p>В любой день или курьером: оставьте заявку в форме ниже.</p></div>
+    <div><p class="eyebrow">02</p><h3>Покажем, где течёт</h3><p>Под душем, до ремонта, и сразу назовём цену.</p></div>
+    <div><p class="eyebrow">03</p><h3>Снова сухо</h3><p>Через три дня, проверено под тем же душем.</p></div>
   </div>
 </section>
 
-<!-- ===== TEST RIDE (concept: nothing is sent) ===== -->
-<section class="sec order" id="test">
+<!-- ===== FITTING & RETURNS (concept: nothing is sent) ===== -->
+<section class="sec order" id="try">
   <div class="rv">
-    <p class="eyebrow">Тест-драйв</p>
-    <h2>Возьмите<br>на час</h2>
-    <p class="lead">Выберите велосипед и день. Настроим под ваш рост до приезда, шлем и фары дадим.</p>
+    <p class="eyebrow">Примерка и возврат</p>
+    <h2>Примерьте.<br>Катайтесь месяц.</h2>
+    <p class="lead">Запишитесь на примерку или закажите домой два размера. Катайтесь под дождём 30 дней: промокли внутри — вернём деньги полностью.</p>
+    <div class="tags"><span>30 дней на возврат</span><span>Обмен размера бесплатно</span><span>Два размера на примерку дома</span></div>
     <figure><img src="../frames/stills/ride.webp" alt="Велосипедистка ночью крупным планом, дождь на лице, на розовом шлеме надпись g.a.d." width="1728" height="1080" loading="lazy"></figure>
   </div>
   <form id="form" class="rv" novalidate>
@@ -454,23 +472,23 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       <label>Почта<input type="email" name="email" autocomplete="email" required></label>
     </div>
     <div class="f2">
-      <label>Велосипед<select name="bike"><option selected>Nightline · шоссе</option><option>Ridge · гревел</option><option>Lumen · город</option><option>Пока не знаю</option></select></label>
+      <label>Что примерить<select name="item"><option selected>Куртка Storm</option><option>Штаны Storm</option><option>Комплект Splash</option><option>Шапочка Cap</option><option>Всё сразу</option></select></label>
       <label>День<input type="date" name="day" required></label>
     </div>
     <fieldset>
-      <legend>Время</legend>
-      <label class="chip"><input type="radio" name="time" value="morning"><span>Утро</span></label>
-      <label class="chip"><input type="radio" name="time" value="afternoon" checked><span>День</span></label>
-      <label class="chip"><input type="radio" name="time" value="evening"><span>Вечер, с фарами</span></label>
+      <legend>Где</legend>
+      <label class="chip"><input type="radio" name="where" value="showroom" checked><span>В шоуруме</span></label>
+      <label class="chip"><input type="radio" name="where" value="courier"><span>Курьер, два размера</span></label>
+      <label class="chip"><input type="radio" name="where" value="pickup"><span>Пункт выдачи</span></label>
     </fieldset>
-    <div class="send"><button class="btn" type="submit">Записаться на тест-драйв</button><p class="note">Концепт-сайт: форма проверяет поля, но никуда ничего не отправляет.</p></div>
+    <div class="send"><button class="btn" type="submit">Записаться на примерку</button><p class="note">Концепт-сайт: форма проверяет поля, но никуда ничего не отправляет.</p></div>
     <p class="status" id="status" role="status" aria-live="polite"></p>
   </form>
 </section>
 </main>
 
 <footer>
-  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>велосипеды</small></div>
+  <div class="big" aria-hidden="true"><span class="logo">g.a.d.</span><small>rain</small></div>
   <div class="credit">
     <span><strong>Концепт-сайт g.a.d. — сайты и 3D для бизнеса</strong></span>
     <nav aria-label="Контакты">
@@ -479,7 +497,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       <a href="https://smirnov-artur.github.io/works/" target="_blank" rel="noopener">Портфолио</a>
     </nav>
   </div>
-  <p class="fine">g.a.d. cycles — концепт: велосипеды, характеристики, цены и сам магазин для примера.</p>
+  <p class="fine">g.a.d. rain — концепт: одежда, характеристики, цены и сам магазин для примера.</p>
 </footer>
 
 <script>
@@ -498,9 +516,9 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
     [1.00, 0.70, 352, 391], // 8 close-up, g.a.d. on the helmet
     [0.70, 0.50, 391, 391], // 9 closing hold
   ];
-  // bike computer: label per segment, distance = progress through the story, speed = how fast you scroll
-  const LBL = ['Разминка','Разминка','Экипировка','Подъём','Подъём','Темп','Ночь','Группа','Последний км','Дома'];
-  const KM = 42.2, KMH = 'км/ч';
+  // rain gauge: label per segment, km in the rain = progress through the story, "dry inside" stays 100 %
+  const LBL = ['Старт','Старт','Ливень','Туман','Спуск','Подъём','Брызги','Ночь','Финиш','Дома'];
+  const KM = 42.2;
   const FRAMES = '../frames/';
   const N = 392, NET = 6, DEC = 3;
   let WIN, MAXBMP;   // decoded window: desktop 1920x1080 ≈ 8 MB per frame, phone 810x1440 ≈ 4.7 MB
@@ -509,7 +527,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   const root = document.documentElement, story = $('#story'), stage = story.querySelector('.stage');
   const canvas = stage.querySelector('canvas'), ctx = canvas.getContext('2d');
   const chs = [...stage.querySelectorAll('.ch')];
-  const num = $('.cc .num'), seg = $('.cc .seg'), spd = $('.cc .spd'), dial = $('.dial .val'), skip = $('.skip');
+  const num = $('.cc .num'), seg = $('.cc .seg'), dial = $('.dial .val'), skip = $('.skip');
   const portrait = matchMedia('(max-aspect-ratio: 4/5)');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -521,35 +539,36 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   menu.addEventListener('close', () => { burger.setAttribute('aria-expanded', 'false'); burger.focus({ preventScroll: true }); });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.close()));
 
-  // ---------- size by height: [up to cm, size, frame cm] per bike ----------
+  // ---------- size by height: [up to cm, size] per item; the right column shows the height range of that size ----------
   const SIZES = {
-    road:   [[159, 'XS', 48], [166, 'S', 51], [174, 'M', 54], [182, 'L', 56], [190, 'XL', 58], [999, 'XXL', 61]],
-    gravel: [[159, 'XS', 47], [167, 'S', 50], [176, 'M', 52], [185, 'L', 55], [999, 'XL', 58]],
-    city:   [[164, 'S', 48], [180, 'M', 52], [999, 'L', 56]],
+    jacket: [[163, 'XS'], [170, 'S'], [177, 'M'], [184, 'L'], [191, 'XL'], [999, 'XXL']],
+    pants:  [[164, 'XS'], [171, 'S'], [178, 'M'], [185, 'L'], [192, 'XL'], [999, 'XXL']],
+    cap:    [[175, 'S/M'], [999, 'L/XL']],
   };
   const h = $('#h'), hout = $('#hout'), halt = $('#halt');
   function fit() {
     const v = +h.value, inch = Math.round(v / 2.54);
     hout.innerHTML = v + '<small>см</small>';
     document.querySelectorAll('#sizes li').forEach(li => {
-      const s = SIZES[li.dataset.bike].find(r => v <= r[0]);
-      li.querySelector('.sz').textContent = s[1]; li.querySelector('.cm').textContent = s[2] + ' см';
+      const t = SIZES[li.dataset.item], i = t.findIndex(r => v <= r[0]), lo = i ? t[i - 1][0] + 1 : 0, hi = t[i][0];
+      li.querySelector('.sz').textContent = t[i][1];
+      li.querySelector('.cm').textContent = (!i ? 'до ' + hi : hi > 300 ? lo + '+' : lo + '–' + hi) + ' см';
     });
   }
   h.addEventListener('input', fit); fit();
 
-  // ---------- test ride form: concept, nothing is sent unless an endpoint is set ----------
-  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then bookings are really sent
+  // ---------- fitting form: concept, nothing is sent unless an endpoint is set ----------
+  const FORM_ENDPOINT = ''; // e.g. https://formspree.io/f/xxxx — then fitting requests are really sent
   const form = $('#form'), status = $('#status');
   form.elements.namedItem('day').min = new Date().toISOString().slice(0, 10);
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const el = form.elements;
     if (!el.namedItem('name').value.trim() || !/^\S+@\S+\.\S+$/.test(el.namedItem('email').value.trim()) || !el.namedItem('day').value) { status.textContent = 'Укажите имя, почту и день.'; return; }
-    if (!FORM_ENDPOINT) { status.textContent = 'Не отправлено: это концепт-сайт, магазина за ним нет. На живом сайте запись сразу ушла бы в мастерскую.'; return; }
+    if (!FORM_ENDPOINT) { status.textContent = 'Не отправлено: это концепт-сайт, бренда за ним нет. На живом сайте заявка на примерку сразу ушла бы в магазин.'; return; }
     try {
       const r = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      status.textContent = r.ok ? 'Записали. Время подтвердим письмом.' : 'Запись не прошла. Попробуйте через минуту.';
+      status.textContent = r.ok ? 'Записали. Время примерки подтвердим письмом.' : 'Заявка не прошла. Попробуйте через минуту.';
       if (r.ok) form.reset();
     } catch { status.textContent = 'Нет связи. Проверьте интернет и отправьте ещё раз.'; }
   });
@@ -626,7 +645,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   // ---------- scroll → timeline ----------
   function at(u) { for (let s = 0; s < SEG.length; s++) if (u < acc[s + 1] || s === SEG.length - 1) return [s, clamp((u - acc[s]) / (acc[s + 1] - acc[s]))]; }
   function frameAt(u) { const [s, p] = at(u), g = SEG[s]; return g[2] + (g[3] - g[2]) * p; }
-  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0, speed = 0;
+  let u = 0, uS = 0, last = -1, lastFrame = -1, raf = 0, lastT = 0;
   function onScroll() {
     u = clamp((scrollY - top0) / vh, 0, TOTAL);
     const w = Math.round(frameAt(u)); if (w !== want) { want = w; pump(); }
@@ -645,7 +664,7 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
       el.style.transform = `translateY(${(1 - i) * 28 - (1 - x) * 22}px)`;
     }
     const [s] = at(v), p = v / TOTAL;
-    const txt = (KM * p).toFixed(1).replace('.', ',') + '<small>км</small>';
+    const txt = (KM * p).toFixed(1).replace('.', ',') + '<small>км под дождём</small>';
     if (num.innerHTML !== txt) num.innerHTML = txt;
     if (seg.textContent !== LBL[s]) seg.textContent = LBL[s];
     dial.setAttribute('stroke-dasharray', `${(119.4 * p).toFixed(1)} 120`);
@@ -655,16 +674,11 @@ footer{padding:80px var(--pad) calc(36px + env(safe-area-inset-bottom));border-t
   function tick(t) {
     const dt = Math.min(64, t - lastT || 16.7); lastT = t;
     const k = 1 - Math.pow(1 - 0.16, dt / 16.7);
-    const before = uS;
     uS += (u - uS) * k; if (Math.abs(u - uS) < 0.0004) uS = u;
-    // speed: screens per second of travel -> km/h, eased, capped at a sprint
-    const target = Math.min(58, Math.abs(uS - before) / dt * 1000 * 16);
-    speed += (target - speed) * 0.12; if (speed < 0.5 && uS === u) speed = 0;
-    const st = Math.round(speed) + ' ' + KMH; if (spd.textContent !== st) spd.textContent = st;
     const f = Math.round(frameAt(uS));
     if (f !== lastFrame || dirty) { draw(f); lastFrame = f; dirty = false; }
     if (uS !== last) { ui(uS); last = uS; }
-    raf = (uS !== u || dirty || speed > 0) ? requestAnimationFrame(tick) : 0;
+    raf = (uS !== u || dirty) ? requestAnimationFrame(tick) : 0;
   }
 
   // ---------- resize, breakpoint swap (cancel and release the old sequence), teardown ----------

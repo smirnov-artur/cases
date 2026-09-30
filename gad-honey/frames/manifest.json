@@ -1,0 +1,21 @@
+{
+ "count": 452,
+ "fps": 30,
+ "quality": 90,
+ "pattern": "{set}/{i:04d}.webp",
+ "site_frame_equals_source_frame": true,
+ "desktop": {
+  "dir": "d",
+  "w": 1920,
+  "h": 1080,
+  "bytes": 79819284
+ },
+ "mobile": {
+  "dir": "m",
+  "w": 608,
+  "h": 1080,
+  "bytes": 29336834
+ },
+ "source": "src/source.mp4 (1920x1080, 30 fps, 15.1 s, H.264 1.57 Mbit/s, one continuous shot)",
+ "fixes": "watermark \"made with Yapper\" (top right, frames 1-451) erased: static time-percentile mask + Telea inpaint"
+}
